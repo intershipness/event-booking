@@ -1,5 +1,4 @@
 
-
 /* Add padding to containers */
 .container {
   padding: 16px;
@@ -22,7 +21,14 @@ input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
 
 }
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+  border: 2px solid red;
+}
 
+input[disabled="disabled"]{
+  cursor:not-allowed !important;
+  opacity: 0.4;
+}
 /* Overwrite default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
