@@ -1,0 +1,36 @@
+<p>Extra fields for contractor</p>
+		<div class="form-group">
+			<label>Nume scena</label>
+			<input type="text" placeholder="Enter Name" name="nameStage" ng-model="user.numeStage" ng-required="true">
+			<span ng-show="registerForm.nameStage.$touched && registerForm.nameStage.$invalid" style="color:red; display:block; text-align:center;">Enter a valid stage name</span>
+		</div>
+		
+		<div class="form-group">
+			<label>Numar telefon</label>
+			<input type="tel" placeholder="phone number" name="tel" ng-model="user.tel" ng-required="true">
+			<span ng-show="registerForm.tel.$touched && registerForm.tel.$invalid" style="color:red; display:block; text-align:center;">Enter a valid phone number</span>
+		</div>
+		
+		<div class="form-group">
+			<label>Canal Youtube</label>
+			<input type="text" placeholder="youtube channel" name="yt" ng-model="user.yt" ng-required="false">
+		</div>
+		
+	<!--- ng-options="stil for stil in stilMuzica"  -->
+	
+		<div class ="form-group">
+		  <label>Tip</label>
+		  <select name ="tipMuzica" id ="tipMuzica" class= "form-control" ng-model="user.tip" ng-required="true">
+			<option>Dj</option>
+			<option>Band</option>
+			<option>Interpret</option>
+		  </select>
+		</div><br>
+		<div class="form-group">
+			<label>Stil muzical</label><br>
+			<input type="checkbox" name="stil" value="pop">Pop<br>
+			<input type="checkbox" name="stil" value="rock">Rock<br>
+			<input type="checkbox" name="stil" value="pop">Populara<br>
+			<input type="checkbox" name="stil" value="rock">Folk<br>
+		</div>
+  

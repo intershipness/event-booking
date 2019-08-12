@@ -1,0 +1,30 @@
+body {
+	background-color: #B0E0E6;
+}
+
+.grid{
+	display:grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto;
+	grid-gap:20px;
+
+}
+.grid > *{
+	background: white;
+	padding:1em;
+	border: 2px solid black;
+}
+.header{
+	height:80px;
+	grid-column-start: 1;
+	grid-column-end: -1;
+	
+}
+.buttons{
+	float: right;
+}
+.form{
+	height: auto;
+	grid-column-start: 1;
+	grid-column-end: -1;
+}
