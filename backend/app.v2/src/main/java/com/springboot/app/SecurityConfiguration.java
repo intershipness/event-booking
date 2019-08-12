@@ -42,7 +42,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
          .and()
          .authorizeRequests()
          .antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
+         .antMatchers("/Users/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
          .anyRequest().authenticated();
+		 http.cors().and().csrf().disable();
 		 
 		 
 		 
