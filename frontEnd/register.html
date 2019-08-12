@@ -4,16 +4,28 @@
 
 <form role="form" name="registerForm" ng-submit="submit()" ng-controller="userController">
   <div class="form-group">
-      <label>Nume</label><br>
+      <label>First Name</label><br>
       <input type="text" placeholder="Enter Name" name="name" ng-model="user.nume" ng-required="true">
 	  <span ng-show="registerForm.name.$touched && registerForm.name.$invalid" style="color:red; display:block; text-align:center;">Enter a valid name</span>
 	  
   </div>
   <div class="form-group">
+	<label>Last Name</label><br>
+	<input type="text" placeholder="Enter Name" name="lNume" ng-model="user.lNume" ng-required="true">
+	<span ng-show="registerForm.lNume.$touched && registerForm.lNume.$invalid" style="color:red; display:block; text-align:center;">Enter a valid name</span>
+	
+</div>
+  <div class="form-group">
       <label>Email</label>
       <input type="email" placeholder="Enter Email" name="email" ng-model="user.email" ng-required="true">
 	  <span ng-show="registerForm.email.$touched && registerForm.email.$invalid" style="color:red; display:block; text-align:center;">Enter a valid email</span>
   </div>
+
+  <div class="form-group">
+		<label>Numar telefon</label>
+		<input type="text" inputmode="numeric" placeholder="phone number" name="tel" ng-minlength="10" ng-maxlength="10"  ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/"  ng-model="user.tel" ng-required="true">
+		<span ng-show="registerForm.tel.$touched && registerForm.tel.$invalid" style="color:red; display:block; text-align:center;">Enter a valid phone number</span>
+	</div>
   
   <div class="form-group">
       <label>Password</label><br>
@@ -36,11 +48,7 @@
 			<span ng-show="registerForm.nameStage.$touched && registerForm.nameStage.$invalid" style="color:red; display:block; text-align:center;">Enter a valid stage name</span>
 		</div>
 		
-		<div class="form-group">
-			<label>Numar telefon</label>
-			<input type="text" inputmode="numeric" placeholder="phone number" name="tel" ng-minlength="10" ng-maxlength="10"  ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/"  ng-model="user.tel" ng-required="true">
-			<span ng-show="registerForm.tel.$touched && registerForm.tel.$invalid" style="color:red; display:block; text-align:center;">Enter a valid phone number</span>
-		</div>
+		
 		
 		<div class="form-group">
 			<label>Canal Youtube</label>

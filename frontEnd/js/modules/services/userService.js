@@ -1,26 +1,44 @@
-app.factory("userService" , function($http){
-    $scope.isUser = function(){
+app.factory("userService" , function($scope, $http){
 
-    }
-    $scope.isContractor = function(){
+    $scope.SendData = function () {
+         var data = $.param({
+             name: user.name,
+             mail: user.mail,
+         });
 
-    }
-
-    $scope.sendUser = function(){
-        if($scope.box == false)
-        {
-            var type = client;
+        $http.post('http://localhost:8080/Users', data, config)
+                .success(function (data, status, headers, config) {
+                    $scope.PostDataResponse = data;
+                })
+                .error(function (data, status, header, config) {
+                    $scope.ResponseDetails = "Data: " + data +
+                        "<hr />status: " + status +
+                        "<hr />headers: " + header +
+                        "<hr />config: " + config;
+                });
         }
-        else{
-            var type = contractor;
-        }
-        var user = $.param({
-            name: $scope.name,
-            email: $scope.email,
-            password: $scope.password
+    // $scope.isUser = function(){
 
-        })
-    }
+    // }
+    // $scope.isContractor = function(){
+
+    // }
+
+    // $scope.sendUser = function(){
+    //     if($scope.box == false)
+    //     {
+    //         var type = client;
+    //     }
+    //     else{
+    //         var type = contractor;
+    //     }
+    //     var user = $.param({
+    //         name: $scope.name,
+    //         email: $scope.email,
+    //         password: $scope.password
+
+    //     })
+    // }
 
 
 //    var user;
