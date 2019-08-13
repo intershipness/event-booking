@@ -1,1 +1,5 @@
 /frontEnd/node_modules/*
+/backend/.metadata
+/frontEnd/node_modules
+/frontEnd/node_modules
+/frontEnd/package-lock.json
