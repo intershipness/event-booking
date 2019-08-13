@@ -7,39 +7,31 @@
     
     <script src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
     <script src="app.js"></script>
-    <script src ="js/modules/controllers/userController"></script>
+    <script src ="js/modules/controllers/loginController"></script>
   
     
 </head>
-<body ng-app="app" ng-controller="userController">
+<body ng-app="app">
 
-<div class="container" style="width:600px">
+<div class="container" style="width:600px"  ng-controller="loginController">
     
    
     <div class="page-header"><h1>Login</h1></div>
   
     
     <!-- pass in the variable if our form is valid or invalid -->
-    <form name="loginForm" ng-submit="submit()" novalidate ng-controller="userController">
-      
-        <div class="form-group" ng-class="{ 'has-error' : 
-             loginForm.name.$invalid && !loginForm.name.$pristine }">
-            <label>Name*</label>
-            <input type="text" name="name" class="form-control" ng-model="name" ng-minlength="3" ng-maxlength="8" ng-required="true">
-            <span ng-show="loginForm.name.$touched && loginForm.name.$invalid" style="color:red; display:block; text-align:center;">Name is required</span>
-           
-        </div>         
+    <form name="loginForm" ng-submit="submit()" novalidate>  
         
-        <div class="form-group" ng-class="{ 'has-error' : loginForm.userName.$invalid && !loginForm.userName.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
             <label>Email*</label>
-            <input type="email" name="userName" class="form-control"  ng-model="userName" ng-required="true">
+            <input type="email" name="email" class="form-control"  ng-model="email" ng-required="true">
             <span ng-show="loginForm.name.$touched && loginForm.name.$invalid" style="color:red; display:block; text-align:center;">  Enter a valid email.</span>
         </div>
 
         <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
             <label>Password*</label>
             <input type="password" name="password" class="form-control" ng-model="password" ng-required="true">
-            <span ng-show="loginForm.name.$touched && loginForm.name.$invalid" style="color:red; display:block; text-align:center;">Password must be between 6-8 characters.</span>
+            <span ng-show="loginForm.name.$touched && loginForm.name.$invalid" style="color:red; display:block; text-align:center;">Enter password.</span>
         </div>        
 <!-- 
         <button type="submit()" id="submit" value="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid"> 
