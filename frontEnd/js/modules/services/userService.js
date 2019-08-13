@@ -1,37 +1,61 @@
-app.factory("userService" , function($http){
-    $scope.isUser = function(){
+app.factory("userService" , function($http) {
 
-    }
-    $scope.isContractor = function(){
-
-    }
-
-    $scope.sendUser = function(){
-        if($scope.box == false)
-        {
-            var type = client;
+    function registerUser(user, box) {
+        if(box == false){
+            var url = 'http://localhost:8080/Users';
+            var path = '/client';
+            var data = {
+                first_name: user.nume,
+                last_name: user.lastname,
+                email: user.email,
+                telefon: user.tel
+            }
         }
         else{
-            var type = contractor;
+            var url = 'http://localhost:8080/Users/Contractor';
+            var path = '/contractor';
+            var data = {
+                first_name: user.name,
+                last_name: user.lastname,
+                email: user.email,
+                telefon: user.tel,
+                stage_name: user.numeStage,
+                canalYt: user.yt,
+                tip: user.tip,
+                stil: user.stil
+            }
         }
-        var user = $.param({
-            name: $scope.name,
-            email: $scope.email,
-            password: $scope.password
+        /*
+        return $http.post(url, data).then(
+            function RegSucces(response){
+                console.log("succes");
+                console.log(data);
+                return data;
+            }, function RegErr(){
+                console.log("error in service");
+            }
+        )
+    }*/
 
-        })
+
+        return $http({
+            method: 'POST',
+            url: url,
+            data: data,
+            
+        }).then(function regSucces(response) {
+            console.log("succes post")
+            console.log(data);
+            return data;
+        }, function regErr(response){
+            console.log("EROARE in serviciu");
+        });
+        
+       
     }
+    
+    return {
+        'registerUser' : registerUser
+    }       
 
-
-//    var user;
-//    return{
-//        user
-    //    user: {
-    //        nume:"Octavia",
-    //        email:"octavia@yahoo.com",
-    //        password:"123456",
-	// 	   tel:"0774406582",
-    //        tip:"Pop"
-    // }
-   //}
 });
