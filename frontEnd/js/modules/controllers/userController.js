@@ -18,4 +18,4 @@ function($scope, userService, $location){
   })
     
   }
-}]);
+
