@@ -37,7 +37,6 @@ app.factory("userService" , function($http) {
         )
     }*/
 
-
         return $http({
             method: 'POST',
             url: url,
