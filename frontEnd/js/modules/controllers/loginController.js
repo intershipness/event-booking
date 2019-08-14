@@ -1,6 +1,6 @@
 var app = angular.module('app');
-app.controller('loginController', ['$scope', 'loginService', '$rootScope',
-  function ($scope, loginService, $rootScope) {
+app.controller('loginController', ['$scope', 'loginService',
+  function ($scope, loginService,) {
     $scope.email="";
     $scope.password="";
 

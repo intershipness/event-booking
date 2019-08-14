@@ -31,7 +31,6 @@ app.factory("userService" , function($http) {
             method: 'POST',
             url: url,
             data: data,
-            path :path
             
         }).then(function regSucces(response) {
             console.log("succes post")

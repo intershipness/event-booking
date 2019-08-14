@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html> 
+<html lang="en"> 
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
 <head>
-
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 </head>
     
 
-<body ng-app="app">
+<body ng-app="app" ng-controller="localController">
 	<div class="grid">
 		<div class = "header">
-			<h2>Welcome</h2>
+			<h2>{{'heading' | translate}}</h2>
+			<button ng-click="changeLanguage('en')">English</button>
+			<button ng-click="changeLanguage('ro')">Romana</button>
+
 			<a href="#!/login"><button class="buttons">Login</button></a>
 			<a href="#!/register"><button class="buttons">Register</button></a>
 			
@@ -37,5 +41,7 @@
 	<script src="js/modules/services/loginService.js"></script>
 	<script src="js/modules/controllers/userController.js"></script>
 	<script src="js/modules/services/userService.js"></script>
+	<script src="js/modules/controllers/langController.js"></script>
+	<script src ="node_modules/angular-translate/dist/angular-translate.js"></script>
 </html>
 
