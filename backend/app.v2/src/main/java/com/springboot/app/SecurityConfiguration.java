@@ -44,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        // .antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 //        // .antMatchers("/Users/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 //         .anyRequest().authenticated();
-//		 http.cors().and().csrf().disable();
+		 http.cors().and().csrf().disable();
 		 
 		 
 		 
@@ -53,12 +53,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 
 		 
 		http
-		.csrf().disable()
+		
 		.authorizeRequests()
 				// URLs matching for access rights
 				.antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
-				//.antMatchers("/register").permitAll()
+				.antMatchers("/register/User").permitAll()
+				.antMatchers("/register/Contractor").permitAll()
 				//.antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.anyRequest().authenticated()
 				.and()
@@ -67,6 +68,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.loginPage("/login")
 				.failureUrl("/login?error=true")
 				.defaultSuccessUrl("/Users")
+				.defaultSuccessUrl("/Contractors")
 				.usernameParameter("email")
 				.passwordParameter("password")
 				.and()

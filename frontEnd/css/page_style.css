@@ -4,8 +4,10 @@ body {
 
 .grid{
 	display:grid;
-	grid-template-columns: auto auto;
-	grid-template-rows: auto auto;
+	/*grid-template-columns: auto auto;
+	grid-template-rows: auto auto;*/
+	grid-template-columns: 50px 50px auto 50px 50px;
+	grid-template-rows: 30% auto 5%;
 	grid-gap:20px;
 
 }
@@ -15,7 +17,7 @@ body {
 	border: 2px solid black;
 }
 .header{
-	height:80px;
+	
 	grid-column-start: 1;
 	grid-column-end: -1;
 	
@@ -23,8 +25,24 @@ body {
 .buttons{
 	float: right;
 }
-.form{
+/*.form{
 	height: auto;
 	grid-column-start: 1;
 	grid-column-end: -1;
+}*/
+.content{
+	grid-column-start: 3;
+	grid-column-end: 4;
+
+}
+.footer{
+	grid-column-start: 1;
+	grid-column-end: -1;
+	height:2px;
+}
+.left
+{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 2;
 }

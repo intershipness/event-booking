@@ -35,35 +35,35 @@
   
   <br>
 
-  
-  <div class="checkbox">
+ 
+ <div class="checkbox">
     <input type="checkbox" id="myCheck" ng-model="box"> contractor
-  </div>
+</div> 
   
-  <contractorDirective id="extra" ng-if="box">
+  <div id="extra" ng-if="box">
 		<p>Extra fields for contractor</p>
 		<div class="form-group">
 			<label>Nume scena</label>
-			<input type="text" placeholder="Enter Name" name="nameStage" ng-model="user.numeStage" ng-required="true">
-			<span ng-show="registerForm.nameStage.$touched && registerForm.nameStage.$invalid" style="color:red; display:block; text-align:center;">Enter a valid stage name</span>
+			<input type="text" placeholder="Enter Name" name="nume_scena" ng-model="user.nume_scena" ng-required="true">
+			<span ng-show="registerForm.nume_scena.$touched && registerForm.nume_scena.$invalid" style="color:red; display:block; text-align:center;">Enter a valid stage name</span>
 		</div>
 		
 		
 		
 		<div class="form-group">
 			<label>Canal Youtube</label>
-			<input type="text" placeholder="youtube channel" name="yt" ng-model="user.yt" ng-required="true">
+			<input type="text" placeholder="youtube channel" name="canal_youtube" ng-model="user.canal_youtube" ng-required="true">
 		</div>
 		
 		<div class ="form-group">
 		  <label>Tip</label>
-		  <select name ="tipMuzica" id ="tipMuzica" class= "form-control" ng-model="user.tip" ng-required="true">
+		  <select name ="domeniu_activitate" id ="tipMuzica" class= "form-control" ng-model="user.domeniu_activitate" ng-required="true">
 			<option>Dj</option>
 			<option>Band</option>
 			<option>Interpret</option>
 		  </select>
 		</div><br>
-		<div class="form-group" >
+		<div class="form-group" ng-model="user.stil_muzica">
 			<label>Stil muzical</label><br>
 			<input type="checkbox" name="stil" value="pop">Pop<br>
 			<input type="checkbox" name="stil" value="rock">Rock<br>
@@ -72,7 +72,7 @@
 		</div> 
   
   
-  </contractorDirective>
+	</div>
   <br>
   <input type="submit" id="submit" value="Submit" ng-disabled="registerForm.$invalid">
   

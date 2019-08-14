@@ -26,5 +26,8 @@
 	.otherwise(
 	{
 		redirectTo: "index.html"
-	});
+    });
+    
+
+    
 });

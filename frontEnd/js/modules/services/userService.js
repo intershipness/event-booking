@@ -2,8 +2,7 @@ app.factory("userService" , function($http) {
     
     function registerUser(user, box) {
         if(box == false){
-            var url = 'http://localhost:8080/Users';
-            //path = '/client';
+            var url = 'http://localhost:8080/register/User';
             var data = {
                 name: user.name,
                 lastName: user.lastName,
@@ -13,32 +12,31 @@ app.factory("userService" , function($http) {
             }
         }
         else{
-            var url = 'http://localhost:8080/Users/Contractor';
-            //path = '/contractor';
+            var url = 'http://localhost:8080/register/Contractor';
             var data = {
                 name: user.name,
                 lastName: user.lastName,
                 email: user.email,
+                password: user.password,
                 mobile: user.mobile,
-                stage_name: user.numeStage,
-                canalYt: user.yt,
-                tip: user.tip,
-                stil: user.stil
+                numescena: user.nume_scena,
+                canalyoutube: user.canal_youtube,
+                domeniu: user.domeniu_activitate,
+                stilmuzica: user.stil_muzica
             }
         }
 
         return $http({
             method: 'POST',
             url: url,
-            data: data,
-            path :path
+            data: data
             
         }).then(function regSucces(response) {
             console.log("succes post")
             console.log(data);
             return data;
         }, function regErr(response){
-            console.log("EROARE in serviciu");
+            console.log("EROARE in serviciu");//user already exists ->mesaj ascuns
         });
         
        
