@@ -38,13 +38,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		 http.httpBasic()
-         .and()
-         .authorizeRequests()
-         .antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
-         .antMatchers("/Users/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
-         .anyRequest().authenticated();
-		  http.cors().and().csrf().disable();
+//		 http.httpBasic()
+//         .and()
+//         .authorizeRequests()
+//        // .antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
+//        // .antMatchers("/Users/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
+//         .anyRequest().authenticated();
+//		 http.cors().and().csrf().disable();
 		 
 		 
 		 
@@ -52,28 +52,30 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 
 		 
 		 
-//		http.authorizeRequests()
-//				// URLs matching for access rights
-//				.antMatchers("/").permitAll()
-//				.antMatchers("/topics").permitAll()
-//				//.antMatchers("/register").permitAll()
-//				//.antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
-//				.anyRequest().authenticated()
-//				.and()
-//				// form login
-//				.csrf().disable().formLogin()
-//				.loginPage("/login")
-//				.failureUrl("/login?error=true")
-//				.defaultSuccessUrl("/home")
-//				.usernameParameter("email")
-//				.passwordParameter("password")
-//				.and()
-//				// logout
-//				.logout()
-//				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//				.logoutSuccessUrl("/").and()
-//				.exceptionHandling()
-//				.accessDeniedPage("/access-denied");
+		http
+		.csrf().disable()
+		.authorizeRequests()
+				// URLs matching for access rights
+				.antMatchers("/").permitAll()
+				.antMatchers("/login").permitAll()
+				//.antMatchers("/register").permitAll()
+				//.antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
+				.anyRequest().authenticated()
+				.and()
+				// form login
+				.formLogin()
+				.loginPage("/login")
+				.failureUrl("/login?error=true")
+				.defaultSuccessUrl("/Users")
+				.usernameParameter("email")
+				.passwordParameter("password")
+				.and()
+				// logout
+				.logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logoutSuccessUrl("/").and()
+				.exceptionHandling()
+				.accessDeniedPage("/access-denied");
 	}
 
 //	@Override

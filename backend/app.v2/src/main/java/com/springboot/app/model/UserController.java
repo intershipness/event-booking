@@ -2,7 +2,10 @@ package com.springboot.app.model;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Base64;
+import javax.servlet.http.HttpServletRequest;
 
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,12 +25,24 @@ public class UserController {
 	public List<User> getAllUsers() {
 		return   Userservice.getAllUsers();
 		}
+	@RequestMapping("/login" )
+    public boolean login( @RequestBody User user) {
+        return
+          user.getEmail().equals("email") && user.getPassword().equals("password");
+    }
+	 @RequestMapping("/User")
+	    public Principal user(HttpServletRequest request) {
+	        String authToken = request.getHeader("Authorization")
+	          .substring("Basic".length()).trim();
+	        return () ->  new String(Base64.getDecoder()
+	          .decode(authToken)).split(":")[0];
+	    }
 	@RequestMapping("/Users/{id}")
 	public Optional<User> getUser(@PathVariable Integer id) {
 		return Userservice.getUser(id);
 		
 	}
-	@RequestMapping(method=RequestMethod.POST,value="/Users")
+	@RequestMapping(method=RequestMethod.POST,value="/register/User")
 	public void addUser(@RequestBody User user) {
 		Userservice.addUser(user);
 	}
