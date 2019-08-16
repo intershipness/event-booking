@@ -1,67 +1,62 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html>
-=======
-<html lang="en"> 
->>>>>>> 921b9f2b79ed258147196b139716f35c9b18c321
+
+<html lang="en">
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
 
 <head>
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
 
 
 <body ng-app="app" ng-controller="localController">
 	<div class="grid">
-<<<<<<< HEAD
+
 		<div class="header">
-			<h2>Welcome</h2>
+
 			<div>
+				<h2>{{'heading' | translate}}</h2>
 				<button ng-click="changeLanguage('en')">English</button>
-				<button ng-click="changeLanguage('sp')">Spanish</button>
-			</div>
-=======
-		<div class = "header">
-			<h2>{{'heading' | translate}}</h2>
-			<button ng-click="changeLanguage('en')">English</button>
-			<button ng-click="changeLanguage('ro')">Romana</button>
+				<button ng-click="changeLanguage('ro')">Romana</button>
 
->>>>>>> 921b9f2b79ed258147196b139716f35c9b18c321
-			<a href="#!/login"><button class="buttons">Login</button></a>
-			<a href="#!/register"><button class="buttons">Register</button></a>
 
-		</div>
-
-		<div class="content">
-
-			<div class="form">
-				<div ng-view></div>
+				<a href="#!/login"><button class="buttons">Login</button></a>
+				<a href="#!/register"><button class="buttons">Register</button></a>
 
 			</div>
 		</div>
-		<div class="left">
-			<p>something here</p>
-			<p>meniu</p>
-		</div>
-		<div class="footer">
-			<span>bla bla bla bla bla bla</span>
-		</div>
+
+			<div class="content">
+
+				<div class="form">
+					<div ng-view></div>
+
+				</div>
+			</div>
+			<div class="left">
+				<p>something here</p>
+				<p>meniu</p>
+			</div>
+			<div class="footer">
+				<span>bla bla bla bla bla bla</span>
+			</div>
+		
 	</div>
 
-
 </body>
-	<script src ="node_modules/angular/angular.js"></script>
-	<script src ="node_modules/angular-route/angular-route.js"></script>
-	<!--<script src ="node_modules/angular/angular-resource.js"></script>-->
-    <script src="js/app.js"></script>
-	<script src="js/config.js"></script>
-	<script src="js/modules/controllers/loginController.js"></script>
-	<script src="js/modules/services/loginService.js"></script>
-	<script src="js/modules/controllers/userController.js"></script>
-	<script src="js/modules/services/userService.js"></script>
-	<script src="js/modules/controllers/langController.js"></script>
-	<script src ="node_modules/angular-translate/dist/angular-translate.js"></script>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+<!--<script src ="node_modules/angular/angular-resource.js"></script>-->
+<script src="js/app.js"></script>
+<script src="js/config.js"></script>
+<script src="js/modules/controllers/loginController.js"></script>
+<script src="js/modules/services/loginService.js"></script>
+<script src="js/modules/controllers/userController.js"></script>
+<script src="js/modules/services/userService.js"></script>
+<script src="js/modules/controllers/langController.js"></script>
+<script src="node_modules/angular-translate/dist/angular-translate.js"></script>
+
 </html>
 
 </html>
