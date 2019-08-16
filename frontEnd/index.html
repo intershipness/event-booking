@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+
 
 <html lang="en">
+<script src="js/modules/controllers/langController.js"></script>
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
 
 <head>
@@ -10,38 +11,53 @@
 </head>
 
 
-<body ng-app="app" ng-controller="localController">
-	<div class="grid">
+<body ng-app="app">
+	<div class="grid" >
 
 		<div class="header">
 
 			<div>
 				<h2>{{'heading' | translate}}</h2>
-				<button ng-click="changeLanguage('en')">English</button>
-				<button ng-click="changeLanguage('ro')">Romana</button>
-
+				
 
 				<a href="#!/login"><button class="buttons">Login</button></a>
 				<a href="#!/register"><button class="buttons">Register</button></a>
+				<button ng-click="changeLanguage('en')">English</button>
+
+			</div>
+
+		</div>
+
+		<div class="subheader">
+			<ul>
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+				
+				
+			
+		</div>
+
+		<div class="content">
+
+			<div class="form">
+				<div ng-view></div>
 
 			</div>
 		</div>
 
-			<div class="content">
+		<div class="left">
+			<div class="search">search</div>
+			<div class="menu">menu</div>
+			<div class="menuStil">menu stiluri muzica</div>
+			<div class="calendar">calendar</div>
+		</div>
 
-				<div class="form">
-					<div ng-view></div>
+		<div class="footer">
+			<span>bla bla bla bla bla bla</span>
+		</div>
 
-				</div>
-			</div>
-			<div class="left">
-				<p>something here</p>
-				<p>meniu</p>
-			</div>
-			<div class="footer">
-				<span>bla bla bla bla bla bla</span>
-			</div>
-		
 	</div>
 
 </body>
@@ -54,7 +70,7 @@
 <script src="js/modules/services/loginService.js"></script>
 <script src="js/modules/controllers/userController.js"></script>
 <script src="js/modules/services/userService.js"></script>
-<script src="js/modules/controllers/langController.js"></script>
+
 <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
 
 </html>
