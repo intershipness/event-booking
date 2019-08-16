@@ -42,7 +42,26 @@ body {
 }
 .left
 {
+	display:grid;
+	grid-template-rows: 10% 25% 25% auto;
 	grid-column-start: 1;
 	grid-column-end: 3;
 	grid-row-start: 2;
 }
+	.left a {
+		/* background-color: #eee; Grey background color */
+		color: black; /* Black text color */
+		display: block; /* Make the links appear below each other */
+		padding: 12px; /* Add some padding */
+		text-decoration: none; /* Remove underline from links */
+	  }
+	  
+	  .left a:hover {
+		background-color: #ccc; /* Dark grey background on mouse-over */
+	  }
+	  
+	  .left a.active {
+		background-color: #4CAF50; /* Add a green color to the "active/current" link */
+		color: white;
+	  }
+	  

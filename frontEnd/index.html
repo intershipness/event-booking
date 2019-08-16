@@ -10,8 +10,8 @@
 </head>
 
 
-<body ng-app="app" ng-controller="localController">
-	<div class="grid">
+<body ng-app="app">
+	<div class="grid"  ng-controller="localController">
 
 		<div class="header">
 
@@ -27,21 +27,26 @@
 			</div>
 		</div>
 
-			<div class="content">
+		<div class="content">
 
-				<div class="form">
-					<div ng-view></div>
+			<div class="form">
+				<div ng-view></div>
 
-				</div>
 			</div>
-			<div class="left">
-				<p>something here</p>
-				<p>meniu</p>
+		</div>
+
+		<div class="left">
+			<div class="aaaa">
+				<a href="#">Dj</a>
+				<a href="#">Band</a>
+				<a href="#">Performers</a>
 			</div>
-			<div class="footer">
-				<span>bla bla bla bla bla bla</span>
-			</div>
-		
+		</div>
+
+		<div class="footer">
+			<span>bla bla bla bla bla bla</span>
+		</div>
+
 	</div>
 
 </body>
