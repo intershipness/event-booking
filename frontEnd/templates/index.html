@@ -24,22 +24,23 @@
 				<a href="#!/login"><button class="buttons">{{'login' | translate}}</button></a>
 				<a href="#!/register"><button class="buttons">{{ 'register' | translate }}</button></a>
 			</div>
-			<!-- <button ng-click="changeLanguage('en')">English</button>
-				<button ng-click="changeLanguage('ro')">Romana</button> -->
 
-			<!-- <div class="dropdown">
-						<button class="dropbtn" ng-click="changeLanguage('en')"><img src="images/english.png" height="20"/>English</button>
-						<div class="dropdown-content">
-						  <a href="#"> <img src="images/romana.png" height="20"/> Romana</a>
-						  <a href="#">Franch</a>
-						</div>
-				</div> -->
-
-			<select class="lang" name="lang" id="lang" ng-change="changeLanguage()" ng-model="langKey">
-				<option value="en">{{ 'en' | translate }}</option>
+			<!-- <select class="lang" name="lang" id="lang" ng-change="changeLanguage()" ng-model="langKey">
+				<option value="en"><img img src="http://i64.tinypic.com/fd60km.png"/>{{ 'en' | translate }}</option>
 				<option value="ro">{{ 'ro' | translate }}</option>
 				<option value="fr">{{ 'fr' | translate }}</option>
-			</select>
+			</select> -->
+
+			<div class="lang">
+					<ul class="languagepicker roundborders large">
+							<a href="#nl"><li><img src="http://i65.tinypic.com/2d0kyno.png"/></li></a>
+							<a href="#en"><li><img src="http://i64.tinypic.com/fd60km.png"/></li></a>
+							<a href="#de"><li><img src="http://i63.tinypic.com/10zmzyb.png"/></li></a>
+							<a href="#fr"><li><img src="http://i65.tinypic.com/300b30k.png"/></li></a>
+							<a href="#es"><li><img src="http://i68.tinypic.com/avo5ky.png"/></li></a>
+							<a href="#it"><li><img src="http://i65.tinypic.com/23jl6bn.png"/></li></a>
+					</ul></div>
+		
 
 			<div class="subheader">
 				<ul>
@@ -75,17 +76,18 @@
 								</form>
 						</div>
 				</div>
-				<div class="menu" style="text-align:center">Menu
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 1</a></div>
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 2</a></div>
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 3</a></div>
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 4</a></div>
+				<div class="menu" >Menu 
+				   <br><br><input type="checkbox" name="stil" value="pop">Pop<br>
+				   <input type="checkbox" name="stil" value="rock">Rock<br>
+			       <input type="checkbox" name="stil" value="pop">Populara<br>
+			       <input type="checkbox" name="stil" value="rock">Folk<br>
 				</div>
-				<div class="menuStil" style="text-align:center">menu stiluri muzica
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 1</a></div>
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 2</a></div>
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 3</a></div>
-				   <div class="checkbox"><a href="#"><input type="checkbox" id="myCheck" ng-model="box">Link 4</a></div>
+				<div class="menuStil" >
+						<label>Stil muzical</label><br><br>
+			<input type="checkbox" name="stil" value="pop">Pop<br>
+			<input type="checkbox" name="stil" value="rock">Rock<br>
+			<input type="checkbox" name="stil" value="pop">Populara<br>
+			<input type="checkbox" name="stil" value="rock">Folk<br>
 				</div>
 				<div class="calendar">calendar</div>
 			</div>
