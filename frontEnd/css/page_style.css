@@ -1,5 +1,5 @@
-body {
-	background-color: #B0E0E6;
+.body {
+	background-color:turquoise
 }
 
 .grid{
@@ -130,7 +130,7 @@ body {
   .search input[type=text] {
 	padding:6px;
 	margin-top:0;
-	font-size: 13px;
+	font-size: 12px;
 	border: none;
   }
   
@@ -140,7 +140,7 @@ body {
 	margin-top:0;
 	margin-right: 0;
 	background: #ddd;
-	font-size: 17px;
+	font-size: 15px;
 	border: none;
 	cursor: pointer;
   }
@@ -239,6 +239,62 @@ body {
   
   .dropdown:hover .dropbtn {background-color: #3e7e8e;} */
 
-select#lang option[value="en"]   { background-image:url('english.png');   }
+/* select#lang option[value="en"]   { background-image:url('english.png');   }
 select#lang option[value="ro"] { background-image:url(romana.png); }
-select#lang option[value="fr"] { background-image:url(romana.png); }
+select#lang option[value="fr"] { background-image:url(romana.png); } */
+
+ .languagepicker {
+	background-color: #FFF;
+	/* display: inline-block; */
+	width:50px;
+	padding: 0;
+	height: 40px;
+	overflow: hidden;
+	transition: all .3s ease;
+	margin: 0 50px 10px 0;
+	vertical-align: top;
+	position: absolute;
+	
+}
+   /* .languagepicker:hover {
+   /* don't forget the 1px border 
+	height: 81px; 
+}*/
+
+.languagepicker a{
+	color: #000;
+	text-decoration: none;
+} 
+
+.languagepicker li {
+	display: block;
+	padding: 0px 20px;
+	line-height: 40px;
+	border-top: 1px solid lightslategray;
+}
+
+.languagepicker li:hover{
+	background-color: lightslategray;
+}
+
+.languagepicker a:first-child li {
+	border: none;
+	background:#FFF  !important;
+}
+
+.languagepicker li img {
+	margin-right: 5px;
+}
+
+.roundborders {
+	border-radius: 5px;
+}
+
+.large:hover {
+	/* 
+	don't forget the 1px border!
+	The first language is 40px heigh, 
+	the others are 41px
+	*/
+	height: 245px;
+}
