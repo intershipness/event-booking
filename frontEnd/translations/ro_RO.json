@@ -1,5 +1,13 @@
 {
     "heading": "Bun venit!",
-    "login": "Intregistrare"
+    "login": "Logare",
+    "register": "Intregistrare",
+    "footer": "Romana footer",
+    "home": "Acasa",
+    "about": "Despre noi",
+    "contact": "Contact",
+    "en": "Engleza",
+    "ro": "Romana ",
+    "fr": "Franceza"
 
 }

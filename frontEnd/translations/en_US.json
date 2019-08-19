@@ -1,4 +1,12 @@
 {
     "heading": "Welcome",
-    "login" : "Loginnnnn"
+    "login" : "Login",
+    "register": "Register",
+    "footer": "English footer",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "en": "English",
+    "ro": "Romanian ",
+    "fr": "French"
 }

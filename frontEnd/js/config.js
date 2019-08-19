@@ -5,27 +5,36 @@
                  templateUrl: "index.html"
              })
              .when("/login", {
-                 templateUrl: "login.html"
+                 templateUrl: "templates/login.html"
 
              })
              .when("/register", {
-                 templateUrl: "register.html",
+                 templateUrl: "templates/register.html",
 
              })
              .when("/register_contractor", {
-                 templateUrl: "register_contractor.html"
+                 templateUrl: "templates/register_contractor.html"
 
              })
              .when("/client", {
-                 templateUrl: "client.html"
+                 templateUrl: "templates/client.html"
 
              })
              .when("/contractor", {
-                 templateUrl: "contractor.html"
+                 templateUrl: "templates/contractor.html"
 
              })
+
+            .when("/contact", {
+                templateUrl: "templates/contact.html",
+
+            })
+            .when("/about", {
+                templateUrl: "templates/about.html",
+
+            })
              .otherwise({
-                 redirectTo: "index.html"
+                 redirectTo: "templates/index.html"
              });
 
 
