@@ -1,6 +1,10 @@
 {
     "dependencies": {
         "angular": "^1.7.8",
-        "angular-route": "^1.7.8"
+        "angular-route": "^1.7.8",
+        "angular-translate-loader-static-files": "^2.18.1"
+    },
+    "devDependencies": {
+        "angular-translate": "^2.18.1"
     }
 }

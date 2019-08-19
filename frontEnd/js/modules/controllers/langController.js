@@ -2,14 +2,12 @@
     app.controller("localController", localController)
         /* .factory("springRestLocalFetchservice",springRestLocalFetchservice) */
     
-
-
     //@controller
     localController.$inject = ['$translate', '$scope', '$rootScope', '$state'];
 
     function localController($translate, $scope, $rootScope, $state) {
         $scope.defaultlanguage = true;
-        $scope.state = $state;
+        //$scope.state = $state;
         $scope.changeLanguage = function (langKey) {
 
 
