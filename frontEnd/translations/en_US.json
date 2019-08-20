@@ -1,12 +1,43 @@
 {
     "heading": "Welcome",
     "login" : "Login",
-    "register": "Register",
+    "registerN": "Register",
     "footer": "English footer",
     "home": "Home",
     "about": "About",
     "contact": "Contact",
     "en": "English",
     "ro": "Romanian ",
-    "fr": "French"
+    "fr": "French",
+	"register":{
+		"required":"This field is required",
+		"first": {
+			"name":"First name",
+			"holder": "Enter first name"
+			},
+		"last":{
+			"name": "Last name",
+			"holder": "Enter last name"
+		},
+		"email":{
+			"name": "Email",
+			"holder": "Enter email",
+			"validation": "Enter a valid email"
+		},
+		"phone":{
+			"name": "Phone number",
+			"holder": "Enter phone number",
+			"validation": "Enter a valid phone number"
+		},
+		"stage":{
+			"name": "Stage name",
+			"holder": "Enter stage name"
+		},
+		"youtube":{
+			"name": "Youtube channel",
+			"holder": "Enter youtube channel"
+		}
+		
+	}
+	
 }
