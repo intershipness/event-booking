@@ -1,0 +1,12 @@
+<div class="contractor">
+
+        <img src="images/defaultContractor.jpg" style="height: 250px">
+        <h3 >{{contractor.name}} {{contractor.lastName}}</h3>
+        <!-- <p>{{'register.youtube.name' | translate}}:</p> -->
+        
+        <div ng-hide="{{contractor.canalyoutube.length == null}}">{{'register.youtube.name' | translate}}: {{contractor.canalyoutube}}</div>   
+        <div ng-hide="{{contractor.numescena.length == null}}">{{'register.stage.name' | translate}}: {{contractor.numescena}}</div>
+
+
+        <p>{{'description' | translate}}: {{contractor.description}}</p>
+</div>

@@ -14,14 +14,14 @@ body {
 	display:grid;
 	grid-template-columns: 200px auto;
 	/* grid-template-columns: repeat(2, 1fr); */
-	grid-template-rows:40% 750px 20%;
+	grid-template-rows:180px auto 20px;
 	grid-gap: 20px;
 	margin: 10px;
 
 }
 
 .grid > *{
-	background: white;
+	
 	border: 2px solid black;
 }
 .header{
@@ -33,6 +33,7 @@ body {
 	text-size-adjust: 10px;
 	place-items: center;
 	margin-bottom: 0px;
+	background-color: white;
 
 }
 .lang{
@@ -84,14 +85,17 @@ body {
 	margin:25px;
 }
 .content{
+	display: grid;
 	grid-column-start: 2;
 	grid-column-end: 3;
-
+	place-items: center;
+	color: white;
 }
 .footer{
 	grid-column: span 2;
 	background: rgb(52, 22, 58);
 	color: white;
+	
 }
 .left
 {

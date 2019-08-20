@@ -1,19 +1,16 @@
 
-
 /* Add padding to containers */
-.container {
-  padding: 16px;
-  width:500px;
-  
+.content {
+  padding: 50px;
+  border: 1px solid black;
 }
 
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=email] {
-  width: 90%;
+  width:500px;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
-
   background: #f1f1f1;
   border-radius: 8px;
 
@@ -26,7 +23,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 }
 input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
-	border: 2px solid red;
+	border: 1px solid red;
 }
 input[disabled="disabled"]{
   cursor: not-allowed !important;
@@ -36,4 +33,7 @@ input[disabled="disabled"]{
 /* Add a blue text color to links */
 a {
   text-decoration: none;
+}
+.select{
+  margin:50px;
 }

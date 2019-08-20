@@ -5,10 +5,12 @@
     "footer": "English footer",
     "home": "Home",
     "about": "About",
-    "contact": "Contact",
+	"contact": "Contact",
+	"contractori": "Contractors",
     "en": "English",
     "ro": "Romanian ",
-    "fr": "French",
+	"fr": "French",
+	"description": "Description",
 	"register":{
 		"required":"This field is required",
 		"first": {
@@ -36,7 +38,22 @@
 		"youtube":{
 			"name": "Youtube channel",
 			"holder": "Enter youtube channel"
+        },
+        "password": {
+            "name": "Password",
+            "holder": "Enter password"
+        },
+        "rpassword": {
+            "name": "Repeat Password",
+            "holder": "Repeat password"
+		},
+		"type":{
+			"name": "Activity domain"
+		},
+		"stil":{
+			"name": "Style"
 		}
+		
 		
 	}
 	
