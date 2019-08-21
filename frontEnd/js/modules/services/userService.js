@@ -25,14 +25,15 @@ app.factory("userService" , function($http) {
                 stilmuzica: user.stil_muzica
             }
         }
-
+        console.log(data);
         return $http({
             method: 'POST',
-            url: url
+            url: url,
+            data: data
             
         }).then(function regSucces(response) {
             console.log("succes post")
-            console.log(data);
+            //console.log(data);
             return data;
         }, function regErr(response){
             console.log("EROARE in serviciu");//user already exists ->mesaj ascuns

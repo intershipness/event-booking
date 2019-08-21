@@ -58,9 +58,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// URLs matching for access rights
 				.antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
+				.antMatchers("/Contractor/login").permitAll()
 				.antMatchers("/register/User").permitAll()
 				.antMatchers("/register/Contractor").permitAll()
 				.antMatchers("/Contractors").permitAll()
+				.antMatchers("/Users").permitAll()
 				//.antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.anyRequest().authenticated()
 				.and()

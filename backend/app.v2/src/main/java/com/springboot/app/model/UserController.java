@@ -30,6 +30,11 @@ public class UserController {
         return
           user.getEmail().equals("email") && user.getPassword().equals("password");
     }
+	@RequestMapping("/Contractor/login" )
+    public boolean login( @RequestBody Contractor Contractor) {
+        return
+        		Contractor.getEmail().equals("email") && Contractor.getPassword().equals("password");
+    }
 	 @RequestMapping("/User")
 	    public Principal user(HttpServletRequest request) {
 	        String authToken = request.getHeader("Authorization")

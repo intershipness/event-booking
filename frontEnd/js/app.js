@@ -1,1 +1,1 @@
- var app = angular.module('app', ['ngRoute','pascalprecht.translate']);
+var app = angular.module('app', ['ngRoute','pascalprecht.translate']);

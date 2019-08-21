@@ -3,46 +3,63 @@
 
 <html lang="en">
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
+<link rel="stylesheet" type="text/css" href="css/contractors.css">
 
 <head>
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
 
 
 <body ng-app="app">
 
-	<div class="grid" >
-
-
-
+	<div class="grid">
 		<div class="header">
 
-			<div>
+			<div class="title">
 				<h2>{{'heading' | translate}}</h2>
-				
-
+			</div>
+			<div class="favicon"><img src="favicon.ico" height="80" /></div>
+			<div class="registration">
 				<a href="#!/login"><button class="buttons">{{'login' | translate}}</button></a>
-				<a href="#!/register"><button class="buttons">Register</button></a>
-				<button ng-click="changeLanguage('en')">English</button>
-				<button ng-click="changeLanguage('ro')">Romana</button>
+				<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
+			</div>
+
+			<!-- <select class="lang" name="lang" id="lang" ng-change="changeLanguage()" ng-model="langKey">
+				<option value="en"><img img src="http://i64.tinypic.com/fd60km.png"/>{{ 'en' | translate }}</option>
+				<option value="ro">{{ 'ro' | translate }}</option>
+				<option value="fr">{{ 'fr' | translate }}</option>
+			</select> -->
+
+			<div class="lang">
+					<ul class="languagepicker roundborders large">
+							<a href="#nl"><li><img src="http://i65.tinypic.com/2d0kyno.png"/></li></a>
+							<a href="#en"><li><img src="http://i64.tinypic.com/fd60km.png"/></li></a>
+							<a href="#de"><li><img src="http://i63.tinypic.com/10zmzyb.png"/></li></a>
+							<a href="#fr"><li><img src="http://i65.tinypic.com/300b30k.png"/></li></a>
+							<a href="#es"><li><img src="http://i68.tinypic.com/avo5ky.png"/></li></a>
+							<a href="#it"><li><img src="http://i65.tinypic.com/23jl6bn.png"/></li></a>
+					</ul></div>
+		
+
+			<div class="subheader">
+				<ul>
+					<li><a href="#!" class="active">{{ 'home' | translate }}</a></li>
+					<li><a href="#!/contact">{{'contact' | translate }}</a></li>
+					<li><a href="#!/about">{{'about' | translate }}</a></li>
+					<li><a href="#!/contractori">{{'contractori' | translate }}</a></li>
+				</ul>
+
 
 
 			</div>
 
+
 		</div>
 
 
-		<div class="subheader">
-			<ul>
-				<li><a href="#" class="active">Home</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">About</a></li>
-			</ul>
-				
-				
-			
-		</div>
+
 
 		<div class="content">
 
@@ -53,22 +70,33 @@
 		</div>
 
 		<div class="left">
-			<div class="search">
-					<div class="search-container">
-							<form action="/action_page.php">
-							  <input type="text" placeholder="Search.." name="search">
-							  <button type="submit"><i class="fa fa-search"></i></button>
-							</form>
-						  </div>
+				<div class="search" >
+						<div class="search-container">
+								<form action="/action_page.php">
+								  <input type="text" placeholder="Search.." name="search" >
+								   <button type="submit"><i class="fa fa-search"></i></button> 
+								</form>
+						</div>
+				</div>
+				<div class="menu" >Menu 
+				   <br><br><input type="checkbox" name="stil" value="pop">Pop<br>
+				   <input type="checkbox" name="stil" value="rock">Rock<br>
+			       <input type="checkbox" name="stil" value="pop">Populara<br>
+			       <input type="checkbox" name="stil" value="rock">Folk<br>
+				</div>
+				<div class="menuStil" >
+						<label>Stil muzical</label><br><br>
+			<input type="checkbox" name="stil" value="pop">Pop<br>
+			<input type="checkbox" name="stil" value="rock">Rock<br>
+			<input type="checkbox" name="stil" value="pop">Populara<br>
+			<input type="checkbox" name="stil" value="rock">Folk<br>
+				</div>
+				<div class="calendar">calendar</div>
 			</div>
-			<div class="menu">menu</div>
-			<div class="menuStil">menu stiluri muzica</div>
-			<div class="calendar">calendar</div>
-		</div>
 
 
 		<div class="footer">
-			<span>bla bla bla bla bla bla</span>
+			<span>{{ 'footer' | translate }}</span>
 		</div>
 
 	</div>
@@ -83,12 +111,12 @@
 <script src="js/config.js"></script>
 <script src="js/modules/controllers/langController.js"></script>
 <script src="js/modules/controllers/loginController.js"></script>
+<script src="js/modules/controllers/contractorsController.js"></script>
 <script src="js/modules/services/loginService.js"></script>
 <script src="js/modules/controllers/userController.js"></script>
 <script src="js/modules/services/userService.js"></script>
+<script src="js/modules/directives/contractorBox.js"></script>
 
 
-
-</html>
 
 </html>

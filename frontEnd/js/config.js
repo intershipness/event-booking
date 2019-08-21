@@ -2,7 +2,7 @@
      function ($routeProvider, $translateProvider) {
          $routeProvider
              .when("./", {
-                 templateUrl: "templates/index.html"
+                 templateUrl: "/index.html"
              })
              .when("/login", {
                  templateUrl: "templates/login.html"
@@ -43,7 +43,7 @@
                 controller: "contractorsController"
             })
              .otherwise({
-                 redirectTo: "templates/index.html"
+                 redirectTo: "/index.html"
              });
 
 
