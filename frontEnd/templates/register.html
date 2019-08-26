@@ -1,13 +1,13 @@
-<link rel="stylesheet" type="text/css" href="css/register.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/register.css">
 <script src="js/modules/directives/contractorDirective.js"></script>
-<script src ="js/modules/controllers/userController"></script>
+<script src ="js/modules/controllers/userController"></script> -->
 
 <div class="content">
 <h3>Registration</h3>
-<form role="form" name="registerForm" ng-submit="submit()" ng-controller="userController">
+<form role="form" name="registerForm" ng-submit="submit()" ng-controller="registerController">
   <div class="form-group">
       <label>{{'register.first.name' | translate}}</label><br>
-      <input type="text" placeholder="{{'register.first.holder' | translate}}" name="name" 
+      <input class="regInput" type="text" placeholder="{{'register.first.holder' | translate}}" name="name" 
 	  ng-model="user.name" 
 	  ng-required="true">
 	  <span ng-show="registerForm.name.$touched && registerForm.name.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
@@ -16,7 +16,7 @@
   <div class="form-group">
 
 	<label>{{'register.last.name' | translate}}</label><br>
-	<input type="text" placeholder="{{'register.last.holder' | translate}}" name="lastName" 
+	<input class="regInput" type="text" placeholder="{{'register.last.holder' | translate}}" name="lastName" 
 	ng-model="user.lastName" 
 	ng-required="true">
 	<span ng-show="registerForm.lastName.$touched && registerForm.lastName.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
@@ -24,7 +24,7 @@
 </div>
   <div class="form-group">
       <label>{{'register.email.name' | translate}}</label><br>
-      <input type="email" placeholder="{{'register.email.holder' | translate}}" name="email" 
+      <input class="regInput" type="email" placeholder="{{'register.email.holder' | translate}}" name="email" 
 	  ng-model="user.email" 
 	  ng-required="true">
 	  <span ng-show="registerForm.email.$touched && registerForm.email.$invalid" style="color:red; display:block; text-align:center;">{{'register.email.validation'| translate}}</span>
@@ -33,7 +33,8 @@
 
   <div class="form-group">
 		<label>{{'register.phone.name' | translate}}</label><br>
-		<input type="text" 
+		<input class="regInput" 
+		type="text" 
 		placeholder="{{'register.phone.holder' | translate}}"
 		name="mobile" 
 		inputmode="numeric" 
@@ -48,7 +49,7 @@
   
   <div class="form-group">
       <label>{{'register.password.name' | translate}}</label><br>
-      <input type="password" placeholder="{{'register.password.holder' | translate}}" name="password" 
+      <input class="regInput" type="password" placeholder="{{'register.password.holder' | translate}}" name="password" 
 	  ng-model="user.password" 
 	  ng-required="true">
 	  <span ng-show="registerForm.password.$touched && registerForm.password.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
@@ -73,14 +74,14 @@
   <div id="extra" ng-if="box">
 		<br><div class="form-group">
 			<label>{{'register.stage.name' | translate}}</label><br>
-			<input type="text" placeholder="{{'register.stage.holder'|translate}}" name="nume_scena" ng-model="user.nume_scena">
+			<input class="regInput" type="text" placeholder="{{'register.stage.holder'|translate}}" name="nume_scena" ng-model="user.nume_scena">
 		</div>
 		
 		
 		
 		<div class="form-group">
 			<label>{{'register.youtube.name' | translate}}</label><br>
-			<input type="text" placeholder="{{'register.youtube.holder' | translate}}" name="canal_youtube" ng-model="user.canal_youtube">
+			<input class="regInput" type="text" placeholder="{{'register.youtube.holder' | translate}}" name="canal_youtube" ng-model="user.canal_youtube">
 		</div>
 		
 		<div class ="form-group">
@@ -110,8 +111,8 @@
   </div>
 </form>
 </div>
-<script src="node_modules/angular-translate/dist/angular-translate.js"></script>
+<!-- <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
 <script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 <script src="js/app.js"></script>
 <script src="js/config.js"></script>
-<script src="js/modules/controllers/langController.js"></script>
+<script src="js/modules/controllers/langController.js"></script> -->

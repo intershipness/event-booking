@@ -1,4 +1,4 @@
-app.factory("userService" , function($http) {
+app.factory("registerService" , function($http) {
     
     function registerUser(user, box) {
         if(box == false){

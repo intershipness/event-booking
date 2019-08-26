@@ -16,7 +16,7 @@
 .contentC{
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 60% 40%;
     grid-gap:10px;
     padding: 10px;
     border: 1px solid red;
@@ -37,3 +37,31 @@
     margin: 15px;
     padding: 5px;
 }
+
+.form-group{
+	padding:8px;
+}
+.btn{
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+	margin:5px;
+	border-radius: 8px;	
+	width: 70px;
+	margin-top:10px;
+}
+.textarea{
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+.edit{
+   
+}
+
