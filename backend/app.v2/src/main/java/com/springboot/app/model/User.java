@@ -42,13 +42,13 @@ public class User {
 	@Column(name = "status")
 	private String status;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany()
 	@JoinTable(name = "auth_user_role", joinColumns = @JoinColumn(name = "auth_user_id"), inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
 	private Set<Role> roles;
 
 	
 	public User() {
-		
+	
 	}
 	
 	public User(int id, String name, String lastName, String email, String password, String mobile, String status,

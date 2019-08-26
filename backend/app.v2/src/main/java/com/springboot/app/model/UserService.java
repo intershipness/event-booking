@@ -36,5 +36,9 @@ public class UserService {
 		//topics.removeIf(T->T.getId().equals(id));
 		UserRepository.deleteById(id);
 	}
+public User findByEmail(String email) {
+		
+		return UserRepository.findByEmail(email);
+	}
 
 }

@@ -55,7 +55,7 @@ public class Contractor {
 	private String status;
 	
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany()
 	@JoinTable(name = "auth_controcator_role", joinColumns = @JoinColumn(name = "auth_controcator_id"), inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
 	private Set<Role> roles;
 
