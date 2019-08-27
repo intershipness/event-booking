@@ -4,10 +4,12 @@
 <html lang="en">
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
 <link rel="stylesheet" type="text/css" href="css/contractors.css">
-<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/calendar.css">
+<!-- <link href="node_modules/angularjs-datepicker/dist/angular-datepicker.css" rel="stylesheet" type="text/css" /> -->
 
 <head>
-
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
@@ -22,28 +24,37 @@
 				<h2>{{'heading' | translate}}</h2>
 			</div>
 			<div class="favicon"><img src="favicon.ico" height="80" /></div>
-			<div class="registration" ng-controller="loginController">
-			
-				<a href="#!/login"><button class="buttons" >{{'login' | translate}}</button></a> 
+			<div class="registration">
+				<a href="#!/login"><button class="buttons">{{'login' | translate}}</button></a>
 				<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
-				  
 			</div>
 
-
+			<!-- <select class="lang" name="lang" id="lang" ng-change="changeLanguage()" ng-model="langKey">
+				<option value="en"><img img src="http://i64.tinypic.com/fd60km.png"/>{{ 'en' | translate }}</option>
+				<option value="ro">{{ 'ro' | translate }}</option>
+				<option value="fr">{{ 'fr' | translate }}</option>
+			</select> -->
 
 			<div class="lang">
 				<ul class="languagepicker roundborders large">
-
+					<a href="#nl">
+						<li><img src="http://i65.tinypic.com/2d0kyno.png" /></li>
+					</a>
 					<a href="#en">
 						<li><img src="http://i64.tinypic.com/fd60km.png" /></li>
-					</a>
-					<a href="#ro">
-						<li><img src="http://i65.tinypic.com/2d0kyno.png" /></li>
 					</a>
 					<a href="#de">
 						<li><img src="http://i63.tinypic.com/10zmzyb.png" /></li>
 					</a>
-				
+					<a href="#fr">
+						<li><img src="http://i65.tinypic.com/300b30k.png" /></li>
+					</a>
+					<a href="#es">
+						<li><img src="http://i68.tinypic.com/avo5ky.png" /></li>
+					</a>
+					<a href="#it">
+						<li><img src="http://i65.tinypic.com/23jl6bn.png" /></li>
+					</a>
 				</ul>
 			</div>
 
@@ -55,7 +66,12 @@
 					<li><a href="#!/about">{{'about' | translate }}</a></li>
 					<li><a href="#!/contractori">{{'contractori' | translate }}</a></li>
 				</ul>
+
+
+
 			</div>
+
+
 		</div>
 
 
@@ -65,11 +81,9 @@
 
 			<div class="form">
 				<div ng-view></div>
+
 			</div>
-
-
 		</div>
-
 
 		<div class="left">
 			<div class="search">
@@ -80,28 +94,26 @@
 					</form>
 				</div>
 			</div>
-
-			<div class="menuStil" ng-controller='filterController'> Music Style
-				<br><br>
-				<ul>
-					<li ng-repeat="style in styles" style='display:block; float:left;  width:300px; height:20px;'>
-						<label>
-							<input type="checkbox" name="selectedStyles[]" value="{{style.name}}"
-								ng-model="style.selected"> {{style.name}}
-						</label></li>
-				</ul>
+			<div class="menu">Menu
+				<br><br><input type="checkbox" name="stil" value="pop">Pop<br>
+				<input type="checkbox" name="stil" value="rock">Rock<br>
+				<input type="checkbox" name="stil" value="pop">Populara<br>
+				<input type="checkbox" name="stil" value="rock">Folk<br>
 			</div>
+			<div class="menuStil">
+				<label>Stil muzical</label><br><br>
+				<input type="checkbox" name="stil" value="pop">Pop<br>
+				<input type="checkbox" name="stil" value="rock">Rock<br>
+				<input type="checkbox" name="stil" value="pop">Populara<br>
+				<input type="checkbox" name="stil" value="rock">Folk<br>
+			</div>
+			<div class="calendar" ng-controller="calendarController">
+				<datepicker datepicker-show="true"
+							date-format="dd/MM/yyyy">
+					<input ng-model="date" />
+				</datepicker>
+				
 
-			<div class="menu" ng-controller='filterController'> Activity Domain
-				<br><br>
-				<ul>
-					<li ng-repeat="domain in domains" style='display:block; float:left;  width:300px; height:20px;'>
-						<label>
-							<input type="checkbox" name="selectedDomains[]" value="{{domain.name}}"
-								ng-model="domain.selected"> {{domain.name}}
-						</label>
-					</li>
-				</ul>
 			</div>
 		</div>
 
@@ -113,32 +125,29 @@
 	</div>
 
 </body>
-
-
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.js"></script>
 <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
 <script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-<!-- <script src="node_modules/angular-material/angular-material.js"></script>
-<script src="node_modules/angular-messages/angular-messages.js"></script>
-<script src="node_modules/angular-animate/angular-animate.js"></script>
-<script src="node_modules/angular-aria/angular-aria.js"></script>
- <script src="node_modules/svg-assets-cache/svg-assets-cache.js"></script> -->
-<!--<script src ="node_modules/angular/angular-resource.js"></script>-->
+<script src="node_modules/angular-xeditable/dist/js/xeditable.js"></script>
 
+
+<script src="node_modules/angularjs-datepicker/dist/angular-datepicker.js"></script>
+
+<!--<script src ="node_modules/angular/angular-resource.js"></script>-->
 <script src="js/app.js"></script>
 <script src="js/config.js"></script>
 <script src="js/modules/controllers/langController.js"></script>
 <script src="js/modules/controllers/loginController.js"></script>
 <script src="js/modules/controllers/contractorsController.js"></script>
 <script src="js/modules/services/loginService.js"></script>
-<!-- <script src="js/modules/services/AuthenticationService.js"></script> -->
-<script src="js/modules/controllers/userController.js"></script>
-<script src="js/modules/services/userService.js"></script>
+<script src="js/modules/controllers/registerController.js"></script>
+<script src="js/modules/services/registerService.js"></script>
 <script src="js/modules/directives/contractorBox.js"></script>
-<script src="js/modules/controllers/filterController.js"></script>
-<script src="js/modules/controllers/logoutController.js"></script>
-<!-- <script src="js/modules/controllers/calendarController.js"></script> -->
+<script src="js/modules/directives/editDirective.js"></script>
+<script src="js/modules/controllers/editController.js"></script>
+<script src="js/modules/controllers/calendarController.js"></script>
+<script src="js/modules/controllers/calendarEventController.js"></script>
 
 
 

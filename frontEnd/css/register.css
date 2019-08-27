@@ -70,7 +70,7 @@
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email] {
+.regInput[type=text], .regInput[type=password], .regInput[type=email] {
   width:500px;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -81,15 +81,15 @@ input[type=text], input[type=password], input[type=email] {
 
 }
 
-input[type=text]:focus, input[type=password]:focus {
+.regInput[type=text]:focus, .regInput[type=password]:focus {
 
   background-color: #ddd;
 
 }
-input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+.regInput.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
 	border: 1px solid red;
 }
-input[disabled="disabled"]{
+.regInput[disabled="disabled"]{
   cursor: not-allowed !important;
   opacity: 0.4;
 }

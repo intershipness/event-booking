@@ -1,35 +1,162 @@
-<link rel="stylesheet" type="text/css" href="css/contractors.css">
+<div class="contentC">
 
-	<div class="contentC">
-			<div class="details">
-				<p>{{'register.first.name' | translate}}: {{contractors.name}}</p>
-				<p>{{'register.last.name' | translate}}: {{contractors.lastName}}</p>
-				<p>{{'register.phone.name' | translate}}:</p>
-				<p>{{'register.stage.name' | translate}}:</p>
-				<p>{{'register.youtube.name' | translate}}:</p>
-
-				<button>Edit</button>
-			</div>
-			<div class="image" ng-init="avatar = 'images/add.png'">
-					<img  style="width: 220px"
-					ng-src="{{avatar}}" 
-					ng-click="uploadAvatar()">
-			</div>
-			<div class="description">
-				<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
-				</p>
-				<button>Edit</button>
-			</div>
-	</div>	
 
 	
-	<script src ="node_modules/angular/angular.js"></script>
-	<script src ="node_modules/angular/angular-route.js"></script>
-	<script src ="node_modules/angular/angular-resource.js"></script>
-    <script src="js/app.js"></script>
-	<script src="js/config.js"></script>
-	<script src="js/modules/controllers/userController.js"></script>
-	<script src="js/modules/services/userService.js"></script>
+	<div class="details" ng-controller="editController">
+		<form method="post" name="detailsForm" class="detailsForm">
+				<div class="form-group">
+					<label style="font-size:1.5vw" for="firstName">{{'register.first.name' | translate}}:</label>
+					<input class="edit" type="text" id="firstName" 
+					ng-model="details.name" 
+					ng-required="true" 
+					ng-hide="editorEnabled" />
+					<span ng-show="editorEnabled">{{ details.name }}</span>	
+				</div>
+				
+				
+				<div class="form-group">
+					<label style="font-size:1.5vw" for="lastName">{{'register.last.name' | translate}}:</label>
+					<input type="text" id="lastName" 
+					ng-model="details.lastName" 
+					ng-required="true" 
+					ng-hide="editorEnabled" />
+					<span ng-show="editorEnabled">{{ details.lastName }}</span>
+				</div>
+				
+				
+				<div class="form-group">
+					<label style="font-size:1.5vw" for="mobile">{{'register.phone.name' | translate}}:</label>
+					<input type="text" id="mobile" 
+					data-ng-model="details.mobile" 
+					ng-required="true" 
+					minlength="10" 
+					maxlength="10"  
+					pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/"   
+					only-digits=""
+					ng-hide="editorEnabled" />
+					<span ng-show="editorEnabled">{{ details.mobile }}</span>	
+				</div>
+				
+				
+				<div class="form-group">
+					<label style="font-size:1.5vw" for="stageName">{{'register.stage.name' | translate}}:</label>
+					<input type="text" id="stageName"
+					ng-model="details.numescena"
+					ng-required="true"  
+					ng-hide="editorEnabled" />
+					<span ng-show="editorEnabled">{{ details.numescena }}</span>
+						
+				</div>
+		
+		
+				<div class="form-group">
+					<label style="font-size:1.5vw" for="youtube">{{'register.youtube.name' | translate}}:</label>
+					<input type="text" id="youtube" 
+					ng-model="details.canalyoutube" 
+					ng-required="true"
+					ng-hide="editorEnabled" />
+					<span ng-show="editorEnabled">{{ details.canalyoutube }}</span>	
+				</div>
+		
+		
+				<div class="form-group">
+						<button class="btn" form="detailsForm"ng-show="editorEnabled" title="Edit" ng-click="edit()">Edit</button>
+						<button class="btn" form="detailsForm" type="button"  ng-hide="editorEnabled" data-ng-click="confirm()" >Save</button>
+				</div>
+				
+			
+		</form>
+
+	</div>
+	
+	<div class="image" ng-init="avatar = 'images/add.png'">
+			<img  style="width: 220px"
+			ng-src="{{avatar}}" 
+			ng-click="uploadAvatar()">
+	</div>
+	<div class="description" ng-controller="editController">
+	
+	<form class="descr">
+	<label style="font-size:1.5vw" for="youtube">Descriere:</label><br>
+	<textarea class="textarea" 		type="text" id="description"
+					ng-model="details.description" 
+					ng-required="true"
+					ng-hide="editorEnabled" ></textarea>
+					<span ng-show="editorEnabled">{{ details.description }}</span>	<br>
+					<button class="btn" form="descr" ng-show="editorEnabled" title="Edit" ng-click="edit()">Edit</button>
+					<button class="btn" form="descr" type="button"  ng-hide="editorEnabled" data-ng-click="confirm()" >Save</button>
+	</form>
+	<!--
+	<a ng-clickeditable-textarea="details.description" e-rows="15" e-cols="100">
+	 <pre>{{ details.description || 'empty' }} </pre>
+		</a>
+		<button>Edit</button> -->
+
+		<div ng-controller="calendarEventController" class="body black-content">
+  
+				<div class="schedule-container">
+				  <div class="schedule-hour">
+					<div class="schedule-hour-mark" ng-repeat="hour in hoursOfDay">
+					  <div class="schedule-hour-text">{{hour}}:00</div>
+					</div>
+				  </div>
+				  <div class="schedule-day" ng-repeat="day in daysOfWeek" ng-mousemove="dragEvent($event)">
+					<div class="schedule-day-title">{{day}}</div>
+					<div class="schedule-day-timeline">
+					  <div class="schedule-event" ng-if="eventsScheme.length > 0" ng-repeat="event in getDayEvents($index)" ng-style="{ 'top': getEventPosition(event, day) + '%', 'bottom': getEventHeight(event, day) + '%' }" ng-click="selectEvent(event)" ng-mouseenter="mouseHoverEvent(event)" ng-mouseleave="mouseLeaveEvent(event)" ng-class="{'selected': event === currentEvent, 'hovered': event === hoveredEvent}">
+						<div class="schedule-event-line" ng-style="{'background': getEventColor(event)}"></div>
+						<div class="schedule-event-description" ng-if="eventFromToday(event, day)">
+						  <div class="schedule-event-title" ng-style="{'color': getEventColor(event)}">{{event.Type}}</div>
+						  <div class="schedule-event-timepoint">
+							<div class="schedule-event-timepoint-gray">Start</div>
+							<div>{{getEventDayText(event)}}</div>
+							<div class="schedule-event-timepoint-gray">at</div>
+							<div>{{getEventStart(event)}}</div>
+						  </div>
+			  
+						  <div class="schedule-event-timepoint">
+							<div class="schedule-event-timepoint-gray">End</div>
+							<div>{{getEventDayText(getNextEvent(event))}}</div>
+							<div class="schedule-event-timepoint-gray">at</div>
+							<div>{{getEventStart(getNextEvent(event))}}</div>
+						  </div>
+			  
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  <!--
+			   <div class="black-screen" ng-if="currentEvent" ng-click="unselectEvent()"></div>-->
+				<div class="schedule-modal" ng-if="currentEvent">
+				  
+				  <div class="schedule-event-title" ng-style="{'color': getEventColor(currentEvent)}" ng-click="toggleType()">{{currentEvent.Type}}</div>
+			  
+					  <div>
+						  <label class="general-input-title">Start</label>
+						  <input name="startSchedule" class="general-input" placeholder="00:00" ng-model="currentEvent.start" ng-change="changeStart()" required="required" maxlength="5"/>
+					  </div>
+			  
+				  <div class="schedule-modal-repeat" ng-if="currentEvent.repeat">
+					<div class="schedule-modal-repeat-circle" ng-repeat="day in daysOfWeek" ng-class="{'selected': isRepeatDaySelected($index)}" ng-click="selectRepeatDay($index)">{{day[0] + day[1]}}</div>
+					<div style="clear:both;"></div>
+				  </div>
+			  
+					  <button class="general-button primary-action-button" ng-if="currentEvent.repeat" type="button" ng-click="createEvent()">Save</button>
+					  <button class="general-button" ng-if="!currentEvent.repeat" type="button" ng-click="removeCurrentEvent()">Delete</button>
+			  
+				</div>
+			  
+				<div class="newEvent" ng-click="newEvent()">+</div>
+				
+				
+				
+			  </div>
 
 
+
+
+
+	</div>
+	
+</div>	

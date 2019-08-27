@@ -1,7 +1,10 @@
 package com.springboot.app.model;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,11 +26,24 @@ public class ContractorController {
 	public Optional<Contractor> getUser(@PathVariable Integer id) {
 		return (Optional<Contractor>) ContractorService.getContractor(id);
 		
+		
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/register/Contractor")
-	public void addUser(@RequestBody Contractor con) {
-		ContractorService.addContractor(con);
+	public void addUser(@RequestBody Contractor con ,String email,HttpServletResponse response) throws IOException {
+		 Contractor con1 = ContractorService.findByEmail(email);
+		 
+		  if(con1 ==null) {
+			  ContractorService.addContractor(con);
+			  response.sendError(HttpServletResponse.SC_OK);
+			//  return "User not found, new User add-ed";
+		  }else {
+		  response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			 // return "User is in db";
+		  }
+
 	}
+	
+	
 	@RequestMapping(method=RequestMethod.PUT,value="/Contractors/{id}")
 	public void updateUser(@RequestBody Contractor con,@PathVariable String id) {
 		ContractorService.updateContractor(id,con);
