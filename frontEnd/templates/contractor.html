@@ -91,6 +91,72 @@
 	 <pre>{{ details.description || 'empty' }} </pre>
 		</a>
 		<button>Edit</button> -->
+
+		<div ng-controller="calendarEventController" class="body black-content">
+  
+				<div class="schedule-container">
+				  <div class="schedule-hour">
+					<div class="schedule-hour-mark" ng-repeat="hour in hoursOfDay">
+					  <div class="schedule-hour-text">{{hour}}:00</div>
+					</div>
+				  </div>
+				  <div class="schedule-day" ng-repeat="day in daysOfWeek" ng-mousemove="dragEvent($event)">
+					<div class="schedule-day-title">{{day}}</div>
+					<div class="schedule-day-timeline">
+					  <div class="schedule-event" ng-if="eventsScheme.length > 0" ng-repeat="event in getDayEvents($index)" ng-style="{ 'top': getEventPosition(event, day) + '%', 'bottom': getEventHeight(event, day) + '%' }" ng-click="selectEvent(event)" ng-mouseenter="mouseHoverEvent(event)" ng-mouseleave="mouseLeaveEvent(event)" ng-class="{'selected': event === currentEvent, 'hovered': event === hoveredEvent}">
+						<div class="schedule-event-line" ng-style="{'background': getEventColor(event)}"></div>
+						<div class="schedule-event-description" ng-if="eventFromToday(event, day)">
+						  <div class="schedule-event-title" ng-style="{'color': getEventColor(event)}">{{event.Type}}</div>
+						  <div class="schedule-event-timepoint">
+							<div class="schedule-event-timepoint-gray">Start</div>
+							<div>{{getEventDayText(event)}}</div>
+							<div class="schedule-event-timepoint-gray">at</div>
+							<div>{{getEventStart(event)}}</div>
+						  </div>
+			  
+						  <div class="schedule-event-timepoint">
+							<div class="schedule-event-timepoint-gray">End</div>
+							<div>{{getEventDayText(getNextEvent(event))}}</div>
+							<div class="schedule-event-timepoint-gray">at</div>
+							<div>{{getEventStart(getNextEvent(event))}}</div>
+						  </div>
+			  
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  <!--
+			   <div class="black-screen" ng-if="currentEvent" ng-click="unselectEvent()"></div>-->
+				<div class="schedule-modal" ng-if="currentEvent">
+				  
+				  <div class="schedule-event-title" ng-style="{'color': getEventColor(currentEvent)}" ng-click="toggleType()">{{currentEvent.Type}}</div>
+			  
+					  <div>
+						  <label class="general-input-title">Start</label>
+						  <input name="startSchedule" class="general-input" placeholder="00:00" ng-model="currentEvent.start" ng-change="changeStart()" required="required" maxlength="5"/>
+					  </div>
+			  
+				  <div class="schedule-modal-repeat" ng-if="currentEvent.repeat">
+					<div class="schedule-modal-repeat-circle" ng-repeat="day in daysOfWeek" ng-class="{'selected': isRepeatDaySelected($index)}" ng-click="selectRepeatDay($index)">{{day[0] + day[1]}}</div>
+					<div style="clear:both;"></div>
+				  </div>
+			  
+					  <button class="general-button primary-action-button" ng-if="currentEvent.repeat" type="button" ng-click="createEvent()">Save</button>
+					  <button class="general-button" ng-if="!currentEvent.repeat" type="button" ng-click="removeCurrentEvent()">Delete</button>
+			  
+				</div>
+			  
+				<div class="newEvent" ng-click="newEvent()">+</div>
+				
+				
+				
+			  </div>
+
+
+
+
+
 	</div>
 	
 </div>	

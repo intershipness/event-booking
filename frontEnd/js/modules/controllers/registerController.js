@@ -1,15 +1,6 @@
 app.controller("registerController", ['$scope', 'registerService', '$location',
   function ($scope, registerService, $location) {
-    
-    // $scope.box = false;
-    var path;
-    if ($scope.box == false) {
-      path = '/client';
-    } else {
-      path = '/contractor';
-    }
-    
-    $scope.submit = function () {
+  $scope.submit = function () {
 
       console.log("in controller");
       
@@ -18,6 +9,12 @@ app.controller("registerController", ['$scope', 'registerService', '$location',
         .then(function () {
           console.log("SUCCES");
           //console.log($scope.user);
+          
+          if ($scope.box == false) {
+            path = '/client';
+          } else {
+            path = '/contractor';
+          }
          $location.path(path);
         }, function () {
           console.log("ERROR in controller")

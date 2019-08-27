@@ -1,10 +1,9 @@
-<!-- <link rel="stylesheet" type="text/css" href="css/register.css">
-<script src="js/modules/directives/contractorDirective.js"></script>
-<script src ="js/modules/controllers/userController"></script> -->
-
 <div class="content">
 <h3>Registration</h3>
 <form role="form" name="registerForm" ng-submit="submit()" ng-controller="registerController">
+
+	<span ng-init="exists = false" ng-show="exists" style="color:red; display:block; text-align:center;">This user already exists</span>
+
   <div class="form-group">
       <label>{{'register.first.name' | translate}}</label><br>
       <input class="regInput" type="text" placeholder="{{'register.first.holder' | translate}}" name="name" 
@@ -68,7 +67,7 @@
 
  
  <div class="checkbox">
-    <input type="checkbox" id="myCheck" ng-model="box"> contractor
+    <input type="checkbox" id="myCheck" ng-model="box" ng-init="box = false"> contractor
 </div> 
   
   <div id="extra" ng-if="box">
@@ -111,8 +110,3 @@
   </div>
 </form>
 </div>
-<!-- <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
-<script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-<script src="js/app.js"></script>
-<script src="js/config.js"></script>
-<script src="js/modules/controllers/langController.js"></script> -->

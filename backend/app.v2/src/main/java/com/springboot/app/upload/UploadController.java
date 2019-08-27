@@ -23,7 +23,7 @@ import java.nio.file.Paths;
 public class UploadController {
 
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "C:\\Users\\V3790243\\Desktop\\ff\\";
+    private static String UPLOADED_FOLDER = "D:\\Development\\event-booking\\frontEnd\\images\\avatars\\";
 
 //    @GetMapping("/")
 //    public String index() {
@@ -55,14 +55,14 @@ public class UploadController {
 
          
     }
-    @RequestMapping(value = "/Image/{id}", method = RequestMethod.GET)
-    public @ResponseBody byte[] getImage(@PathVariable("id") String id)
-    		throws IOException {
-        InputStream in = getClass()
-          .getResourceAsStream("C:\\Users\\V3790243\\Desktop\\ff\\" + id);
-        
-        return IOUtils.toByteArray(in);
-    }
+//    @RequestMapping(value = "/Image/{id}", method = RequestMethod.GET)
+//    public @ResponseBody byte[] getImage(@PathVariable("id") String id)
+//    		throws IOException {
+//        InputStream in = getClass()
+//          .getResourceAsStream("C:\\Users\\V3790243\\Desktop\\ff\\" + id);
+//        
+//        return IOUtils.toByteArray(in);
+//    }
 
 //    @GetMapping("/uploadStatus")
 //    public String uploadStatus() {

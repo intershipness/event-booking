@@ -5,7 +5,8 @@
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
 <link rel="stylesheet" type="text/css" href="css/contractors.css">
 <link rel="stylesheet" type="text/css" href="css/register.css">
-<link href="node_modules/angularjs-datepicker/dist/angular-datepicker.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/calendar.css">
+<!-- <link href="node_modules/angularjs-datepicker/dist/angular-datepicker.css" rel="stylesheet" type="text/css" /> -->
 
 <head>
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
@@ -106,10 +107,11 @@
 				<input type="checkbox" name="stil" value="pop">Populara<br>
 				<input type="checkbox" name="stil" value="rock">Folk<br>
 			</div>
-			<div class="calendar" ng-controller="calendarController">calendar
-				<datepicker>
-					<input ng-model="date" type="text"/>
-				  </datepicker>
+			<div class="calendar" ng-controller="calendarController">
+				<datepicker datepicker-show="true"
+							date-format="dd/MM/yyyy">
+					<input ng-model="date" />
+				</datepicker>
 				
 
 			</div>
@@ -145,6 +147,7 @@
 <script src="js/modules/directives/editDirective.js"></script>
 <script src="js/modules/controllers/editController.js"></script>
 <script src="js/modules/controllers/calendarController.js"></script>
+<script src="js/modules/controllers/calendarEventController.js"></script>
 
 
 
