@@ -33,4 +33,8 @@ public class ContractorService {
 		//topics.removeIf(T->T.getId().equals(id));
 		ContractorRepository.deleteById(id);
 	}
+public Contractor findByEmail(String email) {
+		
+		return (Contractor) ContractorRepository.findByEmail(email);
+	}
 }

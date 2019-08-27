@@ -35,21 +35,7 @@ public class UserController {
 
 
 	
-	@RequestMapping("email")
-	  @ResponseBody
-	  public String getByEmail(String email, HttpServletResponse response) {
-	    String userId;
-	    try {
-	      User user = Userservice.findByEmail(email);
-	      userId = String.valueOf(user.getId());
-	    }
-	    catch (Exception ex) {
-	      response.setStatus(200, "email do not exist");
-	      return "User not found";
-	    }
-	    response.setStatus(400, "email exist");
-	    return "The user id is: " + userId ;
-	  }
+	
 	@RequestMapping("/login" )
     public boolean login( @RequestBody User user) {
         return
@@ -73,8 +59,17 @@ public class UserController {
 		
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/register/User")
-	public void addUser(@RequestBody User user) {
-		Userservice.addUser(user);
+	public String addUser(@RequestBody User user,String email,HttpServletResponse response)
+	{
+		  User user1 = Userservice.findByEmail(email);
+		  if(user1 ==null) {
+			  Userservice.addUser(user);
+			  response.setStatus(200, "email do not exist");
+			  return "User not found, new User add-ed";
+		  }
+		      response.setStatus(400, "email exist");
+			  return "User is in db";
+		
 	}
 	@RequestMapping(method=RequestMethod.PUT,value="/Users/{id}")
 	public void updateUser(@RequestBody User user,@PathVariable String id) {
