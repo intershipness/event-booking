@@ -36,9 +36,10 @@ public class ContractorController {
 			  ContractorService.addContractor(con);
 			  response.sendError(HttpServletResponse.SC_OK);
 			//  return "User not found, new User add-ed";
-		  }
+		  }else {
 		  response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			 // return "User is in db";
+		  }
 
 	}
 	
