@@ -1,25 +1,8 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-   
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-    
-    <script src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
-    <script src="app.js"></script>
-    <script src ="js/modules/controllers/loginController"></script>
-  
-    
-</head>
-<body ng-app="app">
-
-<div class="container" style="width:600px"  ng-controller="loginController">
-    
+<div class="containerLogin" style="width:600px"  ng-controller="loginController">
+  <div id = "animated-example" class = "animated bounceInDown">
    
     <div class="page-header"><h1>Login</h1></div>
   
-    
-    <!-- pass in the variable if our form is valid or invalid -->
     <form name="loginForm" ng-submit="submit()" novalidate>  
         
         <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
@@ -33,24 +16,15 @@
             <input type="password" name="password" class="form-control" ng-model="password" ng-required="true">
             <span ng-show="loginForm.name.$touched && loginForm.name.$invalid" style="color:red; display:block; text-align:center;">Enter password.</span>
         </div>        
-<!-- 
-        <button type="submit()" id="submit" value="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid"> 
-         "#!/client">Submit Client
-        </button>   -->
+
         <input type="submit" id="submit" value="Submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">
 
-        <!-- <input type="submit" id="submit" value="submit" ng-disabled="loginForm.$invalid">  -->
-      
-       <!-- <button type="submit()" class="btn btn-primary" ng-disabled="loginForm.$invalid"> 
-        <p> <a href="#!/contractor">Submit Contractor</a></p>
-       </button>
-         -->
                 
     </form>
-    </div>
-
     <div class="container signin">
       <p>Don't have an account?  <a href="#!/register">Register here</a>.</p>
-      </div>
-</body>
-</html>
+    </div>
+    </div>
+  </div>
+
+

@@ -1,11 +1,12 @@
- app.config(['$routeProvider', '$translateProvider',
-     function ($routeProvider, $translateProvider) {
+ app.config(['$routeProvider', '$translateProvider','$locationProvider',
+     function ($routeProvider, $translateProvider, $locationProvider) {
          $routeProvider
              .when("./", {
                  templateUrl: "/index.html"
              })
              .when("/login", {
-                 templateUrl: "templates/login.html"
+                 templateUrl: "templates/login.html",
+                 
 
              })
              .when("/register", {
@@ -47,12 +48,14 @@
              });
 
 
-         
+         //translate
          $translateProvider.useStaticFilesLoader({
              prefix: '/translations/',
              suffix: '.json'
          });
 
          $translateProvider.determinePreferredLanguage();
+
+         //date-piker
      }
  ]);

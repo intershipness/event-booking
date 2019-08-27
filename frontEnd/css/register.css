@@ -1,8 +1,72 @@
 
 /* Add padding to containers */
-.content {
-  padding: 50px;
-  border: 1px solid black;
+.content div {
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.animated{
+  background:rgb(94, 91, 91);
+  -webkit-animation-duration: 2s;
+   animation-duration: 2s;
+   -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-300px);
+    transform: translateY(-300px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-300px);
+    -ms-transform: translateY(-300px);
+    transform: translateY(-300px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.bounceInDownRegister {
+  -webkit-animation-name: bounceInDownRegister;
+  animation-name: bounceInDownRegister;
 }
 
 /* Full-width input fields */
