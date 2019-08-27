@@ -29,16 +29,16 @@ public class ContractorController {
 		
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/register/Contractor")
-	public String addUser(@RequestBody Contractor con ,String email,HttpServletResponse response) throws IOException {
+	public void addUser(@RequestBody Contractor con ,String email,HttpServletResponse response) throws IOException {
 		 Contractor con1 = ContractorService.findByEmail(email);
 		 
 		  if(con1 ==null) {
 			  ContractorService.addContractor(con);
 			  response.sendError(HttpServletResponse.SC_OK);
-			  return "User not found, new User add-ed";
+			//  return "User not found, new User add-ed";
 		  }
 		  response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			  return "User is in db";
+			 // return "User is in db";
 
 	}
 	
