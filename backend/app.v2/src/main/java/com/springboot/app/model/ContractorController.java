@@ -1,5 +1,6 @@
 package com.springboot.app.model;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,18 +29,19 @@ public class ContractorController {
 		
 	}
 	@RequestMapping(method=RequestMethod.POST,value="/register/Contractor")
-	public String addUser(@RequestBody Contractor con ,String email,HttpServletResponse response) {
+	public String addUser(@RequestBody Contractor con ,String email,HttpServletResponse response) throws IOException {
 		 Contractor con1 = ContractorService.findByEmail(email);
 		 
 		  if(con1 ==null) {
 			  ContractorService.addContractor(con);
-			  response.setStatus(200, "email do not exist");
+			  response.sendError(HttpServletResponse.SC_OK);
 			  return "User not found, new User add-ed";
 		  }
-		      response.setStatus(400, "email exist");
+		  response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			  return "User is in db";
 
 	}
+	
 	
 	@RequestMapping(method=RequestMethod.PUT,value="/Contractors/{id}")
 	public void updateUser(@RequestBody Contractor con,@PathVariable String id) {
