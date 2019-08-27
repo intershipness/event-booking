@@ -1,60 +1,60 @@
 {
-    "heading": "Welcome",
-    "login" : "Login",
-    "registerN": "Register",
-    "footer": "English footer",
-    "home": "Home",
-    "about": "About",
+	"heading": "Welcome",
+	"login": "Login",
+	"registerN": "Register",
+	"footer": "English footer",
+	"home": "Home",
+	"about": "About",
 	"contact": "Contact",
 	"contractori": "Contractors",
-    "en": "English",
-    "ro": "Romanian ",
+	"en": "English",
+	"ro": "Romanian ",
 	"fr": "French",
 	"description": "Description",
-	"register":{
-		"required":"This field is required",
+	"register": {
+		"required": "This field is required",
 		"first": {
-			"name":"First name",
+			"name": "First name",
 			"holder": "Enter first name"
-			},
-		"last":{
+		},
+		"last": {
 			"name": "Last name",
 			"holder": "Enter last name"
 		},
-		"email":{
+		"email": {
 			"name": "Email",
 			"holder": "Enter email",
 			"validation": "Enter a valid email"
 		},
-		"phone":{
+		"phone": {
 			"name": "Phone number",
 			"holder": "Enter phone number",
 			"validation": "Enter a valid phone number"
 		},
-		"stage":{
+		"stage": {
 			"name": "Stage name",
 			"holder": "Enter stage name"
 		},
-		"youtube":{
+		"youtube": {
 			"name": "Youtube channel",
 			"holder": "Enter youtube channel"
-        },
-        "password": {
-            "name": "Password",
-            "holder": "Enter password"
-        },
-        "rpassword": {
-            "name": "Repeat Password",
-            "holder": "Repeat password"
 		},
-		"type":{
+		"password": {
+			"name": "Password",
+			"holder": "Enter password"
+		},
+		"rpassword": {
+			"name": "Repeat Password",
+			"holder": "Repeat password"
+		},
+		"type": {
 			"name": "Activity domain"
 		},
-		"stil":{
+		"stil": {
 			"name": "Style"
 		}
-		
-		
+
+
 	}
-	
+
 }
