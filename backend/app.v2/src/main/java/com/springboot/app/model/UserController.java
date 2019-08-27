@@ -37,11 +37,11 @@ public class UserController {
 
 	
 	
-	@RequestMapping("/login" )
-    public boolean login( @RequestBody User user) {
-        return
-          user.getEmail().equals("email") && user.getPassword().equals("password");
-    }
+//	@RequestMapping("/login" )
+//    public boolean login( @RequestBody User user) {
+//        return
+//          user.getEmail().equals("email") && user.getPassword().equals("password");
+//    }
 	@RequestMapping("/Contractor/login" )
     public boolean login( @RequestBody Contractor Contractor) {
         return
@@ -67,9 +67,9 @@ public class UserController {
 			  Userservice.addUser(user);
 			  response.sendError(HttpServletResponse.SC_OK);
 			  return "User not found, new User add-ed";
-		  }
+		  }else {
 		      response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			  return "User is in db";
+			  return "User is in db";}
 		
 	}
 	@RequestMapping(method=RequestMethod.PUT,value="/Users/{id}")
