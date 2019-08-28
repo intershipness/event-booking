@@ -1,117 +1,113 @@
-<link rel="stylesheet" type="text/css" href="css/register.css">
-<script src="js/modules/directives/contractorDirective.js"></script>
-<script src ="js/modules/controllers/userController"></script>
-
 <div class="content">
-<h3>Registration</h3>
-<form role="form" name="registerForm" ng-submit="submit()" ng-controller="userController">
-  <div class="form-group">
-      <label>{{'register.first.name' | translate}}</label><br>
-      <input type="text" placeholder="{{'register.first.holder' | translate}}" name="name" 
-	  ng-model="user.name" 
-	  ng-required="true">
-	  <span ng-show="registerForm.name.$touched && registerForm.name.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
-	  
-  </div>
-  <div class="form-group">
-
-	<label>{{'register.last.name' | translate}}</label><br>
-	<input type="text" placeholder="{{'register.last.holder' | translate}}" name="lastName" 
-	ng-model="user.lastName" 
-	ng-required="true">
-	<span ng-show="registerForm.lastName.$touched && registerForm.lastName.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
-	
-</div>
-  <div class="form-group">
-      <label>{{'register.email.name' | translate}}</label><br>
-      <input type="email" placeholder="{{'register.email.holder' | translate}}" name="email" 
-	  ng-model="user.email" 
-	  ng-required="true">
-	  <span ng-show="registerForm.email.$touched && registerForm.email.$invalid" style="color:red; display:block; text-align:center;">{{'register.email.validation'| translate}}</span>
-	 <!-- <span ng-show="registerForm.email.$invalid" style="color:red; display:block; text-align:center;">{{'register.email.validation'| translate}}</span> -->
-  </div>
-
-  <div class="form-group">
-		<label>{{'register.phone.name' | translate}}</label><br>
-		<input type="text" 
-		placeholder="{{'register.phone.holder' | translate}}"
-		name="mobile" 
-		inputmode="numeric" 
-		ng-minlength="10" 
-		ng-maxlength="10"  
-		ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/"  
-		ng-model="user.mobile" 
-		ng-required="true">
-		<span ng-show="registerForm.mobile.$touched && registerForm.mobile.$invalid" style="color:red; display:block; text-align:center;">{{'register.phone.validation'| translate}}</span>
-		<!-- <span ng-show="registerForm.mobile.$invalid" style="color:red; display:block; text-align:center;">{{'register.phone.validation'| translate}}</span> -->
-	</div>
-  
-  <div class="form-group">
-      <label>{{'register.password.name' | translate}}</label><br>
-      <input type="password" placeholder="{{'register.password.holder' | translate}}" name="password" 
-	  ng-model="user.password" 
-	  ng-required="true">
-	  <span ng-show="registerForm.password.$touched && registerForm.password.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
-  </div>
-  
-  <!-- <div class="form-group">
-      <label>{{'register.rpassword.name' | translate}}</label><br>
-      <input type="password" placeholder="{{'register.rpassword.holder' | translate}}" name="rpassword" 
-	  ng-pattern="rpassword" 
-	  ng-model="user.rpassword" 
-	  ng-required="true">
-	  <span ng-show="registerForm.rpassword.$touched && registerForm.rpassword.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
-  </div> -->
-  
-  <br>
-
- 
- <div class="checkbox">
-    <input type="checkbox" id="myCheck" ng-model="box"> contractor
-</div> 
-  
-  <div id="extra" ng-if="box">
-		<br><div class="form-group">
-			<label>{{'register.stage.name' | translate}}</label><br>
-			<input type="text" placeholder="{{'register.stage.holder'|translate}}" name="nume_scena" ng-model="user.nume_scena">
+		<h3>Registration</h3>
+		<form role="form" name="registerForm" ng-submit="submit()" ng-controller="registerController">
+		
+			<span ng-init="exists = false" ng-show="exists" style="color:red; display:block; text-align:center;">This user already exists</span>
+		
+		  <div class="form-group">
+			  <label>{{'register.first.name' | translate}}</label><br>
+			  <input class="regInput" type="text" placeholder="{{'register.first.holder' | translate}}" name="name" 
+			  ng-model="user.name" 
+			  ng-required="true">
+			  <span ng-show="registerForm.name.$touched && registerForm.name.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+			  
+		  </div>
+		  <div class="form-group">
+		
+			<label>{{'register.last.name' | translate}}</label><br>
+			<input class="regInput" type="text" placeholder="{{'register.last.holder' | translate}}" name="lastName" 
+			ng-model="user.lastName" 
+			ng-required="true">
+			<span ng-show="registerForm.lastName.$touched && registerForm.lastName.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+			
 		</div>
+		  <div class="form-group">
+			  <label>{{'register.email.name' | translate}}</label><br>
+			  <input class="regInput" type="email" placeholder="{{'register.email.holder' | translate}}" name="email" 
+			  ng-model="user.email" 
+			  ng-required="true">
+			  <span ng-show="registerForm.email.$touched && registerForm.email.$invalid" style="color:red; display:block; text-align:center;">{{'register.email.validation'| translate}}</span>
+			 <!-- <span ng-show="registerForm.email.$invalid" style="color:red; display:block; text-align:center;">{{'register.email.validation'| translate}}</span> -->
+		  </div>
 		
+		  <div class="form-group">
+				<label>{{'register.phone.name' | translate}}</label><br>
+				<input class="regInput" 
+				type="text" 
+				placeholder="{{'register.phone.holder' | translate}}"
+				name="mobile" 
+				inputmode="numeric" 
+				ng-minlength="10" 
+				ng-maxlength="10"  
+				ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/"  
+				ng-model="user.mobile" 
+				ng-required="true">
+				<span ng-show="registerForm.mobile.$touched && registerForm.mobile.$invalid" style="color:red; display:block; text-align:center;">{{'register.phone.validation'| translate}}</span>
+				<!-- <span ng-show="registerForm.mobile.$invalid" style="color:red; display:block; text-align:center;">{{'register.phone.validation'| translate}}</span> -->
+			</div>
+		  
+		  <div class="form-group">
+			  <label>{{'register.password.name' | translate}}</label><br>
+			  <input class="regInput" type="password" placeholder="{{'register.password.holder' | translate}}" name="password" 
+			  ng-model="user.password" 
+			  ng-required="true">
+			  <span ng-show="registerForm.password.$touched && registerForm.password.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+		  </div>
+		  
+		  <!-- <div class="form-group">
+			  <label>{{'register.rpassword.name' | translate}}</label><br>
+			  <input type="password" placeholder="{{'register.rpassword.holder' | translate}}" name="rpassword" 
+			  ng-pattern="rpassword" 
+			  ng-model="user.rpassword" 
+			  ng-required="true">
+			  <span ng-show="registerForm.rpassword.$touched && registerForm.rpassword.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+		  </div> -->
+		  
+		  <br>
 		
-		
-		<div class="form-group">
-			<label>{{'register.youtube.name' | translate}}</label><br>
-			<input type="text" placeholder="{{'register.youtube.holder' | translate}}" name="canal_youtube" ng-model="user.canal_youtube">
-		</div>
-		
-		<div class ="form-group">
-		  <label>{{'register.type.name' | translate}}</label>
-		  <select name ="domeniu_activitate" id ="tipMuzica" class= "form-control" ng-model="user.domeniu_activitate" ng-required="true">
-			<option>Dj</option>
-			<option>Band</option>
-			<option>Interpret</option>
-		  </select>
-		  <span ng-show="registerForm.domeniu_activitate.$touched && registerForm.domeniu_activitate.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
-		</div><br>
-		<div class="form-group" ng-model="user.stil_muzica">
-			<label>{{'register.stil.name' | translate}}</label><br><br>
-			<input type="checkbox" name="stil" value="pop">Pop<br>
-			<input type="checkbox" name="stil" value="rock">Rock<br>
-			<input type="checkbox" name="stil" value="pop">Populara<br>
-			<input type="checkbox" name="stil" value="rock">Folk<br>
+		 
+		 <div class="checkbox">
+			<input type="checkbox" id="myCheck" ng-model="box" ng-init="box = false"> contractor
 		</div> 
-  
-  
-	</div>
-  <br>
-  <input type="submit" id="submit" value="Submit" ng-disabled="registerForm.$invalid">
-  
-  <div class="signin">
-    <p>Already have an account? <a href="#!/login">Sign in</a>.</p>
-  </div>
-</form>
-</div>
-<script src="node_modules/angular-translate/dist/angular-translate.js"></script>
-<script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-<script src="js/app.js"></script>
-<script src="js/config.js"></script>
-<script src="js/modules/controllers/langController.js"></script>
+		  
+		  <div id="extra" ng-if="box">
+				<br><div class="form-group">
+					<label>{{'register.stage.name' | translate}}</label><br>
+					<input class="regInput" type="text" placeholder="{{'register.stage.holder'|translate}}" name="nume_scena" ng-model="user.nume_scena">
+				</div>
+				
+				
+				
+				<div class="form-group">
+					<label>{{'register.youtube.name' | translate}}</label><br>
+					<input class="regInput" type="text" placeholder="{{'register.youtube.holder' | translate}}" name="canal_youtube" ng-model="user.canal_youtube">
+				</div>
+				
+				<div class ="form-group">
+				  <label>{{'register.type.name' | translate}}</label>
+				  <select name ="domeniu_activitate" id ="tipMuzica" class= "form-control" ng-model="user.domeniu_activitate" ng-required="true">
+					<option>Dj</option>
+					<option>Band</option>
+					<option>Interpret</option>
+				  </select>
+				  <span ng-show="registerForm.domeniu_activitate.$touched && registerForm.domeniu_activitate.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+				</div><br>
+				<div class="form-group" ng-model="user.stil_muzica">
+					<label>{{'register.stil.name' | translate}}</label><br><br>
+					<input type="checkbox" name="stil" value="pop">Pop<br>
+					<input type="checkbox" name="stil" value="rock">Rock<br>
+					<input type="checkbox" name="stil" value="pop">Populara<br>
+					<input type="checkbox" name="stil" value="rock">Folk<br>
+				</div> 
+		  
+		  
+			</div>
+		  <br>
+		  <input type="submit" id="submit" value="Submit" ng-disabled="registerForm.$invalid">
+		  
+		  <div class="signin">
+			<p>Already have an account? <a href="#!/login">Sign in</a>.</p>
+		  </div>
+		</form>
+		</div>
+		
