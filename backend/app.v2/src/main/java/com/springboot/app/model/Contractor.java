@@ -83,7 +83,7 @@ public class Contractor {
 		this.descriere=descriere;
 		this.roles = roles;
 	}
-	
+	// 
 	public int getId() {
 		return id;
 	}
