@@ -13,7 +13,7 @@ body {
 .grid{
 	height:100vh;
 	display:grid;
-	grid-template-columns: 200px auto;
+	grid-template-columns: 250px auto;
 	/* grid-template-columns: repeat(2, 1fr); */
 	grid-template-rows:180px auto 50px;
 	grid-gap: 5px;
@@ -24,7 +24,7 @@ body {
 
 .grid > *{
 	
-	border: 2px solid black;
+	border: 2px solid white;
 }
 .header{
 	display: grid;
@@ -109,7 +109,7 @@ body {
 {
 	display: grid; 
 	grid-gap: 5px;
-	grid-template-rows:30px auto auto auto;
+	grid-template-rows:30px auto auto 300px;;
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 2;
