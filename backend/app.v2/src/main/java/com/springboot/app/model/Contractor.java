@@ -53,6 +53,9 @@ public class Contractor {
 
 	@Column(name = "status")
 	private String status;
+	@Column(name = "descriere")
+	private String descriere;
+
 	
 
 	@ManyToMany()
@@ -64,7 +67,7 @@ public class Contractor {
 		
 	}
 	public Contractor(int id, String name, String lastName, String email, String password, String mobile,
-			String numescena, String canalyoutube, String domeniu, String stilmuzica, String status, Set<Role> roles) {
+			String numescena, String canalyoutube, String domeniu, String stilmuzica, String status,String descriere, Set<Role> roles) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -77,6 +80,7 @@ public class Contractor {
 		this.domeniu = domeniu;
 		this.stilmuzica = stilmuzica;
 		this.status = status;
+		this.descriere=descriere;
 		this.roles = roles;
 	}
 	
@@ -153,5 +157,11 @@ public class Contractor {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+	public String getDescriere() {
+		return descriere;
+	}
+	public void setDescriere(String descriere) {
+		this.descriere = descriere;
 	}
 }
