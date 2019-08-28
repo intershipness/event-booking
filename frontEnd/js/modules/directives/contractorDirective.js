@@ -1,4 +1,0 @@
-app.directive('contractorDirective',function(){
-    
-
-});

@@ -4,6 +4,9 @@
 <html lang="en">
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
 <link rel="stylesheet" type="text/css" href="css/contractors.css">
+<link rel="stylesheet" type="text/css" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/calendar.css">
+<!-- <link href="node_modules/angularjs-datepicker/dist/angular-datepicker.css" rel="stylesheet" type="text/css" /> -->
 
 <head>
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
@@ -33,15 +36,28 @@
 			</select> -->
 
 			<div class="lang">
-					<ul class="languagepicker roundborders large">
-							<a href="#nl"><li><img src="http://i65.tinypic.com/2d0kyno.png"/></li></a>
-							<a href="#en"><li><img src="http://i64.tinypic.com/fd60km.png"/></li></a>
-							<a href="#de"><li><img src="http://i63.tinypic.com/10zmzyb.png"/></li></a>
-							<a href="#fr"><li><img src="http://i65.tinypic.com/300b30k.png"/></li></a>
-							<a href="#es"><li><img src="http://i68.tinypic.com/avo5ky.png"/></li></a>
-							<a href="#it"><li><img src="http://i65.tinypic.com/23jl6bn.png"/></li></a>
-					</ul></div>
-		
+				<ul class="languagepicker roundborders large">
+					<a href="#nl">
+						<li><img src="http://i65.tinypic.com/2d0kyno.png" /></li>
+					</a>
+					<a href="#en">
+						<li><img src="http://i64.tinypic.com/fd60km.png" /></li>
+					</a>
+					<a href="#de">
+						<li><img src="http://i63.tinypic.com/10zmzyb.png" /></li>
+					</a>
+					<a href="#fr">
+						<li><img src="http://i65.tinypic.com/300b30k.png" /></li>
+					</a>
+					<a href="#es">
+						<li><img src="http://i68.tinypic.com/avo5ky.png" /></li>
+					</a>
+					<a href="#it">
+						<li><img src="http://i65.tinypic.com/23jl6bn.png" /></li>
+					</a>
+				</ul>
+			</div>
+
 
 			<div class="subheader">
 				<ul>
@@ -70,30 +86,31 @@
 		</div>
 
 		<div class="left">
-				<div class="search" >
-						<div class="search-container">
-								<form action="/action_page.php">
-								  <input type="text" placeholder="Search.." name="search" >
-								   <button type="submit"><i class="fa fa-search"></i></button> 
-								</form>
-						</div>
+			<div class="search">
+				<div class="search-container">
+					<form action="/action_page.php">
+						<input type="text" placeholder="Search.." name="search">
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</form>
 				</div>
-				<div class="menu" >Menu 
-				   <br><br><input type="checkbox" name="stil" value="pop">Pop<br>
-				   <input type="checkbox" name="stil" value="rock">Rock<br>
-			       <input type="checkbox" name="stil" value="pop">Populara<br>
-			       <input type="checkbox" name="stil" value="rock">Folk<br>
-				</div>
-				<div class="menuStil" >
-						<label>Stil muzical</label><br><br>
-			<input type="checkbox" name="stil" value="pop">Pop<br>
-			<input type="checkbox" name="stil" value="rock">Rock<br>
-			<input type="checkbox" name="stil" value="pop">Populara<br>
-			<input type="checkbox" name="stil" value="rock">Folk<br>
-				</div>
-				<div class="calendar">calendar</div>
-					<input class="date" ng-model="date" />
 			</div>
+			<div class="menu">Menu
+				<br><br><input type="checkbox" name="stil" value="pop">Pop<br>
+				<input type="checkbox" name="stil" value="rock">Rock<br>
+				<input type="checkbox" name="stil" value="pop">Populara<br>
+				<input type="checkbox" name="stil" value="rock">Folk<br>
+			</div>
+			<div class="menuStil">
+				<label>Stil muzical</label><br><br>
+				<input type="checkbox" name="stil" value="pop">Pop<br>
+				<input type="checkbox" name="stil" value="rock">Rock<br>
+				<input type="checkbox" name="stil" value="pop">Populara<br>
+				<input type="checkbox" name="stil" value="rock">Folk<br>
+			</div>
+			<div class="calendar" ng-controller="calendarController">
+				<datepicker datepicker-show="true"
+							date-format="dd/MM/yyyy">
+					<input class="date" ng-model="date" />
 				</datepicker>
 				
 
@@ -127,6 +144,9 @@
 <script src="js/modules/controllers/registerController.js"></script>
 <script src="js/modules/services/registerService.js"></script>
 <script src="js/modules/directives/contractorBox.js"></script>
+<script src="js/modules/controllers/editController.js"></script>
+<script src="js/modules/controllers/calendarController.js"></script>
+<script src="js/modules/controllers/calendarEventController.js"></script>
 <script src="js/modules/controllers/menuController.js"></script>
 
 
