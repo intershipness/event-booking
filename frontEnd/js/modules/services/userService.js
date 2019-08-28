@@ -1,4 +1,4 @@
-app.factory("registerService" , function($http) {
+app.factory("userService" , function($http) {
     
     function registerUser(user, box) {
         if(box == false){
@@ -25,21 +25,18 @@ app.factory("registerService" , function($http) {
                 stilmuzica: user.stil_muzica
             }
         }
-        var user =  { "email": user.email}
         console.log(data);
         return $http({
             method: 'POST',
             url: url,
-            data: data,
-            params: user
+            data: data
             
         }).then(function regSucces(response) {
             console.log("succes post")
             //console.log(data);
             return data;
         }, function regErr(response){
-            console.log(response);//user already exists ->mesaj ascuns
-            exists = true;
+            console.log("EROARE in serviciu");//user already exists ->mesaj ascuns
         });
         
        

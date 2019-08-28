@@ -1,59 +1,52 @@
 {
-	"heading": "Bun venit!",
-	"login": "Logare",
-	"registerN": "Întregistrare",
-	"footer": "Romană footer",
-	"home": "Acasă",
-	"about": "Despre noi",
+    "heading": "Bun venit!",
+    "login": "Logare",
+    "registerN": "Întregistrare",
+    "footer": "Romană footer",
+    "home": "Acasă",
+    "about": "Despre noi",
 	"contact": "Contact",
 	"contractori": "Contractori",
-	"en": "Engleză",
-	"ro": "Romană ",
-	"fr": "Franceză",
-	"description": "descriere",
-	"register": {
-		"required": "Acest câmp este obligatoriu",
+    "en": "Engleză",
+    "ro": "Romană ",
+    "fr": "Franceză",
+    "register":{
+		"required":"Acest câmp este obligatoriu",
 		"first": {
-			"name": "Nume",
+			"name":"Nume",
 			"holder": "Introduceți numele"
-		},
-		"last": {
+			},
+		"last":{
 			"name": "Prenume",
 			"holder": "Introduceți prenume"
 		},
-		"email": {
+		"email":{
 			"name": "Email",
 			"holder": "Introduceți email",
 			"validation": "Introduceți un email valid"
 		},
-		"phone": {
+		"phone":{
 			"name": "Număr de telefon",
 			"holder": "Introduceți numărul de telefon",
 			"validation": "Introduceți un număr de telefon valid"
 		},
-		"stage": {
+		"stage":{
 			"name": "Nume de scenă",
 			"holder": "Introduceți numele de scenă"
 		},
-		"youtube": {
+		"youtube":{
 			"name": "Canal de youtube",
 			"holder": "Introduceți canalul de youtube"
-		},
-		"password": {
-			"name": "Parolă",
-			"holder": "Introduceți parola"
-		},
-		"rpassword": {
-			"name": "Repetați parola",
-			"holder": "Repetați parola"
-		},
-		"type": {
-			"name": "Activity domain"
-		},
-		"stil": {
-			"name": "Style"
-		}
-
+        },
+        "password": {
+            "name": "Parolă",
+            "holder": "Introduceți parola"
+        },
+        "rpassword": {
+            "name": "Repetați parola",
+            "holder": "Repetați parola"
+        }
+		
 	}
 
 }

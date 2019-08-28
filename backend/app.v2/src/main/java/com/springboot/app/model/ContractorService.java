@@ -17,6 +17,11 @@ public class ContractorService {
 		ContractorRepository.findAll().forEach(con::add);
 		return con;
 	}
+	public List<Contractor> getAllContractorsDomeniu(String domeniu){
+		List<Contractor>con = new ArrayList<>();
+		((Iterable<Contractor>) ContractorRepository.findBydomeniu(domeniu)).forEach(con::add);
+		return con;
+	}
 	public Object getContractor(Integer id) {
 		return ContractorRepository.findById(id);
 	
