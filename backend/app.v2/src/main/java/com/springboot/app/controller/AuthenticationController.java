@@ -30,22 +30,24 @@ public class AuthenticationController {
 	@RequestMapping("/login" )
     public boolean login( @RequestBody User user ,String email,Contractor con ,HttpServletResponse response  ) throws IOException {
 		User user1 = Userservice.findByEmail(email);
+		Contractor con1 =ContractorService.getContractoremail(email);
+		int userId;
 		if(user1 !=null)
 		{
-			response.sendError(HttpServletResponse.SC_OK, "este user");
+			userId = user1.getId();
+			response.sendError(HttpServletResponse.SC_OK, "este user"+" " + userId);
+			
+			
          return user.getEmail().equals("email") && user.getPassword().equals("password");
          
          }
 		else {
-			Contractor con2 = ContractorService.findByEmail(email);
-			if(con2!=null) {
-			response.sendError(HttpServletResponse.SC_OK, "este contractor");
+			userId = con1.getId();
+			response.sendError(HttpServletResponse.SC_OK, "este contractor" +" "+ userId);
 			return con.getEmail().equals("email") && con.getPassword().equals("password");
 			}
 		}
-		response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-		return false;
-		}
+   
      
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register() {
