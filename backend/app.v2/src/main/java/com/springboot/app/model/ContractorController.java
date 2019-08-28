@@ -28,6 +28,10 @@ public class ContractorController {
 		
 		
 	}
+	@RequestMapping("Contractor/{domeniu}")
+	public List<Contractor> getAllContractosrd(@PathVariable String domeniu) {
+		return   ContractorService.getAllContractorsDomeniu(domeniu);
+		}
 	@RequestMapping(method=RequestMethod.POST,value="/register/Contractor")
 	public void addUser(@RequestBody Contractor con ,String email,HttpServletResponse response) throws IOException {
 		 Contractor con1 = ContractorService.findByEmail(email);
