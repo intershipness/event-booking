@@ -1,3 +1,17 @@
+/* input */
+.date{
+  background:rgb(219, 215, 215);
+  width: 100%;
+  margin-bottom: 2%;
+  padding-top:4px;
+  padding-bottom: 4px;
+  border-radius: 8px;
+  font-size:15px;
+}
+
+
+
+/* calendar */
 datepicker a, [datepicker] a, .datepicker a{
     color:inherit;
     text-decoration:none;
