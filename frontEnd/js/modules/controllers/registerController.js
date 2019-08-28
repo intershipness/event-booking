@@ -1,4 +1,4 @@
-app.controller("userController", ['$scope', 'userService', '$location',
+app.controller("registerController", ['$scope', 'userService', '$location',
   function ($scope, userService, $location) {
     //app.controller("userController",function($scope, $location){
     //$scope.box = false;
@@ -8,6 +8,8 @@ app.controller("userController", ['$scope', 'userService', '$location',
     } else {
       path = '/contractor';
     }
+
+    
 
     $scope.submit = function () {
 
