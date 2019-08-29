@@ -17,26 +17,26 @@ public class TopicController {
 	@Autowired
 	private TopicService topicservice;
 	
-	@RequestMapping("/topics")
+	@RequestMapping("/Evenimente")
 	public List<Topic> getAllTopics() {
-		return   topicservice.getAllTopcis();
+		return   topicservice.getAllEvenimente();
 		}
-	@RequestMapping("/topics/{id}")
-	public Optional<Topic> getTopic(@PathVariable String id) {
-		return topicservice.getTopic(id);
-		
+//	@RequestMapping("/topics/{id}")
+//	public Optional<Topic> getTopic(@PathVariable String id) {
+//		return topicservice.getTopic(id);
+//		
+//	}
+	@RequestMapping(method=RequestMethod.POST,value="/Evenimente")
+	public void addTopic(@RequestBody Topic Evenimente) {
+		topicservice.addEvenimente(Evenimente);
 	}
-	@RequestMapping(method=RequestMethod.POST,value="/topics")
-	public void addTopic(@RequestBody Topic topic) {
-		topicservice.addTopic(topic);
+	@RequestMapping(method=RequestMethod.PUT,value="/Evenimente/{id}")
+	public void updateTopic(@RequestBody Topic Evenimente,@PathVariable String id) {
+		topicservice.updateEvenimente(id,Evenimente);
 	}
-	@RequestMapping(method=RequestMethod.PUT,value="/topics/{id}")
-	public void updateTopic(@RequestBody Topic topic,@PathVariable String id) {
-		topicservice.updateTopic(id,topic);
-	}
-	@RequestMapping(method=RequestMethod.DELETE,value="/topics/{id}")
+	@RequestMapping(method=RequestMethod.DELETE,value="/Evenimente/{id}")
 	public void deletTopic(@PathVariable String id) {
-		 topicservice.deleteTopic(id);
+		 topicservice.deleteEvenimente(id);
 		
 	}
 }
