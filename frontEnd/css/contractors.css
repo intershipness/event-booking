@@ -22,12 +22,15 @@
     border: 1px solid red;
 }
 .image{
+    width:200px;
+    height: 300px;;
     grid-column-start: 2;
-    border: 2px solid black;
+    border: 2px solid white;
     margin: 15px;
     padding: 5px;
 
 }
+
 .description{
     grid-column: span 2;
     padding: 15px;
@@ -60,9 +63,6 @@
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
-}
-.edit{
-   
 }
 
 

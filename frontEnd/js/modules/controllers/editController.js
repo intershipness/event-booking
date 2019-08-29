@@ -28,6 +28,8 @@ app.controller ('editController',  ['$scope', '$http', function($scope, $http) {
     //     $scope.content = "Something went wrong";
         
     //   });	
+
+    //post pe id-ul contractorului pe care il iau din get-ul de sus
 	
     $scope.editorEnabled = true;
   

@@ -3,7 +3,7 @@ app.factory("loginService" , [ '$http','$location', function($http, $location){
     function login(email, password) {
         var data = {
             "email": email,
-            "password": password
+            "password": password,
         }
 
         return $http({
