@@ -5,8 +5,10 @@
 <link rel="stylesheet" type="text/css" href="css/page_style.css">
 <link rel="stylesheet" type="text/css" href="css/contractors.css">
 <link rel="stylesheet" type="text/css" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/dropdown.css">
 <link rel="stylesheet" type="text/css" href="css/calendar.css">
-<!-- <link href="node_modules/angularjs-datepicker/dist/angular-datepicker.css" rel="stylesheet" type="text/css" /> -->
+
 
 <head>
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
@@ -59,12 +61,51 @@
 			</div>
 
 
-			<div class="subheader">
+			<div class="navbar">
 				<ul>
 					<li><a href="#!" class="active">{{ 'home' | translate }}</a></li>
 					<li><a href="#!/contact">{{'contact' | translate }}</a></li>
 					<li><a href="#!/about">{{'about' | translate }}</a></li>
 					<li><a href="#!/contractori">{{'contractori' | translate }}</a></li>
+					<li>
+							<div class="dropdown">
+									<button class="dropbtn">Filter
+									  <i class="fa fa-caret-down"></i>
+									</button>
+									<div class="dropdown-content">
+											<div class="headerfilter">
+													<h2>Pick your favourites</h2>
+											</div>   
+										<div class="column">
+											<div class="menu">Menu
+												<br><br><input type="checkbox" name="stil" value="pop">Pop<br>
+												<input type="checkbox" name="stil" value="rock">Rock<br>
+												<input type="checkbox" name="stil" value="pop">Populara<br>
+												<input type="checkbox" name="stil" value="rock">Folk<br>
+											</div>
+										</div>
+										<div class="column">
+											<div class="menuStil">
+												<label>Music Style</label><br><br>
+												<input type="checkbox" name="stil" value="pop">Pop<br>
+												<input type="checkbox" name="stil" value="rock">Rock<br>
+												<input type="checkbox" name="stil" value="pop">Populara<br>
+												<input type="checkbox" name="stil" value="rock">Folk<br>
+											</div>
+										</div>
+										<div class="column">
+											<div class="calendar" ng-controller="calendarController">
+												<datepicker datepicker-show="true"
+															date-format="dd/MM/yyyy">
+													<input class="date" ng-model="date" />
+												</datepicker>
+																			
+											</div>
+										</div>
+									  </div>
+									
+								  </div> 
+				    </li>
 				</ul>
 
 
@@ -84,8 +125,7 @@
 
 			</div>
 		</div>
-
-		<div class="left">
+		<!-- <div class="left">
 			<div class="search">
 				<div class="search-container">
 					<form action="/action_page.php">
@@ -93,7 +133,7 @@
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 				</div>
-			</div>
+			</div> 
 			<div class="menu">Menu
 				<br><br><input type="checkbox" name="stil" value="pop">Pop<br>
 				<input type="checkbox" name="stil" value="rock">Rock<br>
@@ -116,7 +156,7 @@
 
 			</div>
 		</div>
-
+ -->
 
 		<div class="footer">
 			<span>{{ 'footer' | translate }}</span>
