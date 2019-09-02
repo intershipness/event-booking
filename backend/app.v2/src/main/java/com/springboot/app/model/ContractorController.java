@@ -28,7 +28,7 @@ public class ContractorController {
 		
 		
 	}
-	@RequestMapping("Contractor/{domeniu}")
+	@RequestMapping("/Contractor/{domeniu}")
 	public List<Contractor> getAllContractosrd(@PathVariable String domeniu) {
 		return   ContractorService.getAllContractorsDomeniu(domeniu);
 		}
