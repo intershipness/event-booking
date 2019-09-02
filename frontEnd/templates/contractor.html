@@ -1,8 +1,8 @@
-<div class="contentC">
+<div class="contentC" ng-controller="editController" >
 
 
 
-	<div class="details" ng-controller="editController">
+	<div class="details">
 		<form method="post" name="detailsForm" class="detailsForm">
 			<div class="form-group">
 				<label style="font-size:1.5vw" for="firstName">{{'register.first.name' | translate}}:</label>
@@ -57,7 +57,7 @@
 
 	</div>
 	<div class="image" ng-controller="avatarController">
-
+		
 				<span>
 				<input  type="file"
 						name="myfile" 
@@ -65,31 +65,28 @@
 						placeholder="Upload File" 
 						onchange="angular.element(this).scope().uploadFile(this.files)"></input>  
 			</span>  
-			<img  	ng-init="name = 'images/add.png'"
-					style="width: 220px; height: 220px"
-					ng-src="{{name}}" 
-					>
+			<img  class="avatar"	ng-init="name = 'images/add.png'"
+							ng-src="{{name}}" 
+							>
 		
 	</div>
 
 	
 
 
-	<div class="description" ng-controller="editController">
+	<div class="description" >
 
 		<form class="descr">
-			<label style="font-size:1.5vw" for="youtube">Descriere:</label><br>
-			<textarea class="textarea" type="text" id="description" ng-model="details.description" ng-required="true"
-				ng-hide="editorEnabled"></textarea>
-			<span ng-show="editorEnabled">{{ details.description }}</span> <br>
-			<button class="btn" form="descr" ng-show="editorEnabled" title="Edit" ng-click="edit()">Edit</button>
-			<button class="btn" form="descr" type="button" ng-hide="editorEnabled"
-				data-ng-click="confirm()">Save</button>
+			<div class="form-group">
+			<label style="font-size:1.5vw" for="youtube">Descriere:</label>
+			<textarea class="textarea" type="text" ng-model="details.descriere"
+				ng-hide="editorEnabledDescr"></textarea>
+			<div class ="editDescr"><span ng-show="editorEnabledDescr">{{ details.descriere }}</span></div>
+			<button class="btn" form="descr" ng-show="editorEnabledDescr" title="Edit" ng-click="editDescr()">Edit</button>
+			<button class="btn" form="descr" type="button" ng-hide="editorEnabledDescr"
+				data-ng-click="confirm()">Save</button></div>
 		</form>
 
 	</div>
 </div>
 </div>
-<script>$("input[type='image']").click(function() {
-		$("input[id='my_file']").click();
-	});</script>

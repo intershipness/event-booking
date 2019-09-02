@@ -5,7 +5,7 @@ app.controller('avatarController', ['$scope', '$http', function ($scope, $http){
         var data = new FormData();
         //Take the first selected file
         data.append("file", files[0]);
-        $scope.name = "images/avatars/" + files[0].name;
+       
         console.log(files[0].name);
 
         $http.post(url, data, {
@@ -16,9 +16,10 @@ app.controller('avatarController', ['$scope', '$http', function ($scope, $http){
           transformRequest: angular.identity
         }).then(function (response) {
             $scope.uploadResult = response.data;
+            $scope.name = "images/avatars/" + files[0].name;
           }, function (response) {
             $scope.uploadResult = response.data;
-          })}
+          })}; 
         }
         
       ]);

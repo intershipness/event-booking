@@ -10,6 +10,11 @@ body {
 	linear-gradient(90deg, rgb(204, 111, 142), rgb(79, 2, 93)); */
 
 }
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
 .grid{
 	height:100vh;
 	display:grid;
@@ -62,12 +67,12 @@ body {
 	
 }
 
-.navbar li{
-	
-	padding-left: 70px;
+.navbar .menuli{
+	padding-left: 40px;
+	padding-right: 40px;
 }
   
-.navbar li:not(:last-child) {
+.navbar .menuli:not(:last-child) {
 	border-right: 1px solid black;
 	
 }
@@ -128,23 +133,26 @@ body {
 } */
 
 ul {
+	text-align: center;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
 	
   }
-  li {
+  .menuli {
   float: left;
+  text-align: center;
 }
 
-li a {
+/* li a {
 	display: block;
 	color:white;
-	text-align: center;
+	
 	padding-right: 80px;
 	text-decoration: none;
-}
+	border: 1px solid red;
+} */
   
   .search{
 	overflow: hidden;

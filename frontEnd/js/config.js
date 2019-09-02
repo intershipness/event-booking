@@ -43,6 +43,10 @@
                 templateUrl: "templates/contractorBox.html",
                 controller: "contractorsController"
             })
+            .when("/contractorPage",{
+                templateUrl: "templates/contractorPage.html",
+                controller: "contractorController"
+            })
              .otherwise({
                  redirectTo: "/index.html"
              });
