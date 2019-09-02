@@ -19,6 +19,7 @@ body {
 	grid-gap: 5px;
 	margin:0 ;
 	
+	
 
 }
 
@@ -37,7 +38,8 @@ body {
 	margin-bottom: 0px;
 	 /* background-color: white;
 	 */
-    background-image:url("music.jpg");
+	background-image:url("music.jpg");
+	
 
 }
 .lang{
@@ -56,6 +58,7 @@ body {
 	background:rgb(60, 60, 128);
 	grid-column: span 3;
 	place-items: center;
+	color:white;
 	
 }
 
@@ -137,7 +140,7 @@ ul {
 
 li a {
 	display: block;
-	color:black;
+	color:white;
 	text-align: center;
 	padding-right: 80px;
 	text-decoration: none;
