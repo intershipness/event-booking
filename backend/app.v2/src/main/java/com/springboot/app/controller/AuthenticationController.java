@@ -27,7 +27,7 @@ public class AuthenticationController {
 	private UserService Userservice;
 	@Autowired
 	private ContractorService ContractorService;
-	@RequestMapping("/login" )
+	@RequestMapping("/login" ) //login
     public boolean login( @RequestBody User user ,String email,Contractor con ,HttpServletResponse response  ) throws IOException {
 		User user1 = Userservice.findByEmail(email);
 		Contractor con1 =ContractorService.getContractoremail(email);

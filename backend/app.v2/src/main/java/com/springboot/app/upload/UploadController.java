@@ -23,7 +23,7 @@ import java.nio.file.Paths;
 public class UploadController {
 
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "D:\\Development\\event-booking\\frontEnd\\images\\avatars\\";
+    private static String UPLOADED_FOLDER = "C:\\Users\\V3790243\\Desktop\\ff\\";
 
 //    @GetMapping("/")
 //    public String index() {
