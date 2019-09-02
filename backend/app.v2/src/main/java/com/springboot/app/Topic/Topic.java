@@ -1,52 +1,72 @@
 package com.springboot.app.Topic;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "topic")
+@Table(name = "Evenimente")
 public class Topic {
 	
 	@Id 
-	private String id;
-	private String firstname;
-	private String lastname;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
+	(length=20)
+	private int Eventid;
+	@Column(length=200)
+	private String Title;
+	@Column (length=50)
+	private String StartAt;
+	@Column(length=50)
+	private String EndAt;
+	@Column(length=200)
+	
 	private String description;
+	
 	
 	public Topic() {
 		
 	}
-	public Topic(String id, String firstname, String lastname, String description) {
+	public Topic(int Eventid, String Title,  String  StartAt, String  EndAt,String description) {
 		super();
-		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.Eventid = Eventid;
+		this.Title = Title;
+		this.StartAt = StartAt;
+		this.EndAt = EndAt;
 		this.description = description;
 	}
 
 
-	
-	
-	
-	public String getId() {
-		return id;
+	public int getEventid() {
+		return Eventid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setEventid(int eventid) {
+		Eventid = eventid;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getTitle() {
+		return Title;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setTitle(String title) {
+		Title = title;
 	}
-	public String getLastname() {
-		return lastname;
+	public  String  getStartAt() {
+		return StartAt;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setStartAt( String startAt) {
+		StartAt = startAt;
+	}
+	public  String getEndAt() {
+		return EndAt;
+	}
+	public void setEndAt( String  endAt) {
+		EndAt = endAt;
 	}
 	public String getDescription() {
 		return description;
@@ -54,5 +74,9 @@ public class Topic {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	
+
+	
 	
 }

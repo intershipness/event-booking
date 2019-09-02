@@ -11,29 +11,29 @@ import org.springframework.stereotype.Service;
 @Service
 public class TopicService {
 	@Autowired
-	private TopicRepository topicRepository;
+	private TopicRepository EvenimenteRepository;
 	
 
-	public List<Topic> getAllTopcis(){
+	public List<Topic> getAllEvenimente(){
 		List<Topic>topics = new ArrayList<>();
-		topicRepository.findAll().forEach(topics::add);
+		EvenimenteRepository.findAll().forEach(topics::add);
 		return topics;
 	}
-	public Optional<Topic> getTopic(String id) {
-		return topicRepository.findById(id);
+	public Optional<Topic> getEvenimente(String id) {
+		return EvenimenteRepository.findById(id);
 	
 	}
-	public void addTopic(Topic topic) {
-		topicRepository.save(topic);
+	public void addEvenimente(Topic topic) {
+		EvenimenteRepository.save(topic);
 		
 	}
-	public void updateTopic(String id, Topic topic) {
-		topicRepository.save(topic);
+	public void updateEvenimente(String id, Topic topic) {
+		EvenimenteRepository.save(topic);
 }
-	public void deleteTopic(String id) {
+	public void deleteEvenimente(String id) {
 		
 		//topics.removeIf(T->T.getId().equals(id));
-		topicRepository.deleteById(id);
+		EvenimenteRepository.deleteById(id);
 	}
 }
  
