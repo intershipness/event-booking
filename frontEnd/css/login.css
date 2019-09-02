@@ -2,8 +2,8 @@
 /* Add padding to containers */
 .containerLogin div{
   padding: 16px;
-  width:500px;  
   border-radius: 15px;
+  margin-top: 10px;
 }
 .animated{
   background:rgb(94, 91, 91);
@@ -72,25 +72,25 @@
 
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email]{
-  width: 90%;
-  padding: 16px;
+.logInput[type=text], .logInput[type=password], .logInput[type=email]{
+  width:500px;
+  padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
-  border-radius:10px;
+  border-radius:8px;
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus{
+.logInput[type=text]:focus, .logInput[type=password]:focus{
 
   background-color: #ddd;
 
 }
-input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
-  border: 2px solid red;
+.logInput.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+  border: 1px solid red;
 }
 
-input[disabled="disabled"]{
+.logInput[disabled="disabled"]{
   cursor:not-allowed !important;
   opacity: 0.4;
 }

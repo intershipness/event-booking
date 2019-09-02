@@ -64,9 +64,9 @@
   }
 }
 
-.bounceInDownRegister {
-  -webkit-animation-name: bounceInDownRegister;
-  animation-name: bounceInDownRegister;
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
 }
 
 /* Full-width input fields */
