@@ -22,15 +22,15 @@ public class ContractorService {
 		((Iterable<Contractor>) ContractorRepository.findBydomeniu(domeniu)).forEach(con::add);
 		return con;
 	}
-	public Object getContractor(Integer id) {
-		return ContractorRepository.findById(id);
+	public Contractor getContractor(Integer id) {
+		return ContractorRepository.findByid(id);
 	
 	}
 	public void addContractor(Contractor con) {
 		ContractorRepository.save(con);
 		
 	}
-	public void updateContractor(String id,Contractor con) {
+	public void updateContractor(Integer id,Contractor con) {
 		ContractorRepository.save(con);
 }
 	public void deleteContractor(int id) {
@@ -46,4 +46,5 @@ public Contractor findByEmail(String email) {
 		
 		return (Contractor) ContractorRepository.findByEmail(email);
 	}
+
 }

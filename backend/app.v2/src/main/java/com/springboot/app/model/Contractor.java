@@ -32,7 +32,10 @@ public class Contractor {
 
 	@Column(name = "email")
 	private String email;
+	@Column(name = "imgprogile")
+	private String imgprogile;
 
+	
 	@Column(name = "password")
 	private String password;
 
@@ -66,13 +69,14 @@ public class Contractor {
 	public Contractor() {
 		
 	}
-	public Contractor(int id, String name, String lastName, String email, String password, String mobile,
+	public Contractor(int id, String name, String lastName, String email,String imgprogile, String password, String mobile,
 			String numescena, String canalyoutube, String domeniu, String stilmuzica, String status,String descriere, Set<Role> roles) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
 		this.email = email;
+		this.imgprogile = imgprogile;
 		this.password = password;
 		this.mobile = mobile;
 		this.numescena = numescena;
@@ -163,5 +167,11 @@ public class Contractor {
 	}
 	public void setDescriere(String descriere) {
 		this.descriere = descriere;
+	}
+	public String getImgprogile() {
+		return imgprogile;
+	}
+	public void setImgprogile(String imgprogile) {
+		this.imgprogile = imgprogile;
 	}
 }

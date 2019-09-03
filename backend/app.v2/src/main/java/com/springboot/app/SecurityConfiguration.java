@@ -67,6 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/Contractors").permitAll()
 				.antMatchers("/Contractors/{id}").permitAll()
 				.antMatchers("/Users").permitAll()
+				.antMatchers("/download").permitAll()
 				.antMatchers("/upload").permitAll()
 				//.antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.anyRequest().authenticated()

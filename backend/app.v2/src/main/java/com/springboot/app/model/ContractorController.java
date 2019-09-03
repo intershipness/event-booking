@@ -23,8 +23,8 @@ public class ContractorController {
 		return   ContractorService.getAllContractors();
 		}
 	@RequestMapping("/Contractors/{id}")
-	public Optional<Contractor> getUser(@PathVariable Integer id) {
-		return (Optional<Contractor>) ContractorService.getContractor(id);
+	public Contractor getUser(@PathVariable Integer id) {
+		return  ContractorService.getContractor(id);
 		
 		
 	}
@@ -49,7 +49,7 @@ public class ContractorController {
 	
 	
 	@RequestMapping(method=RequestMethod.PUT,value="/Contractors/{id}")
-	public void updateUser(@RequestBody Contractor con,@PathVariable String id) {
+	public void updateUser(@RequestBody Contractor con,@PathVariable Integer id) {
 		ContractorService.updateContractor(id,con);
 	}
 	@RequestMapping(method=RequestMethod.DELETE,value="/Contractors/{id}")
