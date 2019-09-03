@@ -28,7 +28,8 @@ public class AuthenticationController {
 	@Autowired
 	private ContractorService ContractorService;
 	@RequestMapping("/login" ) //login
-    public boolean login( @RequestBody User user ,String email,Contractor con ,HttpServletResponse response  ) throws IOException {
+    public boolean login( @RequestBody User user ,HttpServletResponse response  ) throws IOException {
+		String email=user.getEmail();
 		User user1 = Userservice.findByEmail(email);
 		Contractor con1 =ContractorService.getContractoremail(email);
 		int userId;
@@ -44,7 +45,7 @@ public class AuthenticationController {
 		else {
 			userId = con1.getId();
 			response.sendError(HttpServletResponse.SC_OK, "este contractor" +" "+ userId);
-			return con.getEmail().equals("email") && con.getPassword().equals("password");
+			return con1.getEmail().equals("email") && con1.getPassword().equals("password");
 			}
 		}
    
