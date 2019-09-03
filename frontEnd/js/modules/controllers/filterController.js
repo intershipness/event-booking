@@ -1,4 +1,4 @@
- app.controller('filterController',['$scope', 'filterFilter',function ($scope,filterFilter) {
+ app.controller('filterController',['$scope', 'filterService',function ($scope,filterService) {
       // Styles
       // $scope.styles = [{
       //   style: 
@@ -43,14 +43,23 @@
 //     return filterFilter($scope.styles, { selected: true });
 //   };
 
+
   // Watch styles for changes
   $scope.$watch('styles|filter:{selected:true}', function (nv) {
-    $scope.selection = nv.map(function (style) {
+      $scope.selection = nv.map(function (style) {
+        console.log(style.name);
       return style.name;
     });
   }, true);
   $scope.$watch('domains|filter:{selected:true}', function (nv) {
     $scope.selection = nv.map(function (domain) {
+      filterService.getDomain(style.name).then(function () {
+          console.log("get domain succes");
+          //console.log($scope.user);
+        }, function () {
+          console.log("ERROR in get domain")
+        })
+        console.log(domain.name);
       return domain.name;
     });
   }, true);

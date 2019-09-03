@@ -17,6 +17,17 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
   //   };
 
   $scope.details = [];
+
+  // contractorService.getDetails("40").then(function (response) {
+  //   $scope.details = response.data.data;
+  //       if(response.data.descriere == null){
+  //       $scope.editorEnabledDescr = false;}
+  //       console.log("succes getting details")
+  // }, function () {
+  //   console.log("Something went wrong in getting details")
+  // })
+
+
   var url = "http://localhost:8080/Contractors/40";
 
   $http.get(url)

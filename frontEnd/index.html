@@ -67,46 +67,51 @@
 
 			<div class="navbar" ng-controller="menuController">
 				<ul>
-					<li class="menuli"><button class="dropbtn" ng-click="goTo('#!')" class="active">{{ 'home' | translate }}</button></li>
-					<li class="menuli"><button class="dropbtn" ng-click="goTo('/contact')">{{'contact' | translate }}</button></li>
-					<li class="menuli"><button class="dropbtn" ng-click="goTo('/about')">{{'about' | translate }}</button></li>
-					<li class="menuli"><button class="dropbtn" ng-click="goTo('/contractori')">{{'contractori' | translate }}</button></li>
+					<li class="menuli"><button class="dropbtn" ng-click="goTo('#!')"
+							class="active">{{ 'home' | translate }}</button></li>
+					<li class="menuli"><button class="dropbtn"
+							ng-click="goTo('/contact')">{{'contact' | translate }}</button></li>
+					<li class="menuli"><button class="dropbtn"
+							ng-click="goTo('/about')">{{'about' | translate }}</button></li>
+					<li class="menuli"><button class="dropbtn"
+							ng-click="goTo('/contractori')">{{'contractori' | translate }}</button></li>
 					<li class="menuli">
-							<div class="dropdown">
-									<button class="dropbtn">Filter
-									</button>
-									<div class="dropdown-content">
-										<div class="column">
-											<div class="typemenu">Stiluri de muzica
-												<ul>
-													<li class="typeli"><input type="checkbox" name="type" value="dj">Dj</li>
-													<li class="typeli"><input type="checkbox" name="type" value="band">Band</li>
-													<li class="typeli"><input type="checkbox" name="type" value="interpret">Interpret</li>
-												</ul>
-											</div>
-										</div>
-										<div class="column">
-											<div class="typemenu">
-												<label>Tipuri</label>
-												<ul>
-												<li class="typeli"><input class="check" type="checkbox" name="stil" value="pop">Pop</li>
-												<li class="typeli"><input type="checkbox" name="stil" value="rock">Rock</li>
-												<li class="typeli"><input type="checkbox" name="stil" value="pop">Populara</li>
-												<li class="typeli"><input type="checkbox" name="stil" value="rock">Folk</li>
-											</ul>
-											</div>
-										</div>
-										<div class="column">
-											<div class="calendar" ng-controller="calendarController">
-												<datepicker datepicker-show="true" date-format="dd/MM/yyyy">
-													<input class="date" ng-model="date" />
-												</datepicker>
-											</div>
-										</div>
-										</div>
+						<div class="dropdown" ng-controller="filterController">
+							<button class="dropbtn">Filter
+							</button>
+							<div class="dropdown-content">
+								<div class="column">
+									<label>Stiluri de muzica</label>
+									<div class="typemenu" ng-repeat="style in styles">
+											<input class="typeli" 
+											type="checkbox" 
+											ng-click='getStyle(style.name)'>{{style.name}}
+									</div>
+								</div>
+								<div class="column">
+									<label>Tipuri</label>
+									<div class="typemenu" ng-repeat="domain in domains">
+
+										<input class="typeli" 
+												type="checkbox"
+												
+												ng-click='getdetails()'>{{domain.name}}
+									</div>
 									
-								  </div> 
-				    </li>
+									<!-- <div style="border:1px solid white;" >{{selection}}</div> -->
+
+								</div>
+								<div class="column">
+									<div class="calendar" ng-controller="calendarController">
+										<datepicker date-format="dd/MM/yyyy"> 
+											<!-- datepicker-show="true" -->
+											<input class="date" ng-model="date" />
+										</datepicker>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
 				</ul>
 
 
@@ -114,7 +119,7 @@
 			</div>
 		</div>
 
-		
+
 
 
 
@@ -126,46 +131,13 @@
 
 			</div>
 		</div>
-		<!-- <div class="left">
-			<div class="search">
-				<div class="search-container">
-					<form action="/action_page.php">
-						<input type="text" placeholder="Search.." name="search">
-						<button type="submit"><i class="fa fa-search"></i></button>
-					</form>
-				</div>
-			</div> 
-			<div class="menu">Menu
-				<br><br><input type="checkbox" name="stil" value="pop">Pop<br>
-				<input type="checkbox" name="stil" value="rock">Rock<br>
-				<input type="checkbox" name="stil" value="pop">Populara<br>
-				<input type="checkbox" name="stil" value="rock">Folk<br>
-			</div>
-			<div class="menuStil">
-				<label>Stil muzical</label><br><br>
-				<input type="checkbox" name="stil" value="pop">Pop<br>
-				<input type="checkbox" name="stil" value="rock">Rock<br>
-				<input type="checkbox" name="stil" value="pop">Populara<br>
-				<input type="checkbox" name="stil" value="rock">Folk<br>
-			</div>
-			<div class="calendar" ng-controller="calendarController">
-				<datepicker datepicker-show="true"
-							date-format="dd/MM/yyyy">
-					<input class="date" ng-model="date" />
-				</datepicker>
-				
-
-			</div>
-		</div>
- -->
 
 		<div class="footer">
 			<span>{{ 'footer' | translate }}</span>
 		</div>
 
+	
 	</div>
-</div>
-</body>
 </body>
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.js"></script>
@@ -193,6 +165,9 @@
 <script src="js/modules/services/avatarService.js"></script>
 <script src="js/modules/directives/avatarDirective.js"></script>
 <script src="js/modules/controllers/contractorController.js"></script>
-
+<script src="js/modules/controllers/filterController.js"></script>
+<script src="js/modules/controllers/editController.js"></script>
+<script src="js/modules/services/filterService.js"></script>
+<script src="js/modules/services/contractorService.js"></script>
 
 </html>

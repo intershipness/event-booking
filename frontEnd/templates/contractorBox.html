@@ -1,11 +1,7 @@
 <div ng-controller="contractorController">
-<div class="contractor" ng-click="gotoContractor()">
+<div class="contractor" ng-click="gotoContractor()" >
         <img class="avt" src="images/defaultContractor.jpg" style="height: 250px">
         <h3 >{{contractor.name}} {{contractor.lastName}}</h3>
-       
-
-        <!-- <p>{{'register.youtube.name' | translate}}:</p> -->
-
         <div class="extraDetails">
                 <div class="text">
                 <p ng-hide="{{contractor.canalyoutube.length == null}}">{{'register.youtube.name' | translate}}:

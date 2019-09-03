@@ -1,28 +1,16 @@
-View contractor details
+<h3>***View contractor details***</h3>
+<div class="contractori" ng-controller="contractorController">
+    <div>
 
+        <label style="font-size:1.5vw">{{'register.first.name' | translate}}:</label><br>{{contractor.name}}
 
+        <label style="font-size:1.5vw">{{'register.last.name' | translate}}:</label><br>
 
+        <label style="font-size:1.5vw" >{{'register.phone.name' | translate}}:</label><br>
 
-<!-- <div class="contractor">
-    <div class="details">
+        <label style="font-size:1.5vw">{{'register.stage.name' | translate}}:</label><br>
 
-
-        <h6 style="font-size:1.5vw" for="firstName">{{'register.first.name' | translate}}:</label>
-        <input class="edit" type="text" id="firstName" ng-model="details.name" ng-required="true"
-            ng-hide="editorEnabled" />
-
-        <label style="font-size:1.5vw" for="lastName">{{'register.last.name' | translate}}:</label>
-        <input type="text" id="lastName" ng-model="details.lastName" ng-required="true" ng-hide="editorEnabled" />
-
-        <label style="font-size:1.5vw" for="mobile">{{'register.phone.name' | translate}}:</label>
-        <input type="text" id="mobile" data-ng-model="details.mobile" ng-required="true" minlength="10" maxlength="10"
-            pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/" only-digits="" ng-hide="editorEnabled" />
-
-        <label style="font-size:1.5vw" for="stageName">{{'register.stage.name' | translate}}:</label>
-        <input type="text" id="stageName" ng-model="details.numescena" ng-required="true" ng-hide="editorEnabled" />
-
-        <label style="font-size:1.5vw" for="youtube">{{'register.youtube.name' | translate}}:</label>
-        <input type="text" id="youtube" ng-model="details.canalyoutube" ng-required="true" ng-hide="editorEnabled" />
+        <label style="font-size:1.5vw" >{{'register.youtube.name' | translate}}:</label>
 
     </div>
     <div class="image">
@@ -36,7 +24,6 @@ View contractor details
     <div class="description">
 
         <label style="font-size:1.5vw" for="youtube">Descriere:</label>
-        <textarea class="textarea" type="text" ng-model="details.descriere" ng-hide="editorEnabledDescr"></textarea>
 
     </div>
-</div> -->
+</div>
