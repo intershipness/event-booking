@@ -10,7 +10,7 @@
 	"en": "Engleză",
 	"ro": "Romană ",
 	"fr": "Franceză",
-	"description": "descriere",
+	"descriere": "descriere",
 	"register": {
 		"required": "Acest câmp este obligatoriu",
 		"first": {

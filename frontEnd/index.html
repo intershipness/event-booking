@@ -10,6 +10,10 @@
 <link rel="stylesheet" type="text/css" href="css/calendar.css">
 
 
+<!-- <link rel="stylesheet" type="text/css" href="node_modules\angularjs-datepicker\dist\angular-datepicker.css"> -->
+
+
+
 <head>
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -61,48 +65,45 @@
 			</div>
 
 
-			<div class="navbar">
+			<div class="navbar" ng-controller="menuController">
 				<ul>
-					<li><a href="#!" class="active">{{ 'home' | translate }}</a></li>
-					<li><a href="#!/contact">{{'contact' | translate }}</a></li>
-					<li><a href="#!/about">{{'about' | translate }}</a></li>
-					<li><a href="#!/contractori">{{'contractori' | translate }}</a></li>
-					<li>
+					<li class="menuli"><button class="dropbtn" ng-click="goTo('#!')" class="active">{{ 'home' | translate }}</button></li>
+					<li class="menuli"><button class="dropbtn" ng-click="goTo('/contact')">{{'contact' | translate }}</button></li>
+					<li class="menuli"><button class="dropbtn" ng-click="goTo('/about')">{{'about' | translate }}</button></li>
+					<li class="menuli"><button class="dropbtn" ng-click="goTo('/contractori')">{{'contractori' | translate }}</button></li>
+					<li class="menuli">
 							<div class="dropdown">
 									<button class="dropbtn">Filter
-									  <i class="fa fa-caret-down"></i>
 									</button>
 									<div class="dropdown-content">
-											<div class="headerfilter">
-													<h2>Pick your favourites</h2>
-											</div>   
 										<div class="column">
-											<div class="menu">Menu
-												<br><br><input type="checkbox" name="stil" value="pop">Pop<br>
-												<input type="checkbox" name="stil" value="rock">Rock<br>
-												<input type="checkbox" name="stil" value="pop">Populara<br>
-												<input type="checkbox" name="stil" value="rock">Folk<br>
+											<div class="typemenu">Stiluri de muzica
+												<ul>
+													<li class="typeli"><input type="checkbox" name="type" value="dj">Dj</li>
+													<li class="typeli"><input type="checkbox" name="type" value="band">Band</li>
+													<li class="typeli"><input type="checkbox" name="type" value="interpret">Interpret</li>
+												</ul>
 											</div>
 										</div>
 										<div class="column">
-											<div class="menuStil">
-												<label>Music Style</label><br><br>
-												<input type="checkbox" name="stil" value="pop">Pop<br>
-												<input type="checkbox" name="stil" value="rock">Rock<br>
-												<input type="checkbox" name="stil" value="pop">Populara<br>
-												<input type="checkbox" name="stil" value="rock">Folk<br>
+											<div class="typemenu">
+												<label>Tipuri</label>
+												<ul>
+												<li class="typeli"><input class="check" type="checkbox" name="stil" value="pop">Pop</li>
+												<li class="typeli"><input type="checkbox" name="stil" value="rock">Rock</li>
+												<li class="typeli"><input type="checkbox" name="stil" value="pop">Populara</li>
+												<li class="typeli"><input type="checkbox" name="stil" value="rock">Folk</li>
+											</ul>
 											</div>
 										</div>
 										<div class="column">
 											<div class="calendar" ng-controller="calendarController">
-												<datepicker datepicker-show="true"
-															date-format="dd/MM/yyyy">
+												<datepicker datepicker-show="true" date-format="dd/MM/yyyy">
 													<input class="date" ng-model="date" />
 												</datepicker>
-																			
 											</div>
 										</div>
-									  </div>
+										</div>
 									
 								  </div> 
 				    </li>
@@ -111,9 +112,9 @@
 
 
 			</div>
-
-
 		</div>
+
+		
 
 
 
@@ -163,14 +164,14 @@
 		</div>
 
 	</div>
-
+</div>
+</body>
 </body>
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.js"></script>
 <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
 <script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 <script src="node_modules/angular-xeditable/dist/js/xeditable.js"></script>
-
 
 <script src="node_modules/angularjs-datepicker/dist/angular-datepicker.js"></script>
 
@@ -191,6 +192,7 @@
 <script src="js/modules/controllers/avatarController.js"></script>
 <script src="js/modules/services/avatarService.js"></script>
 <script src="js/modules/directives/avatarDirective.js"></script>
+<script src="js/modules/controllers/contractorController.js"></script>
 
 
 </html>

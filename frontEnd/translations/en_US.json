@@ -10,7 +10,7 @@
     "en": "English",
     "ro": "Romanian ",
 	"fr": "French",
-	"description": "Description",
+	"descriere": "Description",
 	"register":{
 		"required":"This field is required",
 		"first": {
