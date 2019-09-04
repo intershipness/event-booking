@@ -27,13 +27,19 @@ public class AuthenticationController {
 	private UserService Userservice;
 	@Autowired
 	private ContractorService ContractorService;
-	@RequestMapping("/login" ) //login
-    public boolean login( @RequestBody User user ,HttpServletResponse response  ) throws IOException {
-		String email=user.getEmail();
+	@RequestMapping(path="/login",method=RequestMethod.GET ) //login
+    public boolean login( @RequestBody User user ,HttpServletResponse response   ) throws IOException {
+		String email=user.getEmail(); //usr trimis de ui
+		String pass=user.getPassword();// pass trimis de ui
+		
+		
 		User user1 = Userservice.findByEmail(email);
 		Contractor con1 =ContractorService.getContractoremail(email);
+		 
+		
+			  
 		int userId;
-		if(user1 !=null)
+		if(user1 !=null && user.getPassword().equals(user1.getPassword()) )
 		{
 			userId = user1.getId();
 			response.sendError(HttpServletResponse.SC_OK, "este user"+" " + userId);
@@ -42,11 +48,13 @@ public class AuthenticationController {
          return user.getEmail().equals("email") && user.getPassword().equals("password");
          
          }
-		else {
+		else if(con1!=null && user.getPassword().equals(con1.getPassword())){
 			userId = con1.getId();
 			response.sendError(HttpServletResponse.SC_OK, "este contractor" +" "+ userId);
 			return con1.getEmail().equals("email") && con1.getPassword().equals("password");
 			}
+		response.sendError(HttpServletResponse.SC_BAD_REQUEST, "USER SAU PAROLA GRESITE" );
+		return false;
 		}
    
      
