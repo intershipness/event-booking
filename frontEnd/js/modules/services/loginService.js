@@ -1,21 +1,32 @@
-app.factory("loginService" , [ '$http','$location', function($http, $location){
+app.factory("loginService" , [ '$http','$location', function($http, $location, ){
 
     function login(email, password) {
-        var data = {
+        var user = {
             "email": email,
-            "password": password,
-        }
+            "password": password
 
+        }
+        
         return $http({
             method: 'POST',
             url:'http://localhost:8080/login',
-            params: data
+            
+            dataType: "json",
+            headers: {
+                "Content-Type": 'application/json'
+            },data: user
         })
         .then(function loginSuccess(response) {
-            console.log("sucess");   
+            //fetch login details and save to local storage
+          
+            //only then move to another page
+            console.log("sucess in login"); 
+
             $location.path('/client')                  
           }, function loginError(response) {
-            console.log("error");
+            console.log("error in login");
+            
+            
           });
     }
 

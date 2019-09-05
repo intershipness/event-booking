@@ -1,22 +1,25 @@
-app.factory("contractorService" , [ '$http', function($http){
+app.factory("contractorService", ['$http','$q', function ($http, $q) {
 
-    function getDetails(id) {
-       url = 'http://localhost:8080/Contractors/' + id;
+    function getDetails(email) {
+        url = 'http://localhost:8080/Contractor/email';
 
-        return $http({
-            method: 'GET',
-            url: url,
-        })
-        .then(function detailsSuccess(response) {  
-            console.log("sucess get contractor by id"); 
-            console.log(response);            
-          }, function detailsError() {
-            console.log("error get contractor by id");
-          });
+        var deferred = $q.defer();
+        
+        $http({
+                method: 'GET',
+                url: url,
+                params: email
+            })
+            .then(function detailsSuccess(response) {
+                deferred.resolve(response);
+            }, function detailsError(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
     }
-
 
     return {
         'getDetails': getDetails
+
     }
 }]);

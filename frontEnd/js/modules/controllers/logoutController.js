@@ -1,6 +1,6 @@
 var app = angular.module('app');
-app.controller('logoutController',['$scope', '$location','loginService', function($scope,$location,loginService){
-
+app.controller('logoutController',['$scope', '$location','loginService', '$window', function($scope,$location,loginService, $window){
+  $window.localStorage.clear();
    $scope.logout = function(){
         //Just clear values from scope
         $scope.username = '';

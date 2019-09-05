@@ -1,4 +1,4 @@
-app.controller('editController', ['$scope', '$http', function ($scope, $http) {
+app.controller('editController', ['$scope', '$http', '$localStorage','contractorService', function ($scope, $http, $localStorage, contractorService) {
   // $scope.details = {
   //           name: "Octavia",
   //           lastName: "Bradea",
@@ -18,25 +18,41 @@ app.controller('editController', ['$scope', '$http', function ($scope, $http) {
 
   $scope.details = [];
 
-  // contractorService.getDetails("40").then(function (response) {
-  //   $scope.details = response.data.data;
-  //       if(response.data.descriere == null){
-  //       $scope.editorEnabledDescr = false;}
-  //       console.log("succes getting details")
-  // }, function () {
-  //   console.log("Something went wrong in getting details")
-  // })
+  // 
 
+  
+  var contractor = JSON.parse(localStorage.getItem("contractor"));
+  // console.log(contractor.name);
+  var url = "http://localhost:8080/Contractor/email"; 
+  var mail = {
+    email: contractor.email
+  }
+  console.log(contractor.email);
 
-  var url = "http://localhost:8080/Contractors/40";
-
-  $http.get(url)
-    .then(function regSucces(response) {
+ 
+  $http({
+    method: 'GET',
+    url: url,
+    params: mail
+})
+    .then(function succes(response) {
       $scope.details = response.data;
       if(response.data.descriere == null){
       $scope.editorEnabledDescr = false;}
-      console.log("succes get")
-    }, function regErr(response) {
+      console.log("succes get");
+     // $localStorage.valueToShare = response.data;
+      localStorage.setItem("contr", JSON.stringify(response.data));  
+
+  //     contractorService.getDetails(mail).then(function (response) {
+  //     // $scope.details = response.data.data;
+  //     //   if(response.data.descriere == null){
+  //     //   $scope.editorEnabledDescr = false;}
+  //       console.log(response)
+
+  // }, function () {
+  //   console.log("Something went wrong in getting details")
+  // })
+    }, function err(response) {
       $scope.content = "Something went wrong";
 
     });
