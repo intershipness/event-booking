@@ -7,10 +7,12 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ContractorController {
@@ -38,16 +40,21 @@ public class ContractorController {
 		 
 		  if(con1 ==null) {
 			  ContractorService.addContractor(con);
-			  response.sendError(HttpServletResponse.SC_OK);
+			  ResponseEntity.ok().body("Contractor add-ed in the database " );
 			//  return "User not found, new User add-ed";
 		  }else {
-		  response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+		  response.sendError(HttpServletResponse.SC_BAD_REQUEST,"User is allready in databaze");
 			 // return "User is in db";
 		  }
 
 	}
 	
-	
+	@RequestMapping("/Contractor/email")
+	public Contractor getContractor_email(@RequestParam String email) {
+	Contractor user =   ContractorService.getContractoremail(email);
+		return  user;
+		
+	}
 	@RequestMapping(method=RequestMethod.PUT,value="/Contractors/{id}")
 	public void updateUser(@RequestBody Contractor con,@PathVariable Integer id) {
 		ContractorService.updateContractor(id,con);
