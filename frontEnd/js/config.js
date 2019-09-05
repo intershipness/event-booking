@@ -61,5 +61,7 @@
          $translateProvider.determinePreferredLanguage();
 
          //date-piker
+
+         
      }
  ]);

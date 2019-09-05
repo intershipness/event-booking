@@ -2,15 +2,15 @@
 <div class="contractori" ng-controller="contractorController">
     <div>
 
-        <label style="font-size:1.5vw">{{'register.first.name' | translate}}:</label><br>{{contractor.name}}
+        <label style="font-size:1.5vw" ng-model="con.name">{{'register.first.name' | translate}}:</label><label>here--->{{con.name}}</label><br>
 
-        <label style="font-size:1.5vw">{{'register.last.name' | translate}}:</label><br>
+        <label style="font-size:1.5vw">{{'register.last.name' | translate}}:</label><br>{{con.lastName}}
 
-        <label style="font-size:1.5vw" >{{'register.phone.name' | translate}}:</label><br>
+        <label style="font-size:1.5vw" >{{'register.phone.name' | translate}}:</label><br>{{con.mobile}}
 
-        <label style="font-size:1.5vw">{{'register.stage.name' | translate}}:</label><br>
+        <label style="font-size:1.5vw">{{'register.stage.name' | translate}}:</label><br>{{con.numescena}}
 
-        <label style="font-size:1.5vw" >{{'register.youtube.name' | translate}}:</label>
+        <label style="font-size:1.5vw" >{{'register.youtube.name' | translate}}:</label>{{con.canalyoutube}}
 
     </div>
     <div class="image">

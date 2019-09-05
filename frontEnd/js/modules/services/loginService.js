@@ -1,4 +1,4 @@
-app.factory("loginService" , [ '$http','$location', function($http, $location, ){
+app.factory("loginService" , [ '$http','$q', function($http, $q){
 
     function login(email, password) {
         var user = {
@@ -7,27 +7,30 @@ app.factory("loginService" , [ '$http','$location', function($http, $location, )
 
         }
         
-        return $http({
+        var deferred = $q.defer();
+        $http({
             method: 'POST',
             url:'http://localhost:8080/login',
             
             dataType: "json",
             headers: {
                 "Content-Type": 'application/json'
-            },data: user
-        })
-        .then(function loginSuccess(response) {
-            //fetch login details and save to local storage
-          
-            //only then move to another page
-            console.log("sucess in login"); 
+            },
+            data: user
+                
+            }).then(function regSucces(response) {
+                deferred.resolve(response);
+                console.log("succes login service")
+                return response.data;
+            }, function regErr(error){
+                console.log("error login service")
+                deferred.reject(error);
+            });
+            return deferred.promise;
 
-            $location.path('/client')                  
-          }, function loginError(response) {
-            console.log("error in login");
-            
-            
-          });
+
+
+       
     }
 
 
@@ -35,3 +38,24 @@ app.factory("loginService" , [ '$http','$location', function($http, $location, )
         'loginUser': login
     }
 }]);
+ // return $http({
+        //     method: 'POST',
+        //     url:'http://localhost:8080/login',
+            
+        //     dataType: "json",
+        //     headers: {
+        //         "Content-Type": 'application/json'
+        //     },data: user
+        // })
+        // .then(function loginSuccess(response) {
+        //     //fetch login details and save to local storage
+          
+        //     //only then move to another page
+        //     console.log("sucess in login"); 
+
+        //     $location.path('/client')                  
+        //   }, function loginError(response) {
+        //     console.log("error in login");
+            
+            
+        //   });
