@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,10 +28,10 @@ public class AuthenticationController {
 	private UserService Userservice;
 	@Autowired
 	private ContractorService ContractorService;
-	@RequestMapping(path="/login",method=RequestMethod.GET ) //login
-    public boolean login( @RequestBody User user ,HttpServletResponse response   ) throws IOException {
-		String email=user.getEmail(); //usr trimis de ui
-		String pass=user.getPassword();// pass trimis de ui
+	@RequestMapping("/login" ) //login
+    public ResponseEntity<String> login( @RequestBody User user ,HttpServletResponse response   ) throws IOException {
+		String email=user.getEmail(); //email trimis de ui
+		
 		
 		
 		User user1 = Userservice.findByEmail(email);
@@ -42,35 +43,26 @@ public class AuthenticationController {
 		if(user1 !=null && user.getPassword().equals(user1.getPassword()) )
 		{
 			userId = user1.getId();
-			response.sendError(HttpServletResponse.SC_OK, "este user"+" " + userId);
+			//response.sendError(HttpServletResponse.SC_OK, "este user"+" " + userId);
+			ResponseEntity.ok().body("User whit id " +" "+ userId);
 			
-			
-         return user.getEmail().equals("email") && user.getPassword().equals("password");
+         return ResponseEntity.ok().body("User whit id " +" "+ userId);
+        		 //user.getEmail().equals("email") && user.getPassword().equals("password");
          
          }
 		else if(con1!=null && user.getPassword().equals(con1.getPassword())){
 			userId = con1.getId();
-			response.sendError(HttpServletResponse.SC_OK, "este contractor" +" "+ userId);
-			return con1.getEmail().equals("email") && con1.getPassword().equals("password");
+			//response.sendError(HttpServletResponse.SC_OK, "este contractor" +" "+ userId);
+			ResponseEntity.ok().body("Contracotr whit id " +" "+ userId);
+			return ResponseEntity.ok().body("Contracotr whit id " +" "+ userId);
+					//con1.getEmail().equals("email") && con1.getPassword().equals("password");
 			}
-		response.sendError(HttpServletResponse.SC_BAD_REQUEST, "USER SAU PAROLA GRESITE" );
-		return false;
+		//response.sendError(HttpServletResponse.SC_BAD_REQUEST, "USER SAU PAROLA GRESITE" );
+		return ResponseEntity.badRequest().body("USER SAU PAROLA GRESITE");
 		}
    
      
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public ModelAndView register() {
-		ModelAndView modelAndView = new ModelAndView();
-		// User user = new User();
-		// modelAndView.addObject("user", user); 
-		//modelAndView.setViewName("register"); // resources/template/register.html
-		return modelAndView;
-	}
+
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView home() {
-	ModelAndView modelAndView = new ModelAndView();
-	//modelAndView.setViewName("home"); // resources/template/home.html
-		return modelAndView;
-	}
+	
 }
