@@ -1,31 +1,42 @@
-app.controller('editController', ['$scope', '$http', function ($scope, $http) {
-  // $scope.details = {
-  //           name: "Octavia",
-  //           lastName: "Bradea",
-  //           mobile: "0772255889",
-  //           numescena: 'nume_scena',
-  //           canalyoutube: 'canal_youtube',
-  // 		      description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.'
-  // 	};
-
-  // 	$scope.details = {
-  //       name: user.name,
-  //       lastName: user.lastName,
-  //       mobile: user.mobile,
-  //       numescena: user.nume_scena,
-  //       canalyoutube: user.canal_youtube
-  //   };
+app.controller('editController', ['$scope', '$http', '$localStorage','contractorService', function ($scope, $http, $localStorage, contractorService) {
 
   $scope.details = [];
-  var url = "http://localhost:8080/Contractors/40";
 
-  $http.get(url)
-    .then(function regSucces(response) {
+  // 
+
+  
+  var contractor = JSON.parse(localStorage.getItem("contractor"));
+  // console.log(contractor.name);
+  var url = "http://localhost:8080/Contractor/email"; 
+  var mail = {
+    email: contractor.email
+  }
+  console.log(contractor.email);
+
+ 
+  $http({
+    method: 'GET',
+    url: url,
+    params: mail
+})
+    .then(function succes(response) {
       $scope.details = response.data;
       if(response.data.descriere == null){
       $scope.editorEnabledDescr = false;}
-      console.log("succes get")
-    }, function regErr(response) {
+      console.log("succes get");
+     // $localStorage.valueToShare = response.data;
+      localStorage.setItem("contr", JSON.stringify(response.data));  
+
+  //     contractorService.getDetails(mail).then(function (response) {
+  //     // $scope.details = response.data.data;
+  //     //   if(response.data.descriere == null){
+  //     //   $scope.editorEnabledDescr = false;}
+  //       console.log(response)
+
+  // }, function () {
+  //   console.log("Something went wrong in getting details")
+  // })
+    }, function err(response) {
       $scope.content = "Something went wrong";
 
     });

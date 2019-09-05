@@ -1,23 +1,20 @@
-app.controller("registerController", ['$scope', 'registerService', '$location',
-  function ($scope, registerService, $location) {
+app.controller("registerController", ['$scope', 'registerService', '$location', '$localStorage',
+  function ($scope, registerService, $location, $localStorage) {
+    $scope.exists=false;
+    var contractor = [];
   $scope.submit = function () {
-
-      console.log("in controller");
-      
-      console.log($scope.box);
-      registerService.registerUser($scope.user, $scope.box)
+      registerService.registerUser($scope.user, $scope.box, $scope.exists)
         .then(function () {
-          console.log("SUCCES");
-          //console.log($scope.user);
-          
           if ($scope.box == false) {
             path = '/client';
           } else {
             path = '/contractor';
           }
+          $localStorage.valueToShare = $scope.user;
+          localStorage.setItem("contractor", JSON.stringify($scope.user));  
          $location.path(path);
         }, function () {
-          console.log("ERROR in controller")
+          console.log("ERROR in controller register")
         })
 
     }

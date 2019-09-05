@@ -1,9 +1,10 @@
-app.factory("registerService" , function($http) {
+app.factory("registerService" , function($http, $q) {
     
-    function registerUser(user, box) {
+    function registerUser(user, box, exists) {
         if(box == false){
             var url = 'http://localhost:8080/register/User';
             var data = {
+                auth_user_id: "",
                 name: user.name,
                 lastName: user.lastName,
                 email: user.email,
@@ -14,6 +15,7 @@ app.factory("registerService" , function($http) {
         else{
             var url = 'http://localhost:8080/register/Contractor';
             var data = {
+                auth_contractor_id: "",
                 name: user.name,
                 lastName: user.lastName,
                 email: user.email,
@@ -27,20 +29,40 @@ app.factory("registerService" , function($http) {
         }
         var user =  { "email": user.email}
         console.log(data);
-        return $http({
-            method: 'POST',
-            url: url,
-            data: data,
-            params: user
+        console.log(exists);
+        var deferred = $q.defer();
+        $http({
+                method: 'POST',
+                url: url,
+                data: data,
+                params: user
+                
+            }).then(function regSucces(response) {
+                deferred.resolve(response);
+                return data;
+            }, function regErr(error){
+                console.log(error.data.message) //user is in bd
+                //user already exists ->mesaj ascuns
+                deferred.reject(error);
+                exists = true;
+                console.log(exists)
+            });
+            return deferred.promise;
+
+
+        // return $http({
+        //     method: 'POST',
+        //     url: url,
+        //     data: data,
+        //     params: user
             
-        }).then(function regSucces(response) {
-            console.log("succes post")
-            //console.log(data);
-            return data;
-        }, function regErr(response){
-            console.log(response);//user already exists ->mesaj ascuns
-            exists = true;
-        });
+        // }).then(function regSucces(response) {
+        //     return data;
+        // }, function regErr(response){
+        //     console.log(response.data.message) //user is in bd
+        //     //user already exists ->mesaj ascuns
+        //     exists = true;
+        // });
         
        
     }

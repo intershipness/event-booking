@@ -3,7 +3,7 @@
 		<h3>Registration</h3>
 		<form role="form" name="registerForm" ng-submit="submit()" ng-controller="registerController">
 		
-			<span ng-init="exists = false" ng-show="exists" style="color:red; display:block; text-align:center;">This user already exists</span>
+			<span ng-model="exists" ng-show="exists" style="color:red; display:block; text-align:center;">This user already exists</span>
 		
 		  <div class="form-group">
 			  <label>{{'register.first.name' | translate}}</label><br>
