@@ -65,7 +65,7 @@
 						placeholder="Upload File" 
 						onchange="angular.element(this).scope().uploadFile(this.files)"></input>  
 			</span> <div>
-			<img  class="avatar"
+			<img  class="avatar" ng-init="name='images/add.png'"
 							ng-src="{{name}}" 
 							>
 		</div> 

@@ -3,16 +3,14 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
   $scope.details = [];
 
   // 
-
+  var maill = JSON.parse(localStorage.getItem("logEmail"));
+  console.log(maill);
   
   var contractor = JSON.parse(localStorage.getItem("contractor"));
-  // console.log(contractor.name);
   var url = "http://localhost:8080/Contractor/email"; 
   var mail = {
-    email: contractor.email
+    email: maill
   }
-  console.log(contractor.email);
-
  
   $http({
     method: 'GET',
@@ -25,7 +23,7 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
       $scope.editorEnabledDescr = false;}
       console.log("succes get");
      // $localStorage.valueToShare = response.data;
-      localStorage.setItem("contr", JSON.stringify(response.data));  
+      localStorage.setItem("contractor", JSON.stringify(response.data));  
 
   //     contractorService.getDetails(mail).then(function (response) {
   //     // $scope.details = response.data.data;
@@ -50,10 +48,16 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
     $scope.submitted = true;
     $scope.editorEnabled = true;
     $scope.editorEnabledDescr = true;
-    $http.put(url, $scope.details)
+
+
+    $http({
+      method: 'PUT',
+      url: "http://localhost:8080/Contractors/"+ contractor.id,
+      data: $scope.details
+  })
+   // $http.put(url, )
       .then(function regSucces(response) {
         console.log("succes put")
-        console.log($scope.details);
       }, function regErr(response) {
         $scope.content = "Something went wrong";
 

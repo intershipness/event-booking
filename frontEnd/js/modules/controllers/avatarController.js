@@ -13,7 +13,8 @@ app.controller('avatarController', ['$scope', '$http', 'contractorService', func
 
     //     });
     $scope.name = "add.png"
-    var contractor = JSON.parse(localStorage.getItem("contr"));
+    console.log("in avatar controller:")
+    var contractor = JSON.parse(localStorage.getItem("contractor"));
     console.log(contractor);
     var idd = {
       id: contractor.id
@@ -55,7 +56,7 @@ app.controller('avatarController', ['$scope', '$http', 'contractorService', func
         // contractorService.getDetails(mail)
         // $scope.name = contractor.imgprogile
         //save to local storage
-        localStorage.setItem("contr", JSON.stringify(response.data));
+        localStorage.setItem("contractor", JSON.stringify(response.data));
       }, function (response) {
         console.log("eroare avatar get")
       })

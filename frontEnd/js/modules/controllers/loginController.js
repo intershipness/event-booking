@@ -8,7 +8,15 @@ app.controller('loginController', ['$scope', 'loginService', '$location',functio
       loginService.loginUser($scope.email, $scope.password)
         .then(function (response) {
           console.log("merge login controller");
-          $location.path('/client')
+          localStorage.setItem("logEmail", JSON.stringify($scope.email));
+          if(response.data == "contractor")
+          {
+            $location.path('/contractor')
+          }
+          else{
+             $location.path('/client')
+          }
+         
           // $scope.isLogin = true;
         
         }, function () {
