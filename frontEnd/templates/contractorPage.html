@@ -1,20 +1,20 @@
 <h3>***View contractor details***</h3>
-<div class="contractori" ng-controller="contractorController">
+<div class="contractori" ng-controller="contPageController" ng-model="cont" >
     <div>
 
-        <label style="font-size:1.5vw" ng-model="con.name">{{'register.first.name' | translate}}:</label><label>here--->{{con.name}}</label><br>
+        <label ng-model="firstName" >{{'register.first.name' | translate}}:</label><label>{{firstName}}</label><br>
 
-        <label style="font-size:1.5vw">{{'register.last.name' | translate}}:</label><br>{{con.lastName}}
+        <label ng-model="lastName">{{'register.last.name' | translate}}:</label>{{lastName}}<br>
 
-        <label style="font-size:1.5vw" >{{'register.phone.name' | translate}}:</label><br>{{con.mobile}}
+        <label ng-model="mobile">{{'register.phone.name' | translate}}:</label>{{mobile}}<br>
 
-        <label style="font-size:1.5vw">{{'register.stage.name' | translate}}:</label><br>{{con.numescena}}
+        <label ng-model="numescena">{{'register.stage.name' | translate}}:</label>{{numescena}}<br>
 
-        <label style="font-size:1.5vw" >{{'register.youtube.name' | translate}}:</label>{{con.canalyoutube}}
+        <label ng-model="canalyoutube">{{'register.youtube.name' | translate}}:</label>{{canalyoutube}}
 
     </div>
     <div class="image">
-        <img class="avatar" ng-init="name = 'images/add.png'">
+        <img class="avatar" ng-model="src" ng-src={{src}} ng-init="src='images/add.png'">
 
     </div>
 

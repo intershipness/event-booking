@@ -93,12 +93,17 @@
 				  </select>
 				  <span ng-show="registerForm.domeniu_activitate.$touched && registerForm.domeniu_activitate.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
 				</div><br>
-				<div class="form-group" ng-model="user.stil_muzica">
-					<label>{{'register.stil.name' | translate}}</label><br><br>
-					<input type="checkbox" name="stil" value="pop">Pop<br>
-					<input type="checkbox" name="stil" value="rock">Rock<br>
-					<input type="checkbox" name="stil" value="pop">Populara<br>
-					<input type="checkbox" name="stil" value="rock">Folk<br>
+				<label>{{'register.stil.name' | translate}}</label><br><br>
+				<div class="form-group" ng-repeat="stil in styles">
+					
+					<!-- <input type="checkbox" value="pop">Pop<br>
+					<input type="checkbox" value="rock">Rock<br>
+					<input type="checkbox" value="pop">Populara<br>
+					<input type="checkbox" value="rock">Folk<br> -->
+						<label for="chkCustomer_{{stil.stilId}}">
+							<input id="chkCustomer_{{stil.stilId}}" type="checkbox" ng-model="stil.Selected" ng-change = "CheckBox_Checked(stil.stilId)" />
+							{{stil.Name}}
+						</label>
 				</div> 
 		  
 		  

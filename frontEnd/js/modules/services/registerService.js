@@ -1,10 +1,9 @@
 app.factory("registerService" , function($http, $q) {
     
-    function registerUser(user, box, exists) {
+    function registerUser(user, box, exists, style) {
         if(box == false){
             var url = 'http://localhost:8080/register/User';
             var data = {
-                auth_user_id: "",
                 name: user.name,
                 lastName: user.lastName,
                 email: user.email,
@@ -15,7 +14,6 @@ app.factory("registerService" , function($http, $q) {
         else{
             var url = 'http://localhost:8080/register/Contractor';
             var data = {
-                auth_contractor_id: "",
                 name: user.name,
                 lastName: user.lastName,
                 email: user.email,
@@ -24,7 +22,7 @@ app.factory("registerService" , function($http, $q) {
                 numescena: user.nume_scena,
                 canalyoutube: user.canal_youtube,
                 domeniu: user.domeniu_activitate,
-                stilmuzica: user.stil_muzica
+                stilmuzica:style
             }
         }
         var user =  { "email": user.email}
@@ -66,9 +64,29 @@ app.factory("registerService" , function($http, $q) {
         
        
     }
+
+
+    function getDetails(email) {
+        url = 'http://localhost:8080/Contractor/email';
+
+        var deferred = $q.defer();
+        
+        $http({
+                method: 'GET',
+                url: url,
+                params: email
+            })
+            .then(function detailsSuccess(response) {
+                deferred.resolve(response);
+            }, function detailsError(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
     
     return {
-        'registerUser' : registerUser
+        'registerUser' : registerUser,
+        'getDetails' : getDetails
     }       
 
 });
