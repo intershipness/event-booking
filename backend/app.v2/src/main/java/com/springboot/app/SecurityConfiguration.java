@@ -3,22 +3,25 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	//dd
+//	//dd
 
 
 	@Autowired
@@ -30,11 +33,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Value("${spring.queries.roles-query}")
 	private String rolesQuery;
 
+
+
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery)
 				.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
 	}
+	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -46,16 +53,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //         .anyRequest().authenticated();
 		 http.cors().and().csrf().disable();
 		 
-		 
-		 
-		 
-		 
-		 
-		 
 		http
 		
 		.authorizeRequests()
-	
+		
 				// URLs matching for access rights
 				.antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
@@ -78,8 +79,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/login")
 				.failureUrl("/login?error=true")
-				.defaultSuccessUrl("/Users")
 				.defaultSuccessUrl("/Contractors")
+				
 				.usernameParameter("email")
 				.passwordParameter("password")
 				.and()
@@ -91,9 +92,35 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.accessDeniedPage("/access-denied");
 	}
 
+
+
+
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		 http.httpBasic()
+//         .and()
+//         .authorizeRequests()
+//         .antMatchers("/Users").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
+//         .antMatchers("/Contractors").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
+//         .anyRequest().authenticated().and()
+//         .formLogin()
+//          .loginProcessingUrl("/login").permitAll()
+//         .failureUrl("/login?error=true")
+//         .defaultSuccessUrl("/Contractors")
+//         .usernameParameter("user")
+//         .passwordParameter("password");
+//		 http.cors().and().csrf().disable();
+//	}
+}
+
+
+
+
+
+
 //	@Override
 //	public void configure(WebSecurity web) throws Exception {
 //		web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
 //	}
-
-}
+//
+//}
