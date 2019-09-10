@@ -1,16 +1,18 @@
 <div ng-controller="contractorController">
 <div class="contractor" ng-click="gotoContractor()" ng-model="contractor">
-        <img class="avt" src="images/defaultContractor.jpg" style="height: 250px">
+        <div class="default">
+                <img class="avt" ng-src="{{contractor.imgprogile}}" style="height: 100%; width:100%;"ng-init="src='images/singer.png'">
+        </div>
         <h3 >{{contractor.name}} {{contractor.lastName}}</h3>
-        <div class="extraDetails">
+        <div class="extraDetails" >
                 <div class="text">
-                <p ng-hide="{{contractor.canalyoutube.length == null}}">{{'register.youtube.name' | translate}}:
-                        {{contractor.canalyoutube}}</p>
-                <p ng-hide="{{contractor.numescena.length == null}}">{{'register.stage.name' | translate}}:
-                        {{contractor.numescena}}</p>
+                <label ng-hide="{{contractor.canalyoutube.length == null}}"><b>{{'register.youtube.name' | translate}}:</b>
+                        {{contractor.canalyoutube}}<br></label>
+                <label ng-hide="{{contractor.numescena.length == null}}"><b>{{'register.stage.name' | translate}}:</b>
+                        {{contractor.numescena}}</label>
 
 
-                <p>{{'descriere' | translate}}: {{contractor.descriere}}</p>
+                <!-- <p>{{'descriere' | translate}}: {{contractor.descriere}}</p> -->
         </div>
         </div>
 </div>

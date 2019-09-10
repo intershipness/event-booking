@@ -1,7 +1,7 @@
 app.controller('editController', ['$scope', '$http', '$localStorage','contractorService', function ($scope, $http, $localStorage, contractorService) {
 
   $scope.details = [];
-
+  
   // 
   var maill = JSON.parse(localStorage.getItem("logEmail"));
   console.log(maill);
@@ -15,13 +15,19 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
   $http({
     method: 'GET',
     url: url,
-    params: mail
+    params: mail //data
 })
     .then(function succes(response) {
       $scope.details = response.data;
       if(response.data.descriere == null){
       $scope.editorEnabledDescr = false;}
       console.log("succes get");
+      // if(response.data.improgile == null){
+      //   $scope.imgName="images/default.jpg"
+      // }
+      // else{
+      //   $scope.imgName=response.data.improgile;
+      // }
      // $localStorage.valueToShare = response.data;
       localStorage.setItem("contractor", JSON.stringify(response.data));  
 

@@ -1,0 +1,45 @@
+.contentCC{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* grid-template-rows: 60% 40%; */
+    grid-gap:5px;
+    padding: 15px;
+    margin:30px;
+    width: 1030px;
+    height: auto;
+}
+.imageC{
+    grid-column: 2;
+    padding:5px;
+    /* width: 290px;
+    height: 330px; */
+  
+  }
+  
+/* .descriptionC{
+      grid-column: span 2;
+      border: 1px solid white;
+      padding:5px;
+      width:1000px;
+      
+     
+  } */
+  .name{
+      display:grid;
+      place-items:center;
+      padding:15px;
+  }
+  
+.detailsC{
+
+      padding: 5px;
+        padding: 20px;
+      /* height:330px;
+      width:670px */
+    
+         
+  }
+  .detailsC .b{
+      color: orange;
+
+  }

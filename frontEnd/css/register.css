@@ -1,6 +1,6 @@
 
 /* Add padding to containers */
-.content div {
+.contentReg div {
   padding: 15px;
   border-radius: 15px;
 }
