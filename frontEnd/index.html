@@ -11,7 +11,17 @@
 
 
 <!-- <link rel="stylesheet" type="text/css" href="node_modules\angularjs-datepicker\dist\angular-datepicker.css"> -->
+<script>
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+	}
 
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("main").style.marginLeft = "0";
+	}
+</script>
 
 
 <head>
@@ -26,7 +36,64 @@
 	<div class="grid">
 		<div class="header">
 
-			<div class="title">
+			<div class="sidenav" id="mySidenav" ng-controller="menuController">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a class="dropbtn" ng-click="goTo('#!')" onclick="closeNav()"
+					class="active">{{ 'home' | translate }}</a>
+				<a class="dropbtn" ng-click="goTo('/contact')" onclick="closeNav()">{{'contact' | translate }}</a>
+				<a class="dropbtn" ng-click="goTo('/about')" onclick="closeNav()">{{'about' | translate }}</a>
+				<a class="dropbtn" ng-click="goTo('/contractori')"
+					onclick="closeNav()">{{'contractori' | translate }}</a>
+
+				<div class="dropdown" ng-controller="filterController">
+					<a class="dropbtn">Filter</a>
+					<div class="dropdown-content">
+						<div class="column">
+							<label>Stiluri de muzica</label>
+							<div class="typemenu" ng-repeat="style in styles">
+								<input class="typeli" type="checkbox" ng-click='getStyle(style.name)'>{{style.name}}
+							</div>
+						</div>
+						<div class="column">
+							<label>Tipuri</label>
+							<div class="typemenu" ng-repeat="domain in domains">
+
+								<input class="typeli" type="checkbox" ng-click='getdetails()'>{{domain.name}}
+							</div>
+
+						</div>
+						<div class="column">
+							<!-- <div class="calendar" ng-controller="calendarController">
+										<datepicker date-format="dd/MM/yyyy"> 
+											datepicker-show="true" 
+											<input class="date" ng-model="date" />
+										</datepicker>
+									</div> -->
+						</div>
+
+						<button>Search</button>
+					</div>
+					
+				</div>
+			</div>
+			<span style="font-size:30px;cursor:pointer; color:rgb(238, 139, 73);" onclick="openNav()">&#9776;</span>
+			<!-- &#9776; -->
+			
+					<a href="#!/login"><button class="buttons">{{'login' | translate}}</button></a>
+					<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
+					<!-- <a href="#!/"><button class="buttons">Log out</button></a>
+		 -->
+		</div>
+
+		<div class="subheader">
+			<img style="height:100%; width:100%" src="images/1.jpg">
+
+		</div>
+
+
+
+
+		<!-- <div class="title">
 				<h2>{{'heading' | translate}}</h2>
 			</div>
 			<div class="favicon"><img src="favicon.ico" height="80" /></div>
@@ -34,14 +101,14 @@
 				<a href="#!/login"><button class="buttons">{{'login' | translate}}</button></a>
 				<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
 				<a href="#!/"><button class="buttons">Log out</button></a>
-			</div>
+			</div> -->
 
-			<!-- <select class="lang" name="lang" id="lang" ng-change="changeLanguage()" ng-model="langKey">
+		<!-- <select class="lang" name="lang" id="lang" ng-change="changeLanguage()" ng-model="langKey">
 				<option value="en"><img img src="http://i64.tinypic.com/fd60km.png"/>{{ 'en' | translate }}</option>
 				<option value="ro">{{ 'ro' | translate }}</option>
 				<option value="fr">{{ 'fr' | translate }}</option>
 			</select> -->
-
+		<!-- 
 			<div class="lang">
 				<ul class="languagepicker roundborders large">
 					<a href="#nl">
@@ -63,83 +130,25 @@
 						<li><img src="http://i65.tinypic.com/23jl6bn.png" /></li>
 					</a>
 				</ul>
-			</div>
-
-
-			<div class="navbar" ng-controller="menuController">
-				<ul>
-					<li class="menuli"><button class="dropbtn" ng-click="goTo('#!')"
-							class="active">{{ 'home' | translate }}</button></li>
-					<li class="menuli"><button class="dropbtn"
-							ng-click="goTo('/contact')">{{'contact' | translate }}</button></li>
-					<li class="menuli"><button class="dropbtn"
-							ng-click="goTo('/about')">{{'about' | translate }}</button></li>
-					<li class="menuli"><button class="dropbtn"
-							ng-click="goTo('/contractori')">{{'contractori' | translate }}</button></li>
-					<li class="menuli">
-						<div class="dropdown" ng-controller="filterController">
-							<button class="dropbtn">Filter
-							</button>
-							<div class="dropdown-content">
-								<div class="column">
-									<label>Stiluri de muzica</label>
-									<div class="typemenu" ng-repeat="style in styles">
-											<input class="typeli" 
-											type="checkbox" 
-											ng-click='getStyle(style.name)'>{{style.name}}
-									</div>
-								</div>
-								<div class="column">
-									<label>Tipuri</label>
-									<div class="typemenu" ng-repeat="domain in domains">
-
-										<input class="typeli" 
-												type="checkbox"
-												
-												ng-click='getdetails()'>{{domain.name}}
-									</div>
-									
-									<!-- <div style="border:1px solid white;" >{{selection}}</div> -->
-
-								</div>
-								<div class="column">
-									<div class="calendar" ng-controller="calendarController">
-										<datepicker date-format="dd/MM/yyyy"> 
-											<!-- datepicker-show="true" -->
-											<input class="date" ng-model="date" />
-										</datepicker>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-
-
-
-			</div>
-		</div>
+			</div> -->
 
 
 
 
+		<div class="content" id="main">
 
+			<div ng-view></div>
 
-		<div class="content">
-
-			<div class="form">
-				<div ng-view></div>
-
-			</div>
 		</div>
 
 		<div class="footer">
 			<span>{{ 'footer' | translate }}</span>
 		</div>
 
-	
+
 	</div>
 </body>
+
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.js"></script>
 <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
