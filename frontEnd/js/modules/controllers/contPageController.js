@@ -10,5 +10,8 @@ app.controller("contPageController", ['$scope',
    $scope.mobile = con.mobile;
    $scope.canalyoutube = con.canalyoutube;
    $scope.src = con.imgprogile;
+   $scope.descriere = con.descriere;
+   $scope.tip = con.domeniu;
+   $scope.stil = con.stilmuzica;
   }
 ]);

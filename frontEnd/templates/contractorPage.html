@@ -1,29 +1,34 @@
-<h3>***View contractor details***</h3>
-<div class="contractori" ng-controller="contPageController" ng-model="cont" >
-    <div>
+<div class="contentCC" ng-controller="contPageController" ng-model="cont">
 
-        <label ng-model="firstName" >{{'register.first.name' | translate}}:</label><label>{{firstName}}</label><br>
+    
 
-        <label ng-model="lastName">{{'register.last.name' | translate}}:</label>{{lastName}}<br>
+    <div class="detailsC" style="line-height: 1.8;">
+        <div class="name">
+            <b><label ng-model="firstName" >{{firstName}}</label>
 
-        <label ng-model="mobile">{{'register.phone.name' | translate}}:</label>{{mobile}}<br>
+            <label ng-model="lastName">{{lastName}}</label><br></b>
+            <label>{{tip}}, {{stil}}</label>
+        </div>  
+        
+        <label ng-model="descriere" style="line-height: 1.8;">{{descriere}}</label><br><br>
 
-        <label ng-model="numescena">{{'register.stage.name' | translate}}:</label>{{numescena}}<br>
 
-        <label ng-model="canalyoutube">{{'register.youtube.name' | translate}}:</label>{{canalyoutube}}
+
+        <b><div>Contact details </div></b>
+
+        <label ng-model="mobile"><b>{{'register.phone.name' | translate}}: </b></label>{{mobile}}<br>
+
+        <label ng-model="numescena"><b>{{'register.stage.name' | translate}}: </b></label>{{numescena}}<br>
+
+        <label ng-model="canalyoutube"><b>{{'register.youtube.name' | translate}}: </b></label>{{canalyoutube}}<br>
+
+      
+
 
     </div>
-    <div class="image">
-        <img class="avatar" ng-model="src" ng-src={{src}} ng-init="src='images/add.png'">
-
-    </div>
-
-
-
-
-    <div class="description">
-
-        <label style="font-size:1.5vw" for="youtube">Descriere:</label>
+    <div class="imageC">
+        <img class="avatar" style="height:100%; width:100%;" ng-model="src" ng-src={{src}} >
+        <!-- ng-init="src='images/default.jpg'" -->
 
     </div>
 </div>
