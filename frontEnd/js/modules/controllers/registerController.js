@@ -2,6 +2,7 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
       function ($scope, registerService, $location, $localStorage, $window) {
         var contr;
         $scope.exists = false;
+        console.log( $scope.exists);
         var style;
         var m;
         var contractor;
@@ -34,7 +35,7 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
 
         $scope.submit = function () {
           $window.localStorage.clear();
-          registerService.registerUser($scope.user, $scope.box, $scope.exists, style)
+          registerService.registerUser($scope.user, $scope.box, style)
             .then(function () {
                 if ($scope.box == false) {
                   path = '/client';
@@ -58,9 +59,12 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
                   localStorage.setItem("contractor", JSON.stringify(contr));
                 }, function () {
                   console.log("error in get details reg controller")
+                  
                 })
               }, function () {
                 console.log("ERROR in controller register")
+                $scope.exists = true;
+                console.log( $scope.exists);
               }
                 
             )

@@ -1,6 +1,7 @@
 package com.springboot.app.controller;
 
 import java.io.IOException;
+import org.json.JSONObject;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,14 @@ public class AuthenticationController {
 	private UserService Userservice;
 	@Autowired
 	private ContractorService ContractorService;
-	@RequestMapping(value="/login" ) //login
+	@RequestMapping("/loginn" ) //login
     public String login( @RequestBody User user ,HttpServletResponse response   ) throws IOException {
 		String email=user.getEmail(); 
+    public String login( @RequestBody User user ,HttpServletResponse response   ) throws IOException {
+		String email=user.getEmail(); //email trimis de ui
+		
+		
+		
 		User user1 = Userservice.findByEmail(email);
 		Contractor con1 =ContractorService.getContractoremail(email);  
 		int userId;
@@ -37,8 +43,10 @@ public class AuthenticationController {
 		else if(con1!=null && user.getPassword().equals(con1.getPassword())){
 			userId = con1.getId();
 			return JSONObject.quote("Contractor" +" "+userId);
+			return JSONObject.quote("contractor");
 			}
 		 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "USER SAU PAROLA GRESITE" );
+		 return null;
 		 return null;
 		}
    

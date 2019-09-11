@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -53,13 +54,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //         .anyRequest().authenticated();
 		 http.cors().and().csrf().disable();
 		 
+		 
+		 
+		 
+		 
+		 
+		 
 		http
 		
 		.authorizeRequests()
 		
 				// URLs matching for access rights
 				.antMatchers("/").permitAll()
-				.antMatchers("/login").permitAll()
+            	.antMatchers("/loginn").permitAll()
 				.antMatchers("/Contractor/email").permitAll()
 				.antMatchers("/Evenimente").permitAll()
 				.antMatchers("/Contractor/login").permitAll()
@@ -69,7 +76,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/upload").permitAll()
 				.antMatchers("/Contractors").permitAll()
 				.antMatchers("/Contractors/{id}").permitAll()
-				.antMatchers("/Users").permitAll()
+				.antMatchers("/Users").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.antMatchers("/download").permitAll()
 				.antMatchers("/upload").permitAll()
 				//.antMatchers("/tocpis/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
@@ -78,7 +85,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// form login
 				.formLogin()
 				.loginPage("/login")
-				.failureUrl("/login?error=true")
+//				.failureUrl("/login?error=true")
+				.defaultSuccessUrl("/Users")
 				.defaultSuccessUrl("/Contractors")
 				
 				.usernameParameter("email")

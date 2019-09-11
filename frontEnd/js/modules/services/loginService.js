@@ -1,5 +1,5 @@
 app.factory("loginService" , [ '$http','$q', function($http, $q){
-
+    
     function login(email, password) {
         var user = {
             "email": email,

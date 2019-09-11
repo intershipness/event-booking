@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/dropdown.css">
 <link rel="stylesheet" type="text/css" href="css/calendar.css">
+<link rel="stylesheet" type="text/css" href="css/contrPage.css">
 
 
 <!-- <link rel="stylesheet" type="text/css" href="node_modules\angularjs-datepicker\dist\angular-datepicker.css"> -->
@@ -78,15 +79,18 @@
 			</div>
 			<span style="font-size:30px;cursor:pointer; color:rgb(238, 139, 73);" onclick="openNav()">&#9776;</span>
 			<!-- &#9776; -->
-			
-					<a href="#!/login"><button class="buttons">{{'login' | translate}}</button></a>
-					<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
-					<!-- <a href="#!/"><button class="buttons">Log out</button></a>
-		 -->
-		</div>
+			<div ng-controller="loginController" ng-init=" isLogged=false; notLogged=true">
+				<a href="#!/login"><button class="buttons" ng-show="notLogged" ng-click="hide()" >{{'login' | translate}}</button></a>
+
+				<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
+
+		
+				<a  href="#!/"><button class="buttons" ng-show="isLogged" ng-click="clearLogin()" >Log out</button></a>
+			</div>
+			</div>
 
 		<div class="subheader">
-			<img style="height:100%; width:100%" src="images/1.jpg">
+			<img style="height:100%; width:100%;" src="images/1.jpg">
 
 		</div>
 
@@ -179,5 +183,6 @@
 <script src="js/modules/services/filterService.js"></script>
 <script src="js/modules/services/contractorService.js"></script>
 <script src="js/modules/controllers/contPageController.js"></script>
+<script src="js/modules/controllers/logoutController.js"></script>
 
 </html>

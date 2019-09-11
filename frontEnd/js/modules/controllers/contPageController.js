@@ -8,8 +8,7 @@ app.controller("contPageController", ['$scope',
    $scope.numescena = con.numescena;
    $scope.canalyoutube = con.canalyoutube;
    $scope.mobile = con.mobile;
-   $scope.canalyoutube = con.canalyoutube;
-   $scope.src = con.imgprogile;
+   $scope.src = con.avatar;
    $scope.descriere = con.descriere;
    $scope.tip = con.domeniu;
    $scope.stil = con.stilmuzica;
