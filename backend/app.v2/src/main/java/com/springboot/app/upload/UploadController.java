@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UploadController {
 	
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "C:\\Users\\V3790243\\Desktop\\ff\\";
+    private static String UPLOADED_FOLDER = "D:\\Development\\event-booking\\frontEnd\\images\\avatars\\";
     @Autowired
     private ContractorService ContractorService;
     
@@ -66,7 +66,7 @@ public class UploadController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
             Contractor con =ContractorService.getContractor(id);
-            con.setImgprogile("C:\\Users\\V3790243\\Desktop\\ff\\"+file.getOriginalFilename());
+            con.setImgprogile("..\\images\\avatars\\"+file.getOriginalFilename());
             ContractorService.updateContractor(id, con);
 
         } catch (IOException e) {
@@ -77,7 +77,7 @@ public class UploadController {
     }
   
     private static final String EXTENSION = ".jpg";
-    private static final String SERVER_LOCATION = "C:\\Users\\V3790243\\Desktop\\ff\\";
+    private static final String SERVER_LOCATION = "..\\images\\avatars\\";
 
     @RequestMapping(path = "/download", method = RequestMethod.GET)
     public ResponseEntity<ByteArrayResource> download(@RequestParam("image") String image) throws IOException {
