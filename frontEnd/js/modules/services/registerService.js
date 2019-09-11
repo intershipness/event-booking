@@ -1,6 +1,6 @@
 app.factory("registerService" , function($http, $q) {
     
-    function registerUser(user, box, exists, style) {
+    function registerUser(user, box, style) {
         if(box == false){
             var url = 'http://localhost:8080/register/User';
             var data = {
@@ -27,7 +27,7 @@ app.factory("registerService" , function($http, $q) {
         }
         var user =  { "email": user.email}
         console.log(data);
-        console.log(exists);
+        // console.log(exists);
         var deferred = $q.defer();
         $http({
                 method: 'POST',
@@ -42,8 +42,8 @@ app.factory("registerService" , function($http, $q) {
                 console.log(error.data.message) //user is in bd
                 //user already exists ->mesaj ascuns
                 deferred.reject(error);
-                exists = true;
-                console.log(exists)
+                // exists = true;
+                // console.log(exists)
             });
             return deferred.promise;
 
@@ -72,9 +72,9 @@ app.factory("registerService" , function($http, $q) {
         var deferred = $q.defer();
         
         $http({
-                method: 'GET',
+                method: 'POST',
                 url: url,
-                params: email //data
+                data: email //data
             })
             .then(function detailsSuccess(response) {
                 deferred.resolve(response);

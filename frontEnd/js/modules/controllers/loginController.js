@@ -1,13 +1,31 @@
-app.controller('loginController', ['$scope', 'loginService', '$location',function ($scope, loginService, $location ) {
+app.controller('loginController', ['$scope', 'loginService', '$location','$window',function ($scope, loginService, $location,$window ) {
 
     $scope.email = "";
     $scope.password = "";
-    // $scope.isLogged=false;
-    $scope.submit = function () {
+    
+    $scope.clearLogin = function () {
+      // delete $window.sessionStorage;
+      
+      $scope.isLogged=false;
+      $scope.notLogged=true;
+      $window.localStorage.clear();
+    
+  }; 
+  $scope.hide=function(){
+
+    $scope.isLogged=true;
+    $scope.notLogged=false;
+    
+  }
+    
+    $scope.submitt = function () {
 
       loginService.loginUser($scope.email, $scope.password)
         .then(function (response) {
           console.log("merge login controller");
+             $scope.isLogged=true;
+             $scope.notLogged=false;
+
           localStorage.setItem("logEmail", JSON.stringify($scope.email));
           if(response.data == "contractor")
           {
@@ -19,12 +37,13 @@ app.controller('loginController', ['$scope', 'loginService', '$location',functio
          
           // $scope.isLogin = true;
         
-        }, function () {
+        }, function regErr(error) {
           // $scope.isLogout = true;
+          console.log(error);
           console.log("nu merge login controller");
 
         })
-    
+       
     }
   }]);
 

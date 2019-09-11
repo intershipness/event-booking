@@ -66,7 +66,7 @@ public class UploadController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
             Contractor con =ContractorService.getContractor(id);
-            con.setImgprogile("..\\images\\avatars\\"+file.getOriginalFilename());
+            con.setavatar("..\\images\\avatars\\"+file.getOriginalFilename());
             ContractorService.updateContractor(id, con);
 
         } catch (IOException e) {

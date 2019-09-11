@@ -6,14 +6,16 @@ app.factory("contractorService", ['$http','$q', function ($http, $q) {
         var deferred = $q.defer();
         
         $http({
-                method: 'GET',
+                method: 'POST',
                 url: url,
-                params: email //data
+                data: email //data
             })
             .then(function detailsSuccess(response) {
                 deferred.resolve(response);
+                console.log(response);
             }, function detailsError(error) {
                 deferred.reject(error);
+                console.log(error);
             });
         return deferred.promise;
     }

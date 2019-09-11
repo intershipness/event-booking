@@ -12,18 +12,18 @@ app.controller('avatarController', ['$scope', '$http', 'contractorService', func
     //       console.log("eroare get pt avatar")
 
     //     });
-    $scope.name = "add.png"
+    $scope.name = "images/add.png"
     console.log("in avatar controller:")
     var contractor = JSON.parse(localStorage.getItem("contractor"));
     console.log(contractor);
     var idd = {
-      id: contractor.id
+      "id": contractor.id
     }
     var mail = {
-      email: contractor.email
+      "email": contractor.email
     }
-    $scope.name = contractor.imgprogile;
-    console.log(contractor.imgprogile);
+    $scope.name = contractor.avatar;
+    console.log(contractor.avatar);
     $scope.uploadFile = function (files) {
       var url = "http://localhost:8080/upload";
       var data = new FormData();
@@ -38,16 +38,15 @@ app.controller('avatarController', ['$scope', '$http', 'contractorService', func
           'Content-Type': undefined
         },
         params: idd,
-        transformRequest: angular.identity
+        // transformRequest: angular.identity
       }).then(function (response) {
         console.log('succes avatr get');
-        // $scope.name = "\images\avatars\6823214-large.jpge";
+        $scope.name = contractor.avatar;
         // console.log(contractor.imgprogile)
-
 
         //then fetch user data with updated image url
         contractorService.getDetails(mail).then(function (response) {
-          $scope.name = response.data.imgprogile
+          $scope.name = response.data.avatar
         }, function () {
           console.log("error in get image name")
         })
@@ -64,48 +63,3 @@ app.controller('avatarController', ['$scope', '$http', 'contractorService', func
   }
 
 ]);
-
-// $scope.doUploadFile = function(){
-//    var file = $scope.uploadedFile;
-//    var url = "http://localhost:8080/upload";
-
-//    var data = new FormData();
-//    data.append('uploadfile', file);
-
-//    var config = {
-//        transformRequest: angular.identity,
-//        transformResponse: angular.identity,
-//      headers : {
-//        'Content-Type': undefined
-//        }
-//    }
-//    console.log("in controller");
-//    console.log( $scope.uploadedFile);
-//    $http.post(url, data, config).then(function (response) {
-//   $scope.uploadResult=response.data;
-// }, function (response) {
-//   $scope.uploadResult=response.data;
-// });
-// };
-
-
-
-// app.controller('avatarController',['$scope', 'avatarService', function ($scope, avatarService) {
-
-//   var  formdata = new FormData();
-//   $scope.getTheFiles = function ($files) {
-//       angular.forEach($files, function (value, key) {
-//           formdata.append(key, value);
-//       });
-//   };
-
-// //  var file = {
-// //     "file": 
-// //   }
-
-//   $scope.uploadFiles = function () {
-//       avatarService.upload(formdata);
-//     }
-
-
-// }]);

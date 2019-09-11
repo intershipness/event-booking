@@ -9,13 +9,14 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
   var contractor = JSON.parse(localStorage.getItem("contractor"));
   var url = "http://localhost:8080/Contractor/email"; 
   var mail = {
-    email: maill
+    "email": maill //maill
   }
+  console.log(mail);
  
   $http({
-    method: 'GET',
+    method: 'POST',
     url: url,
-    params: mail //data
+    data: mail //data
 })
     .then(function succes(response) {
       $scope.details = response.data;
