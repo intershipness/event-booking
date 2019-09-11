@@ -1,6 +1,8 @@
+
 package com.springboot.app.model;
 
 import java.io.IOException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -30,8 +32,9 @@ public class ContractorController {
 		
 		
 	}
-	@RequestMapping("/Contractor/{domeniu}")
-	public List<Contractor> getAllContractosrd(@PathVariable String domeniu) {
+	@RequestMapping("/Contractor/domeniu")
+	public List<Contractor> getAllContractosrd(@RequestBody Contractor con) {
+		String domeniu =con.getDomeniu();
 		return   ContractorService.getAllContractorsDomeniu(domeniu);
 		}
 	@RequestMapping(method=RequestMethod.POST,value="/register/Contractor")
@@ -50,7 +53,8 @@ public class ContractorController {
 	}
 	
 	@RequestMapping("/Contractor/email")
-	public Contractor getContractor_email(@RequestParam String email) {
+	public Contractor getContractor_email(@RequestBody Contractor con) {
+		String email=con.getEmail();
 	Contractor user =   ContractorService.getContractoremail(email);
 		return  user;
 		

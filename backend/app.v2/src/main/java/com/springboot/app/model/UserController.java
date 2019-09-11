@@ -52,8 +52,7 @@ public class UserController {
 	    public Principal user(HttpServletRequest request) {
 	        String authToken = request.getHeader("Authorization")
 	          .substring("Basic".length()).trim();
-	        return () ->  new String(Base64.getDecoder()
-	          .decode(authToken)).split(":")[0];
+	        return () ->  new String(Base64.getDecoder() .decode(authToken)).split(":")[0];
 	    }
 	@RequestMapping("/Users/{id}")
 	public Optional<User> getUser(@PathVariable Integer id) {
