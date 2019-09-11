@@ -8,7 +8,7 @@ app.factory("contractorService", ['$http','$q', function ($http, $q) {
         $http({
                 method: 'GET',
                 url: url,
-                params: email
+                params: email //data
             })
             .then(function detailsSuccess(response) {
                 deferred.resolve(response);

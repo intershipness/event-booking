@@ -2,15 +2,19 @@
 
 .contractori{
     display: grid;
-    grid-template-columns: repeat(4, 300px);
-    grid-gap:30px; 
+    grid-template-columns: repeat(3, 380px);
+    grid-gap:80px; 
     place-items: center; 
     
 }
 .contractor{
+    height: 500px;
     padding: 10px;
-    border:1px solid black;
-    background-color: rgb(12, 13, 95);
+    position: relative;
+    margin-top:20px;
+}
+.default{
+  height: 440px;
 }
 /* pagina de contractor */
 .contentC{
@@ -31,7 +35,7 @@
 .description{
     grid-column: span 2;
 }
-.descr{
+.descr{               /*form*/
   padding-top: 20px;
   padding-left: 20px;
 }
@@ -65,10 +69,7 @@
   font-size: 16px;
   resize: none;
 }
-.contractor{
-    position: relative;
-    
-}
+
 .extraDetails{
   transition: .5s ease;
   opacity: 0;
@@ -83,7 +84,7 @@
   background-color: white;
   color:black;
   font-size: 16px;
-  padding: 16px 32px;
+  padding:20px;
   width: 200px;
 }
 
@@ -104,271 +105,3 @@
   backface-visibility: hidden;
 }
 /* calendar */
-
-/* @import url('https://fonts.googleapis.com/css?family=Raleway|Rubik');
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Reenie+Beanie|Sacramento'); */
-
-.body{
-  background:#1a1a1a;
-  position:absolute;
-  width:800px;
-  padding:70px;
-  margin-left:-8px;
-  margin-top:-8px;
-  box-sizing:border-box;
-  color:white;
-  font-family: 'Raleway', sans-serif;
-}
-
-
-/*********************************************************
-******************** SCHEDULES STYLING *******************
-*********************************************************/
-
-.schedule-container{
-  width:100%;
-  height: 60vh;
-  position:relative;
-  margin:auto;
-  margin-top:80px;
-  min-height:500px;
-}
-
-.schedule-hour{
-  position:absolute;
-  height: 100%;
-  padding:2px;
-  width: 10px;
-  left: -15px;
-  box-sizing:border-box;
-}
-
-.schedule-hour-mark{
-  height: calc(100% / 24);
-  width: 100%;
-  border-top:1px solid
-   rgba(224, 80, 80, 0.15);
-  box-sizing:border-box;
-  position:relative;
-}
-
-.schedule-hour-text{
-  position:absolute;
-  width: 50px;
-  top:-8px;
-  right:12px;
-  padding-right:10px;
-  text-align:right;
-  font-size:13px;
-  color: rgba(0,0,0,0.2);
-}
-
-.schedule-day{
-  position:relative;
-  width: calc(100% / 7);
-  height: 100%;
-  padding:2px;
-  float:left;
-  box-sizing:border-box;
-}
-
-.schedule-day-title{
-  position:absolute;
-  left:2px;
-  right:2px;
-  top: -52px;
-  height: 50px;
-  text-align:center;
-  padding-top:17px;
-  box-sizing:border-box;
-}
-
-.schedule-day-timeline{
-  height: 100%;
-  width: 100%;
-  position:relative;
-}
-
-.schedule-event{
-  position:absolute;
-  left:0;
-  right:0;
-  background:rgba(0,0,0,0.04);
-  border-bottom:4px solid rgba(255,255,255,0.1);
-  border-top:1px solid rgba(0,0,0,0.5);
-  overflow:hidden;
-  cursor:pointer;
-}
-
-.schedule-event:last-child{
-  border-bottom: none;
-}
-
-.schedule-event-description{
-  padding:15px;
-}
-
-.schedule-event-title{
-  padding-bottom:10px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  text-shadow: 1px 1px 0 rgba(255,255,255,1);
-  margin-bottom:15px;
-  text-transform:uppercase;
-  font-weight:900;
-  cursor:pointer;
-}
-
-.schedule-event-timepoint{
-  clear:both;
-}
-
-.schedule-event-timepoint div{
-  margin-right:5px;
-  margin-bottom:3px;
-  font-size:10px;
-  opacity:0.7;
-  float:left;
-}
-
-.schedule-event-timepoint div.schedule-event-timepoint-gray{
-  font-weight:900;
-  opacity:0.3;
-}
-
-.schedule-event-line{
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:3px;
-  -webkit-box-shadow: 1px 0 0 0 rgba(255,255,255,1);
-  box-shadow: 1px 0 0 0 rgba(255,255,255,1);
-}
-
-.black-content .schedule-hour-mark{
-  border-top-color: rgba(255,255,255,0.5);
-}
-
-.black-content .schedule-hour-text{
-  color: rgba(255,255,255,0.5);
-}
-
-.black-content .schedule-day-title{
-  background:rgba(255,255,255,0);
-}
-
-.black-content .schedule-day-timeline{
-  background:rgba(255,255,255,0.06);
-}
-
-.black-content .schedule-event{
-  background:rgba(255,255,255,0.06);
-  border-bottom-color:rgba(0,0,0,0.4);
-  border-top-color:rgba(255,255,255,0.6);
-}
-
-.black-content .schedule-event:hover,
-.black-content .schedule-event.hovered{
-  background:rgba(255,255,255,0.2);
-  border-top-color:rgba(255,255,255,1);
-}
-
-.black-content .schedule-event.selected{
-  background:rgba(255,255,255,0.35);
-  border-top-color:rgba(255,255,255,1);
-}
-
-.black-content .schedule-event-title{
-  border-bottom-color: rgba(255,255,255,0.15);
-  text-shadow: 1px 1px 0 rgba(0,0,0,1);
-}
-
-.black-content .schedule-event-timepoint div{
-  opacity:1;
-}
-
-.black-content .schedule-event-timepoint div.schedule-event-timepoint-gray{
-  opacity:0.6;
-}
-
-.black-content .schedule-event-line{
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:3px;
-  -webkit-box-shadow: 1px 0 0 0 rgba(0,0,0,1);
-  box-shadow: 1px 0 0 0 rgba(0,0,0,1);
-}
-
-.newEvent{
-  position:fixed;
-  right:40px;
-  bottom:40px;
-  width:60px;
-  height:60px;
-  background:rgba(255,255,255,0.1);
-  border-radius:50%;
-  font-size:50px;
-  font-weight:100;
-  text-align:center;
-  padding-top:2px;
-  box-sizing:border-box;
-  cursor:pointer;
-}
-
-.newEvent:hover{
-  background:rgba(255,255,255,0.4);
-}
-
-.black-screen{
-  position:fixed;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(0,0,0,0.8);
-  z-index:1;
-}
-
-.schedule-modal{
-  position:fixed;
-  top:50%;
-  left:50%;
-  width:300px;
-  height:300px;
-  margin-top:-150px;
-  margin-left:-150px;
-  padding:40px;
-  box-sizing:border-box;
-  background:#303030;
-  -webkit-box-shadow: 0 0 100px 0 rgba(0,0,0,1);
-  box-shadow: 0 0 100px 0 rgba(0,0,0,1);
-  z-index:2;
-}
-
-.schedule-modal-repeat{
-  margin: 30px 0;
-}
-
-.schedule-modal-repeat-circle{
-  background: rgba(255,255,255,0.15);
-  border-radius:50%;
-  width:27px;
-  height:27px;
-  padding-top:8px;
-  text-align:center;
-  box-sizing:border-box;
-  font-size:11px;
-  font-weight:900;
-  margin-right:3px;
-  float:left;
-  cursor:pointer;
-}
-
-.schedule-modal-repeat-circle.selected{
-  background: transparent;
-  border: 1px solid #ffce17;
-  padding-top:7px;
-}
-

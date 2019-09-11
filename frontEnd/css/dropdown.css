@@ -4,7 +4,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 5px;
 }
 
 .dropdown {
@@ -14,7 +14,7 @@ body {
   }
   
  .dropbtn {
-    font-size: 10px;  
+    font-size: 13px;  
     border: none;
     outline: none;
     /* color: white; */
@@ -24,54 +24,50 @@ body {
     margin: 0;
     color: white;
   }
-  
-  .dropbtn:hover {
-    background-color: rgb(200, 200, 230);
-    border-radius: 8px;
-    color: black;
-  }
-  
+
   .dropdown-content {
   
     display: none;
     position: absolute;
-    right: 0;
-    background-color: rgb(31, 21, 70, 0.8);
-    z-index: 1;
-    
+    /* right:0; */
+    /* z-index: 1; */
+    /* margin:5px; */
+    /* width:520px; */
   }
   .dropdown:hover .dropdown-content {
     display: block;
-    
-
+    text-align: center;
   }
   /* Create three equal columns that floats next to each other */
   .column {
     float: left;
-    padding: 10px;
+    padding:12px;
     /* background-color: #ccc; */
-    height: 250px;
+    /* height: 160px; */
     color:white;
   }
-  
   .column a {
     float: none;
     color: white;
-    padding: 13px;
+    padding: 10px;
     text-decoration: none;
     display: block;
     text-align: left;
   }
   .typeli{
     text-align: left;
-    padding-left: 30px;
-    padding-top: 5px;
+    padding-left: 20px;
+    padding-top: 20px;
    
   }
   .typemenu{
-     width:160px;
-     text-align: left;
+     width:100px;
+     text-align:left;
   }
+  .calendar{
+  color:black;
+
+}
   /* .check{
     display: block;
   } */
@@ -81,21 +77,18 @@ body {
   }
    */
   /* Clear floats after the columns */
-  .row:after {
-    content: "";
+  /* .row:after {
+    content: " ";
     display: table;
     clear: both;
-  }
+  } */
   /* @media screen and (max-width: 600px) {
     .column {
       width: 180px;
       height: auto;
     }
   } */
-.calendar{
-  color:black;
 
-}
   /* .menu {
 		
 		overflow-y: auto;
