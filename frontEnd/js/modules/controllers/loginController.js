@@ -18,7 +18,7 @@ app.controller('loginController', ['$scope', 'loginService', '$location','$windo
     
   }
     
-    $scope.submitt = function () {
+    $scope.submit = function () {
 
       loginService.loginUser($scope.email, $scope.password)
         .then(function (response) {

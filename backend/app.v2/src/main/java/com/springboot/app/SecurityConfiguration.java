@@ -44,12 +44,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Value("${spring.queries.roles-query}")
 	private String rolesQuery;
-	
-	@Value("${spring.queries.con-query}")
-	private String conQuery;
-
-	@Value("${spring.queries.rolesc-query}")
-	private String conrolesQuery;
 
 
 
@@ -62,8 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery)
 				.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
-		auth.jdbcAuthentication().usersByUsernameQuery(conQuery).authoritiesByUsernameQuery(conrolesQuery)
-		.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
+	
 	}
 	
 

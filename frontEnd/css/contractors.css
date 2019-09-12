@@ -7,6 +7,14 @@
     place-items: center; 
     
 }
+.filter{
+  display: grid;
+  grid-template-columns: repeat(3, 380px);
+  grid-gap:80px; 
+  place-items: center; 
+  border: 1px solid;
+  
+}
 .contractor{
     height: 500px;
     padding: 10px;

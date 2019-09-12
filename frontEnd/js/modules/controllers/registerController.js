@@ -34,7 +34,7 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
 
 
         $scope.submit = function () {
-          $window.localStorage.clear();
+          
           registerService.registerUser($scope.user, $scope.box, style)
             .then(function () {
                 if ($scope.box == false) {
@@ -47,6 +47,7 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
                 };
                 
                 localStorage.setItem("contractor", JSON.stringify($scope.user));
+                localStorage.setItem("logEmail", JSON.stringify($scope.user.email));
                
                 console.log("in reg controller: ");
                 
