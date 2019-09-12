@@ -39,9 +39,17 @@
                 controller: "contractorsController"
 
             })
+            .when("/filter",{
+                templateUrl: "templates/filter.html",
+                controller: "filterController"
+            })
             .when("/contractorBox",{
                 templateUrl: "templates/contractorBox.html",
                 controller: "contractorsController"
+            })
+            .when("/filterBox",{
+                templateUrl: "templates/filterBox.html",
+                controller: "filterController"
             })
             .when("/contractorPage",{
                 templateUrl: "templates/contractorPage.html",

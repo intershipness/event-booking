@@ -25,8 +25,7 @@ public class AuthenticationController {
 	@Autowired
 	private ContractorService ContractorService;
 	@RequestMapping("/loginn" ) //login
-    public String login( @RequestBody User user ,HttpServletResponse response   ) throws IOException {
-		String email=user.getEmail(); 
+
     public String login( @RequestBody User user ,HttpServletResponse response   ) throws IOException {
 		String email=user.getEmail(); //email trimis de ui
 		
@@ -42,11 +41,11 @@ public class AuthenticationController {
          }
 		else if(con1!=null && user.getPassword().equals(con1.getPassword())){
 			userId = con1.getId();
-			return JSONObject.quote("Contractor" +" "+userId);
+
 			return JSONObject.quote("contractor");
 			}
 		 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "USER SAU PAROLA GRESITE" );
-		 return null;
+
 		 return null;
 		}
    

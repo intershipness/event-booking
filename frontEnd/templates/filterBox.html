@@ -1,0 +1,20 @@
+<h1>fevgrd</h1>
+<div ng-controller="contractorController">
+    <div class="contractor" ng-click="gotoContractor()" ng-model="contractor">
+            <div class="default">
+                    <img class="avt" ng-src="{{contractor.avatar}}" style="height: 100%; width:100%;"ng-init="src='images/singer.png'">
+            </div>
+            <h3 >{{contractor.name}} {{contractor.lastName}}</h3>
+            <div class="extraDetails" >
+                    <div class="text">
+                    <label ng-hide="{{contractor.canalyoutube.length == null}}"><b>{{'register.youtube.name' | translate}}:</b>
+                            {{contractor.canalyoutube}}<br></label>
+                    <label ng-hide="{{contractor.numescena.length == null}}"><b>{{'register.stage.name' | translate}}:</b>
+                            {{contractor.numescena}}</label>
+    
+    
+                    <!-- <p>{{'descriere' | translate}}: {{contractor.descriere}}</p> -->
+            </div>
+            </div>
+    </div>
+    </div>

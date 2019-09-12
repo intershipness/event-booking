@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/dropdown.css">
 <link rel="stylesheet" type="text/css" href="css/calendar.css">
 <link rel="stylesheet" type="text/css" href="css/contrPage.css">
-
+<link rel="stylesheet" type="text/css" href="css/contact.css">
 
 <!-- <link rel="stylesheet" type="text/css" href="node_modules\angularjs-datepicker\dist\angular-datepicker.css"> -->
 <script>
@@ -51,18 +51,20 @@
 					<div class="dropdown-content">
 						<div class="column">
 							<label>Stiluri de muzica</label>
-							<div class="typemenu" ng-repeat="style in styles">
-								<input class="typeli" type="checkbox" ng-click='getStyle(style.name)'>{{style.name}}
+							<div class="typemenu" ng-repeat="style in styles" >
+								<input class="typeli" type="checkbox" name="selectedStyles[]" ng-model="style.selected" value="{{style.name}}">{{style.name}}
+								
 							</div>
+							<!-- <p ng-model="selection">{{selection}}</p> -->
 						</div>
-						<div class="column">
+						<!-- <div class="column">
 							<label>Tipuri</label>
 							<div class="typemenu" ng-repeat="domain in domains">
 
 								<input class="typeli" type="checkbox" ng-click='getdetails()'>{{domain.name}}
 							</div>
 
-						</div>
+						</div> -->
 						<div class="column">
 							<!-- <div class="calendar" ng-controller="calendarController">
 										<datepicker date-format="dd/MM/yyyy"> 
@@ -71,11 +73,17 @@
 										</datepicker>
 									</div> -->
 						</div>
-
-						<button>Search</button>
+						
+					<div class="column">
+						<div class="search">
+							<form action="#" method="post">
+								<input type="search" name="search" id="search" placeholder="Search">
+								<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+							</form>
+						</div>
 					</div>
-					
-				</div>
+					</div>
+					</div>
 			</div>
 			<span style="font-size:30px;cursor:pointer; color:rgb(238, 139, 73);" onclick="openNav()">&#9776;</span>
 			<!-- &#9776; -->
@@ -179,10 +187,13 @@
 <script src="js/modules/directives/avatarDirective.js"></script>
 <script src="js/modules/controllers/contractorController.js"></script>
 <script src="js/modules/controllers/filterController.js"></script>
+<script src="js/modules/services/filterService.js"></script>
+<script src="js/modules/directives/filterBox.js"></script>
 <script src="js/modules/controllers/editController.js"></script>
 <script src="js/modules/services/filterService.js"></script>
 <script src="js/modules/services/contractorService.js"></script>
 <script src="js/modules/controllers/contPageController.js"></script>
 <script src="js/modules/controllers/logoutController.js"></script>
+<script src="js/modules/controllers/styleController.js"></script>
 
 </html>
