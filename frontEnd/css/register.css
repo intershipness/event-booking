@@ -6,7 +6,7 @@
 }
 
 .animated{
-  background:rgb(94, 91, 91);
+  background:rgb(36, 35, 35);
   -webkit-animation-duration: 2s;
    animation-duration: 2s;
    -webkit-animation-fill-mode: both;

@@ -17,7 +17,6 @@ body {
     font-size: 13px;  
     border: none;
     outline: none;
-    /* color: white; */
     padding: 5px 12px;
     background-color: inherit;
     font: inherit;
@@ -29,14 +28,14 @@ body {
   
     display: none;
     position: absolute;
-    /* right:0; */
-    /* z-index: 1; */
-    /* margin:5px; */
-    /* width:520px; */
+    color: rgb(238, 139, 73);
+  }
+  .dropdown-content:hover{
+    color: rgb(143, 42, 119);
   }
   .dropdown:hover .dropdown-content {
     display: block;
-    text-align: center;
+    text-align: center; 
   }
   /* Create three equal columns that floats next to each other */
   .column {
@@ -89,43 +88,7 @@ body {
     }
   } */
 
-  /* .menu {
-		
-		overflow-y: auto;
-	  }
-
-	  ::-webkit-scrollbar {
-		width: 5px;
-	  }
-	  ::-webkit-scrollbar-track {
-		background: #f1f1f1; 
-	  }
+  
 	  
-	  ::-webkit-scrollbar-thumb {
-		background: #888; 
-	  }
 	  
-	  ::-webkit-scrollbar-thumb:hover {
-		background: #555; 
-	  }
-	  
-	  .menuStil{
-		
-		overflow-y: auto;
-	  }
-
-	  ::-webkit-scrollbar {
-		width: 5px;
-	  }
-	  ::-webkit-scrollbar-track {
-		background: #f1f1f1; 
-	  }
-	  
-	  ::-webkit-scrollbar-thumb {
-		background: #888; 
-	  }
-	  
-	  ::-webkit-scrollbar-thumb:hover {
-		background: #555; 
-    }  */
     
