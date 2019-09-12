@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,9 +14,18 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+
+
+
 
 @Configuration
 @EnableWebSecurity
@@ -33,14 +44,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Value("${spring.queries.roles-query}")
 	private String rolesQuery;
+	
+	@Value("${spring.queries.con-query}")
+	private String conQuery;
+
+	@Value("${spring.queries.rolesc-query}")
+	private String conrolesQuery;
 
 
 
+	
+	
+	
+	
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery)
 				.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
+		auth.jdbcAuthentication().usersByUsernameQuery(conQuery).authoritiesByUsernameQuery(conrolesQuery)
+		.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
 	}
 	
 
@@ -68,11 +91,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/").permitAll()
             	.antMatchers("/loginn").permitAll()
 				.antMatchers("/Contractor/email").permitAll()
+				.antMatchers("/Contractor/stil").permitAll()
 				.antMatchers("/Evenimente").permitAll()
 				.antMatchers("/Contractor/login").permitAll()
 				.antMatchers("/register/User").permitAll()
 				.antMatchers("/register/Contractor").permitAll()
-				.antMatchers("/Contractor/{domeniu}").permitAll()
+				.antMatchers("/Contractor").permitAll()
 				.antMatchers("/upload").permitAll()
 				.antMatchers("/Contractors").permitAll()
 				.antMatchers("/Contractors/{id}").permitAll()
@@ -108,17 +132,33 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //		 http.httpBasic()
 //         .and()
 //         .authorizeRequests()
-//         .antMatchers("/Users").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
-//         .antMatchers("/Contractors").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
-//         .anyRequest().authenticated().and()
-//         .formLogin()
-//          .loginProcessingUrl("/login").permitAll()
-//         .failureUrl("/login?error=true")
-//         .defaultSuccessUrl("/Contractors")
-//         .usernameParameter("user")
-//         .passwordParameter("password");
-//		 http.cors().and().csrf().disable();
+//         .antMatchers("/loginn").permitAll()
+//         .antMatchers("/Contractor/email").permitAll()
+//         .antMatchers("/Contractors/{id}").permitAll()
+//         .anyRequest().authenticated()
+//
+//       
+//		
+//		 .and().csrf()
+//	        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+//		 
+//		 //http.cors().configurationSource(configurationSource());
+//		 http.sessionManagement()
+//	        .sessionCreationPolicy(SessionCreationPolicy.NEVER);
 //	}
+	
+
+//	private CorsConfigurationSource configurationSource() {
+//		  UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//		  CorsConfiguration config = new CorsConfiguration();
+//		  config.addAllowedOrigin("*");
+//		  config.setAllowCredentials(true);
+//		  config.addAllowedHeader("X-Requested-With");
+//		  config.addAllowedHeader("Content-Type");
+//		  config.addAllowedMethod(HttpMethod.POST);
+//		  source.registerCorsConfiguration("/logout", config);
+//		  return source;
+//		}
 }
 
 

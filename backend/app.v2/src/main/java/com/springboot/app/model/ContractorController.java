@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,8 @@ public class ContractorController {
 	private ContractorService ContractorService;
 	
 	@RequestMapping("/Contractors")
+	@CrossOrigin(origins = "*", maxAge = 3600,
+    allowedHeaders={"x-auth-token", "x-requested-with", "x-xsrf-token"})
 	public List<Contractor> getAllContractosr() {
 		return   ContractorService.getAllContractors();
 		}
@@ -32,11 +35,22 @@ public class ContractorController {
 		
 		
 	}
+	
+	
 	@RequestMapping("/Contractor/domeniu")
 	public List<Contractor> getAllContractosrd(@RequestBody Contractor con) {
 		String domeniu =con.getDomeniu();
 		return   ContractorService.getAllContractorsDomeniu(domeniu);
 		}
+	@RequestMapping("/Contractor/stil")
+	public List<Contractor> getAllconstil(@RequestBody Contractor con) {
+		String still =con.getStilmuzica();
+		return   ContractorService.getAllContractorsstill(still);
+		}
+	
+	
+	
+	
 	@RequestMapping(method=RequestMethod.POST,value="/register/Contractor")
 	public void addUser(@RequestBody Contractor con ,String email,HttpServletResponse response) throws IOException {
 		 Contractor con1 = ContractorService.findByEmail(email);

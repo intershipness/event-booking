@@ -22,6 +22,11 @@ public class ContractorService {
 		((Iterable<Contractor>) ContractorRepository.findBydomeniu(domeniu)).forEach(con::add);
 		return con;
 	}
+	public List<Contractor> getAllContractorsstill(String stillmuzica){
+		List<Contractor>con = new ArrayList<>();
+		((Iterable<Contractor>) ContractorRepository.findBystilmuzica(stillmuzica)).forEach(con::add);
+		return con;
+	}
 	public Contractor getContractor(Integer id) {
 		return ContractorRepository.findByid(id);
 	
@@ -48,3 +53,5 @@ public Contractor findByEmail(String email) {
 	}
 
 }
+
+
