@@ -11,14 +11,16 @@
   }
   .contactInfo{
       
+      margin:50px 10px 50px 10px;
       display:grid;
       grid-template-rows:20% 80%;
       grid-gap:5px;
       padding:5px;
-      margin:5px;
+      /* margin:5px; */
       border:solid  rgb(238, 139, 73);
       border-radius: 8px;
       height:300px;
+
      
   } 
 .infoheader{
@@ -46,24 +48,60 @@
     /* padding:5px; */
     background: rgb(36, 35, 35);
     border-radius: 8px;
-    height: 500px;
+    height: 400px;
+  
 
   }
 
  .Cform{
+   
+    height:80px;
     text-align: centre;
     font-size:15px;
   }
 
 .formular{
+  display:grid;
+  grid-template-rows:30% 70%;
   align-content: center;
   margin-left: 15px;
+}
+
+.nameEmailBox{
+  display:grid;
+  grid-template-columns: 50% 50%;
 
 }
+
+.msgBox{
+  display:grid;
+  grid-template-rows: 80% 20%;
+}
+
 .btnComment{
-  width:240px;
+  width:450px;
+  height:45px;
   margin-left: 8px;
-
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color:rgb(238, 139, 73);
+}
+.nameBox{
+  width:200px;
+  height:45px;
+  border-radius:5px;
 
 }
-  
+
+.emailBox{
+  width:200px;
+  height:45px;
+  border-radius:5px;
+}
+
+.messageBox{
+  width:450px;
+  height:150px;
+  border-radius:5px;
+}
+

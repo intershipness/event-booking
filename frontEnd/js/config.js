@@ -55,6 +55,11 @@
                 templateUrl: "templates/contractorPage.html",
                 controller: "contractorController"
             })
+            .when("/home",
+            {
+                templateUrl:"templates/home.html"
+
+            })
              .otherwise({
                  redirectTo: "/index.html"
              });
