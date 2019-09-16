@@ -5,7 +5,7 @@
 	<div class="details">
 		<form method="post" name="detailsForm" class="detailsForm">
 			<div class="form-group">
-				<label style="font-size:1.5vw" for="firstName">{{'register.first.name' | translate}}:</label>
+				<b><label for="firstName">{{'register.first.name' | translate}}:</label></b>
 				<input class="edit" type="text" id="firstName" ng-model="details.name" ng-required="true"
 					ng-hide="editorEnabled" />
 				<span ng-show="editorEnabled">{{ details.name }}</span>
@@ -13,7 +13,7 @@
 
 
 			<div class="form-group">
-				<label style="font-size:1.5vw" for="lastName">{{'register.last.name' | translate}}:</label>
+				<b><label for="lastName">{{'register.last.name' | translate}}:</label></b>
 				<input type="text" id="lastName" ng-model="details.lastName" ng-required="true"
 					ng-hide="editorEnabled" />
 				<span ng-show="editorEnabled">{{ details.lastName }}</span>
@@ -21,7 +21,7 @@
 
 
 			<div class="form-group">
-				<label style="font-size:1.5vw" for="mobile">{{'register.phone.name' | translate}}:</label>
+				<b><label for="mobile">{{'register.phone.name' | translate}}:</label></b>
 				<input type="text" id="mobile" data-ng-model="details.mobile" ng-required="true" minlength="10"
 					maxlength="10" pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/" only-digits="" ng-hide="editorEnabled" />
 				<span ng-show="editorEnabled">{{ details.mobile }}</span>
@@ -29,7 +29,7 @@
 
 
 			<div class="form-group">
-				<label style="font-size:1.5vw" for="stageName">{{'register.stage.name' | translate}}:</label>
+				<b><label for="stageName">{{'register.stage.name' | translate}}:</label></b>
 				<input type="text" id="stageName" ng-model="details.numescena" ng-required="true"
 					ng-hide="editorEnabled" />
 				<span ng-show="editorEnabled">{{ details.numescena }}</span>
@@ -38,7 +38,7 @@
 
 
 			<div class="form-group">
-				<label style="font-size:1.5vw" for="youtube">{{'register.youtube.name' | translate}}:</label>
+				<b><label for="youtube">{{'register.youtube.name' | translate}}:</label></b>
 				<input type="text" id="youtube" ng-model="details.canalyoutube" ng-required="true"
 					ng-hide="editorEnabled" />
 				<span ng-show="editorEnabled">{{ details.canalyoutube }}</span>
@@ -56,19 +56,20 @@
 		</form>
 
 	</div>
-	<div class="image" ng-controller="avatarController">
-		
+	<div class="imageAvt" ng-controller="avatarController">
+				<div>
+				<img  class="avatar" 
+								ng-src="{{name}}" 
+								>
+				</div> 
 				<span>
 				<input  type="file"
 						name="myfile" 
 						file-model = "uploadedFile" 
 						placeholder="Upload File" 
 						onchange="angular.element(this).scope().uploadFile(this.files)"></input>  
-			</span> <div>
-			<img  class="avatar" 
-							ng-src="{{name}}" 
-							>
-		</div> 
+				</span> 
+			
 	</div>
 
 	
@@ -77,8 +78,8 @@
 	<div class="description" >
 
 		<form class="descr">
-			<div class="form-group">
-			<label style="font-size:1.5vw" for="youtube">Descriere:</label>
+			<div>
+			<label for="youtube">Descriere:</label>
 			<textarea class="textarea" type="text" ng-model="details.descriere"
 				ng-hide="editorEnabledDescr"></textarea>
 			<div class ="editDescr"><span ng-show="editorEnabledDescr">{{ details.descriere }}</span></div>
