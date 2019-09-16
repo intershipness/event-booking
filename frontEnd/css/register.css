@@ -1,4 +1,7 @@
-
+.contentReg{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 /* Add padding to containers */
 .contentReg div {
   padding: 15px;

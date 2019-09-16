@@ -1,4 +1,7 @@
-
+.containerLogin{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 /* Add padding to containers */
 .containerLogin div{
   padding: 16px;
