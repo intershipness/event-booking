@@ -39,7 +39,7 @@
 
 			<div class="sidenav" id="mySidenav" ng-controller="menuController">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				<a class="dropbtn" ng-click="goTo('#!')" onclick="closeNav()"
+				<a class="dropbtn" ng-click="goTo('/home')" onclick="closeNav()"
 					class="active">{{ 'home' | translate }}</a>
 				<a class="dropbtn" ng-click="goTo('/contact')" onclick="closeNav()">{{'contact' | translate }}</a>
 				<a class="dropbtn" ng-click="goTo('/about')" onclick="closeNav()">{{'about' | translate }}</a>
@@ -102,59 +102,57 @@
 
 		</div>
 
-
-
-
-		<!-- <div class="title">
-				<h2>{{'heading' | translate}}</h2>
-			</div>
-			<div class="favicon"><img src="favicon.ico" height="80" /></div>
-			<div class="registration">
-				<a href="#!/login"><button class="buttons">{{'login' | translate}}</button></a>
-				<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
-				<a href="#!/"><button class="buttons">Log out</button></a>
-			</div> -->
-
-		<!-- <select class="lang" name="lang" id="lang" ng-change="changeLanguage()" ng-model="langKey">
-				<option value="en"><img img src="http://i64.tinypic.com/fd60km.png"/>{{ 'en' | translate }}</option>
-				<option value="ro">{{ 'ro' | translate }}</option>
-				<option value="fr">{{ 'fr' | translate }}</option>
-			</select> -->
-		<!-- 
-			<div class="lang">
-				<ul class="languagepicker roundborders large">
-					<a href="#nl">
-						<li><img src="http://i65.tinypic.com/2d0kyno.png" /></li>
-					</a>
-					<a href="#en">
-						<li><img src="http://i64.tinypic.com/fd60km.png" /></li>
-					</a>
-					<a href="#de">
-						<li><img src="http://i63.tinypic.com/10zmzyb.png" /></li>
-					</a>
-					<a href="#fr">
-						<li><img src="http://i65.tinypic.com/300b30k.png" /></li>
-					</a>
-					<a href="#es">
-						<li><img src="http://i68.tinypic.com/avo5ky.png" /></li>
-					</a>
-					<a href="#it">
-						<li><img src="http://i65.tinypic.com/23jl6bn.png" /></li>
-					</a>
-				</ul>
-			</div> -->
-
-
-
-
 		<div class="content" id="main">
 
 			<div ng-view></div>
 
 		</div>
-
 		<div class="footer">
-			<span>{{ 'footer' | translate }}</span>
+			
+			<div class="footerLine">
+					<a  href="#" class="fa fa-facebook"></a>
+					<a  href="#" class="fa fa-twitter"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-skype"></a>
+					<a href="#" class="fa fa-yahoo"></a>
+					<a href="#" class="fa fa-youtube"></a>
+
+			</div>
+			<div class="footerContent">
+					<div class="aboutFooter">
+						<h4>ABOUT US</h4>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. </p>
+						<div class="subscribe">
+								<h4>SUBSCRIBE</h4>
+								<form action="#" method="post" class="subscribeForm">
+									<div class="input-group mb-3">
+										<input type="text" class="subscribeInput"
+											placeholder="Enter your email" aria-label="Enter Email" aria-describedby="button-addon2">
+											<button class="subscribeBtn" type="button">Subscribe</button>
+
+									</div>
+								</form>
+						</div>
+					</div>
+
+					<div class="navigate" ng-controller="menuController">
+							<h4>NAVIGATE</h4>
+							<a class="nav" ng-click="goTo('#!')" 
+								class="active">{{ 'home' | translate }}</a><br>
+							<a class="nav" ng-click="goTo('/contact')">{{'contact' | translate }}</a><br>
+							<a class="nav" ng-click="goTo('/about')">{{'about' | translate }}</a><br>
+							<a class="nav" ng-click="goTo('/contractori')"
+								>{{'contractori' | translate }}</a>
+								
+						<div class="follow">
+								<h4>FOLLOW US</h4>
+							<a  href="#" class="fa fa-facebook"></a>
+							<a  href="#" class="fa fa-twitter"></a>
+							<a  href="#" class="fa fa-instagram"></a>
+						</div>
+					</div>
+					
+			</div>
 		</div>
 
 
