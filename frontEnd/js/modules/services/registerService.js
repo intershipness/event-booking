@@ -26,8 +26,6 @@ app.factory("registerService" , function($http, $q) {
             }
         }
         var user =  { "email": user.email}
-        console.log(data);
-        // console.log(exists);
         var deferred = $q.defer();
         $http({
                 method: 'POST',
@@ -39,54 +37,35 @@ app.factory("registerService" , function($http, $q) {
                 deferred.resolve(response);
                 return data;
             }, function regErr(error){
-                console.log(error.data.message) //user is in bd
-                //user already exists ->mesaj ascuns
+               
                 deferred.reject(error);
-                // exists = true;
-                // console.log(exists)
             });
             return deferred.promise;
 
-
-        // return $http({
-        //     method: 'POST',
-        //     url: url,
-        //     data: data,
-        //     params: user
-            
-        // }).then(function regSucces(response) {
-        //     return data;
-        // }, function regErr(response){
-        //     console.log(response.data.message) //user is in bd
-        //     //user already exists ->mesaj ascuns
-        //     exists = true;
-        // });
-        
        
     }
 
 
-    function getDetails(email) {
-        url = 'http://localhost:8080/Contractor/email';
+    // function getDetails(email) {
+    //     url = 'http://localhost:8080/Contractor/email';
 
-        var deferred = $q.defer();
+    //     var deferred = $q.defer();
         
-        $http({
-                method: 'POST',
-                url: url,
-                data: email //data
-            })
-            .then(function detailsSuccess(response) {
-                deferred.resolve(response);
-            }, function detailsError(error) {
-                deferred.reject(error);
-            });
-        return deferred.promise;
-    }
+    //     $http({
+    //             method: 'POST',
+    //             url: url,
+    //             data: email //data
+    //         })
+    //         .then(function detailsSuccess(response) {
+    //             deferred.resolve(response);
+    //         }, function detailsError(error) {
+    //             deferred.reject(error);
+    //         });
+    //     return deferred.promise;
+    // }
     
     return {
-        'registerUser' : registerUser,
-        'getDetails' : getDetails
+        'registerUser' : registerUser
     }       
 
 });

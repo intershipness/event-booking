@@ -88,13 +88,13 @@
 			</div>
 			<span style="font-size:30px;cursor:pointer; color:rgb(238, 139, 73);" onclick="openNav()">&#9776;</span>
 			<!-- &#9776; -->
-			<div ng-controller="loginController" ng-init=" isLogged=false; notLogged=true">
-				<a href="#!/login"><button class="buttons" ng-show="notLogged" ng-click="hide()" >{{'login' | translate}}</button></a>
+			<div ng-controller="submitController">
+				<a href="#!/login"><button class="buttons" ng-show="notLogged" ng-model="notLogged" >{{'login' | translate}}</button></a>
 
 				<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
 
 		
-				<a  href="#!/"><button class="buttons" ng-show="isLogged" ng-click="clearLogin()" >Log out</button></a>
+				<a  href="#!/"><button class="buttons" ng-show="isLogged"  ng-model="isLogged" ng-click="clearLogin()">Log out</button></a>
 			</div>
 			</div>
 
@@ -103,8 +103,8 @@
 
 		</div>
 
-		<div class="content" id="main">
-
+		<div class="content" id="main" >
+			
 			<div ng-view></div>
 
 		</div>
@@ -182,7 +182,6 @@
 <script src="js/modules/controllers/calendarEventController.js"></script>
 <script src="js/modules/controllers/menuController.js"></script>
 <script src="js/modules/controllers/avatarController.js"></script>
-<script src="js/modules/services/avatarService.js"></script>
 <script src="js/modules/directives/avatarDirective.js"></script>
 <script src="js/modules/controllers/contractorController.js"></script>
 <script src="js/modules/controllers/filterController.js"></script>
@@ -194,5 +193,5 @@
 <script src="js/modules/controllers/contPageController.js"></script>
 <script src="js/modules/controllers/logoutController.js"></script>
 <script src="js/modules/controllers/styleController.js"></script>
-
+<script src="js/modules/controllers/submitController.js"></script>
 </html>

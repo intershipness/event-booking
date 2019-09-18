@@ -1,5 +1,5 @@
-app.controller("registerController", ['$scope', 'registerService', '$location', '$localStorage', '$window',
-      function ($scope, registerService, $location, $localStorage, $window) {
+app.controller("registerController", ['$scope', 'contractorService', '$location', '$localStorage', '$window','registerService',
+      function ($scope, contractorService, $location, $localStorage, $window, registerService) {
         var contr;
         $scope.exists = false;
         console.log( $scope.exists);
@@ -28,8 +28,11 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
             if ($scope.styles[i].stilId != selectedStilId) {
               $scope.styles[i].Selected = false;
             }
-            style = $scope.styles[i].Name;
+            if ($scope.styles[i].Selected == true) {
+              style = $scope.styles[i].Name;
+            }
           }
+          
         }
 
 
@@ -53,7 +56,7 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
                 
                 $location.path(path);
 
-                registerService.getDetails(m).then(function (response) {
+                contractorService.getDetails(m).then(function (response) {
                   contr = response.data;
                   console.log("with id: ");
                   console.log(contr);
@@ -62,17 +65,14 @@ app.controller("registerController", ['$scope', 'registerService', '$location', 
                   console.log("error in get details reg controller")
                   
                 })
-              }, function () {
-                console.log("ERROR in controller register")
-                $scope.exists = true;
-                console.log( $scope.exists);
+              }, function (response) {
+                if(response.status == 400)
+                {
+                  $scope.exists = true;
+                  $window.scrollTo(0, 400);}
               }
                 
             )
-            
-         
-            
-          
           }
       }
       ]);
