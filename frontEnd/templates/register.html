@@ -3,14 +3,14 @@
 		<h3>Registration</h3>
 		<form role="form" name="registerForm" ng-submit="submit()" ng-controller="registerController">
 		
-			<span ng-model="exists" ng-show="exists" style="color:red; display:block; text-align:center;">This user already exists</span>
+			<span ng-model="exists" ng-show="exists" style="color:rgb(224, 73, 14); display:block; text-align:center;">This user already exists</span>
 		
 		  <div class="form-group">
 			  <label>{{'register.first.name' | translate}}</label><br>
 			  <input class="regInput" type="text" placeholder="{{'register.first.holder' | translate}}" name="name" 
 			  ng-model="user.name" 
 			  ng-required="true">
-			  <span ng-show="registerForm.name.$touched && registerForm.name.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+			  <span ng-show="registerForm.name.$touched && registerForm.name.$invalid" style="color:rgb(224, 73, 14); display:block; text-align:center;">{{'register.required'| translate}}</span>
 			  
 		  </div>
 		  <div class="form-group">
@@ -19,7 +19,7 @@
 			<input class="regInput" type="text" placeholder="{{'register.last.holder' | translate}}" name="lastName" 
 			ng-model="user.lastName" 
 			ng-required="true">
-			<span ng-show="registerForm.lastName.$touched && registerForm.lastName.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+			<span ng-show="registerForm.lastName.$touched && registerForm.lastName.$invalid" style="color:rgb(224, 73, 14); display:block; text-align:center;">{{'register.required'| translate}}</span>
 			
 		</div>
 		  <div class="form-group">
@@ -27,7 +27,7 @@
 			  <input class="regInput" type="email" placeholder="{{'register.email.holder' | translate}}" name="email" 
 			  ng-model="user.email" 
 			  ng-required="true">
-			  <span ng-show="registerForm.email.$touched && registerForm.email.$invalid" style="color:red; display:block; text-align:center;">{{'register.email.validation'| translate}}</span>
+			  <span ng-show="registerForm.email.$touched && registerForm.email.$invalid" style="color:rgb(224, 73, 14); display:block; text-align:center;">{{'register.email.validation'| translate}}</span>
 			 <!-- <span ng-show="registerForm.email.$invalid" style="color:red; display:block; text-align:center;">{{'register.email.validation'| translate}}</span> -->
 		  </div>
 		
@@ -43,7 +43,7 @@
 				ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/"  
 				ng-model="user.mobile" 
 				ng-required="true">
-				<span ng-show="registerForm.mobile.$touched && registerForm.mobile.$invalid" style="color:red; display:block; text-align:center;">{{'register.phone.validation'| translate}}</span>
+				<span ng-show="registerForm.mobile.$touched && registerForm.mobile.$invalid" style="color:rgb(224, 73, 14); display:block; text-align:center;">{{'register.phone.validation'| translate}}</span>
 				<!-- <span ng-show="registerForm.mobile.$invalid" style="color:red; display:block; text-align:center;">{{'register.phone.validation'| translate}}</span> -->
 			</div>
 		  
@@ -52,7 +52,7 @@
 			  <input class="regInput" type="password" placeholder="{{'register.password.holder' | translate}}" name="password" 
 			  ng-model="user.password" 
 			  ng-required="true">
-			  <span ng-show="registerForm.password.$touched && registerForm.password.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+			  <span ng-show="registerForm.password.$touched && registerForm.password.$invalid" style="color:rgb(224, 73, 14); display:block; text-align:center;">{{'register.required'| translate}}</span>
 		  </div>
 		  
 		  <!-- <div class="form-group">
@@ -91,7 +91,7 @@
 					<option>Band</option>
 					<option>Interpret</option>
 				  </select>
-				  <span ng-show="registerForm.domeniu_activitate.$touched && registerForm.domeniu_activitate.$invalid" style="color:red; display:block; text-align:center;">{{'register.required'| translate}}</span>
+				  <span ng-show="registerForm.domeniu_activitate.$touched && registerForm.domeniu_activitate.$invalid" style="color:rgb(224, 73, 14); display:block; text-align:center;">{{'register.required'| translate}}</span>
 				</div><br>
 				<label>{{'register.stil.name' | translate}}</label><br><br>
 				<div class="form-group" ng-repeat="stil in styles">

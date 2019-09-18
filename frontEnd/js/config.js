@@ -1,8 +1,8 @@
  app.config(['$routeProvider', '$translateProvider','$locationProvider',
      function ($routeProvider, $translateProvider, $locationProvider) {
          $routeProvider
-             .when("./", {
-                 templateUrl: "/index.html"
+             .when("/", {
+                 templateUrl: "templates/home.html"
              })
              .when("/login", {
                  templateUrl: "templates/login.html",
@@ -61,7 +61,7 @@
 
             })
              .otherwise({
-                 redirectTo: "/index.html"
+                 redirectTo: "/index.html" //??
              });
 
 

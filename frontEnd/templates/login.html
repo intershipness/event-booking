@@ -3,17 +3,16 @@
     <div class="page-header"><h1>Login</h1></div>
   
     <form name="loginForm" ng-submit="submit()" novalidate>  
-        
+        <span ng-model="wrong" ng-show="wrong" style="color:rgb(224, 73, 14); display:block; text-align:center;">Email or password wrong</span>
         <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
             <label>Email*</label>
             <input class="logInput" type="email" name="email" class="form-control"  ng-model="email" ng-required="true">
-            <span ng-show="loginForm.name.$touched && loginForm.name.$invalid" style="color:red; display:block; text-align:center;">  Enter a valid email.</span>
+            <span ng-show="loginForm.email.$touched && loginForm.email.$invalid" style="color: rgb(224, 73, 14); display:block; text-align:center;">  Enter a valid email</span>
         </div>
-
         <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
             <label>Password*</label>
             <input class="logInput" type="password" name="password" class="form-control" ng-model="password" ng-required="true">
-            <span ng-show="loginForm.name.$touched && loginForm.name.$invalid" style="color:red; display:block; text-align:center;">Enter password.</span>
+            <span ng-show="loginForm.password.$touched && loginForm.password.$invalid" style="color:rgb(224, 73, 14); display:block; text-align:center;">Enter password</span>
         </div>        
 
         <input type="submit" id="submit" value="Submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">
