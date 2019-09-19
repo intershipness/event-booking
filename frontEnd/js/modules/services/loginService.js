@@ -25,10 +25,6 @@ app.factory("loginService" , [ '$http','$q', function($http, $q){
                 console.log(error);
             });
             return deferred.promise;
-
-
-
-       
     }
 
 
