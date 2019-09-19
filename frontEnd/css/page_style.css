@@ -13,23 +13,20 @@ body {
 .grid{
 	height:100vh;
 	display:grid;
-	grid-template-rows:50px 400px auto 45px;
+	grid-template-rows:500px auto 45px;
 	margin:0 ;
 }
 
 .header{
-	height:50px;
+	height:500px;
 	grid-column: span 2;
 	text-size-adjust: 10px;
 	place-items: left;
 	margin-bottom: 0px;
-	background-color:rgb(36, 35, 35);	
+	background-image:url(1.jpg);
 }
 
-.subheader{
-	 /* background-image:url("concert.jpg");  */
-	 grid-column:span 2;
-}
+
 
   .sidenav {
 	height: 100%;
