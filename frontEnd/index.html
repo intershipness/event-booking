@@ -88,7 +88,7 @@
 			</div>
 			<span style="font-size:30px;cursor:pointer; color:rgb(238, 139, 73);" onclick="openNav()">&#9776;</span>
 			<!-- &#9776; -->
-			<div ng-controller="submitController">
+			<div ng-controller="submitController" ng-init="isLogged = false; notLogged = true;">
 				<a href="#!/login"><button class="buttons" ng-show="notLogged" ng-model="notLogged" >{{'login' | translate}}</button></a>
 
 				<a href="#!/register"><button class="buttons">{{ 'registerN' | translate }}</button></a>
@@ -194,4 +194,5 @@
 <script src="js/modules/controllers/logoutController.js"></script>
 <script src="js/modules/controllers/styleController.js"></script>
 <script src="js/modules/controllers/submitController.js"></script>
+<script src="js/modules/services/sharedService.js"></script>
 </html>

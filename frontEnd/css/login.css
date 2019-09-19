@@ -75,7 +75,7 @@
 
 
 /* Full-width input fields */
-.logInput[type=text], .logInput[type=password], .logInput[type=email]{
+.logInput[type=password], .logInput[type=email]{
   width:500px;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -84,14 +84,19 @@
   background: #f1f1f1;
 }
 
-.logInput[type=text]:focus, .logInput[type=password]:focus{
+.logInput[type=email]:focus, .logInput[type=password]:focus{
 
-  background-color: #ddd;
-
+  outline: none;
 }
+
 .logInput.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
-  border: 1px solid red;
+  /* border: 3px solid #ff005e; */
+  border: 2px solid rgb(224, 73, 14);
+  /* border-image-source: linear-gradient(45deg, rgb(235, 117, 21), rgb(218, 43, 13));
+  border-image-slice: 2; */
 }
+
+
 
 .logInput[disabled="disabled"]{
   cursor:not-allowed !important;

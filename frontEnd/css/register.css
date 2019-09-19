@@ -83,6 +83,9 @@
 
 
 }
+.regInput[type=text]:focus, .regInput[type=password]:focus, .regInput[type=email]:focus{
+  outline: none;
+}
 
 .regInput[type=text]:focus, .regInput[type=password]:focus {
 
@@ -90,7 +93,7 @@
 
 }
 .regInput.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
-	border: 1px solid red;
+	border: 2px solid rgb(224, 73, 14);
 }
 .regInput[disabled="disabled"]{
   cursor: not-allowed !important;

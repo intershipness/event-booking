@@ -1,18 +1,22 @@
-app.controller('editController', ['$scope', '$http', '$localStorage','contractorService','$window', function ($scope, $http, $localStorage, contractorService, $window) {
+app.controller('editController', ['$scope','contractorService','$rootScope',
+ function ($scope, contractorService, $rootScope) {
 
   $scope.details = [];
   $scope.name = "images/add.png"
   var idd;
-  var name;
+  var mail;
   var maill = JSON.parse(localStorage.getItem("logEmail"));
   //var contractor = JSON.parse(localStorage.getItem("contractor"));
-
-  var mail = {
-    "email": maill //maill
+  mail={
+    "email": maill
   }
-  
+  $rootScope.$on('loginEvent', function (event,email) {
+    console.log("------"+email);
+    mail={
+    "email": email
+  }
+  });
  
-
   contractorService.getDetails(mail).then(function (response) {
     $scope.details = response.data;
     if (response.data.descriere == null) {
@@ -21,6 +25,7 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
     console.log("succes get");
     localStorage.setItem("contractor", JSON.stringify(response.data));
     console.log(response.data);
+    idd= {"id": response.data.id};
     // var contractor = response.data;
   }, function () {
     console.log("Something went wrong in post editController");
@@ -31,10 +36,11 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
   $scope.editorEnabledDescr = true;
   function updateAvt() {
     var contractor = JSON.parse(localStorage.getItem("contractor"));
+   
     if(contractor != null){
       $scope.name = contractor.avatar;
       name = contractor.avatar;
-      idd= {"id": contractor.id};
+      
     }
   }
   updateAvt();
@@ -67,31 +73,7 @@ app.controller('editController', ['$scope', '$http', '$localStorage','contractor
       console.log("error in post image name")
     }
 
-  //   $http.post(url, data, {
-  //     withCredentials: false,
-  //     headers: {
-  //       'Content-Type': undefined
-  //     },
-  //     params: idd
-  //     // transformRequest: angular.identity
-  //   }).then(function (response) {
-  //     console.log('succes avatr get');
-  //     $scope.name = name;
-  //     // console.log(contractor.imgprogile)
-
-  //     //then fetch user data with updated image url
-  //     contractorService.getDetails(mail).then(function (response) {
-  //       $scope.name = response.data.avatar
-  //     }, function () {
-  //       console.log("error in get image name")
-  //     })
-  // }, function(){
-  //   console.log("")
-  // })
 } 
-
-
-
 
   $scope.edit = function () {
     $scope.editorEnabled = false;
