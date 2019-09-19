@@ -1,0 +1,14 @@
+.carousel {
+    margin: 0 auto;
+    width:800px;
+    height: 300px;
+    display: relative !important;
+  }
+  .carousel img {
+    display: hidden !important; 
+    cursor: pointer; /* not needed if you wrap carousel items in links */
+  }
+  .ccc{
+    display: relative !important;
+  }
+ 
